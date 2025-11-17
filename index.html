@@ -35,7 +35,1295 @@
     <link rel="preload" fetchpriority="high" as="image" href="#" type="image/jpg">
 
     <!-- Google Tag Manager -->
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-54KT423');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    </script>
+
+<style>
+/* Adjust topbar contact alignment to prevent overlap */
+.mheader-top .custom-container .row { align-items: center; }
+.mheader-top .topbar-right {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+/* Make header-top-left hidden since Follow us is removed */
+.header-top-left { display: none !important; }
+
+/* Small tweaks for mobile */
+@media (max-width: 991px) {
+  .mheader-top .col-xl-3, .mheader-top .col-xl-4, .mheader-top .col-xl-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  .mheader-top .topbar-right { justify-content: center; }
+}
+</style>
+
+
+<style>
+.mheader-top {
+    background-color: #0A2B5A !important;
+}
+.mheader-top p,
+.mheader-top a,
+.mheader-top span,
+.mheader-top i {
+    color: #ffffff !important;
+}
+</style>
+
+
+<style>
+.mheader-top {
+    background-color: #F57C1F !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+.mheader-top .topbar-text p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+}
+</style>
+
+
+<style>
+.topbar-text p {
+    background-color: #0A2B5A !important;
+    color: #ffffff !important;
+    padding: 6px 20px !important;
+    border-radius: 4px !important;
+}
+</style>
+
+
+<style>
+.header-menu nav ul li {
+    margin: 0 10px !important;
+    padding: 0 !important;
+}
+.header-menu nav ul li a {
+    padding: 10px 5px !important;
+}
+</style>
+
+
+<style>
+/* ----- Remove/hide left-side legacy sticky icons ----- */
+/* Hide theme-provided whatsapp or tel links site-wide (we will re-enable ours inside .floating-tools) */
+
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ----- Floating tools container (right side) ----- */
+.floating-tools {
+  position: fixed;
+  right: 18px;
+  bottom: 40px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  pointer-events: none;
+}
+
+/* Ensure anchors inside are active */
+.floating-tools a {
+  pointer-events: auto;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;              /* outer diameter */
+  height: 80px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  transition: transform .18s ease, box-shadow .18s ease;
+  position: relative;
+  overflow: visible;
+}
+
+/* Outer color circle */
+.floating-tools .outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner white circle (smaller) that holds the icon */
+.floating-tools .inner {
+  width: 48px;              /* inner diameter */
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* WhatsApp outer color (green) */
+.floating-tools .btn-whatsapp .outer {
+  background: linear-gradient(180deg,#29b65b,#0fb14a);
+}
+
+/* Call outer color (red) */
+.floating-tools .btn-call .outer {
+  background: linear-gradient(180deg,#e84b3a,#d32f1f);
+}
+
+/* SVG icon sizes */
+.floating-tools svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Colour the SVG inside the white circle (icon uses currentColor) */
+.floating-tools .btn-whatsapp .inner svg path { fill: #25D366; } /* whatsapp green */
+.floating-tools .btn-call .inner svg path { fill: #e84b3a; }      /* call red */
+
+/* gentle float animation */
+@keyframes floaty {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+.floating-tools a { animation: floaty 3.6s ease-in-out infinite; }
+
+/* Hover pop */
+.floating-tools a:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.28);
+}
+
+/* Hover label (desktop) */
+.floating-tools .label {
+  position: absolute;
+  right: 96px;
+  background: rgba(0,0,0,0.78);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .12s ease, transform .12s ease;
+  pointer-events: none;
+  z-index: 99999;
+}
+.floating-tools a:hover + .label { opacity: 1; transform: translateX(0); }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .floating-tools { right: 12px; bottom: 90px; gap: 12px; }
+  .floating-tools a { width: 68px; height: 68px; }
+  .floating-tools .inner { width: 44px; height: 44px; }
+  .floating-tools .label { display: none; }
+}
+
+/* Re-enable our right-side anchors (they were hidden by earlier global rule) */
+.floating-tools 
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+</style>
+
+
+<style>
+/* FORCE HIDE many possible left sticky classes/IDs from theme */
+.sticky-icon, .sticklist, .sticky-left, .left-sticky, .sticky-sidebar, #sticky, #sticky-sidebar,
+.book-app, .bookapp, .floating-left, .left-float, .side-float, .side-icons, .social-left {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* also hide any direct image anchors on left by position */
+a[style*="position: fixed"][href*="api.whatsapp.com"] { display:none !important; }
+a[style*="position: fixed"][href^="tel:"] { display:none !important; }
+
+/* ensure body has no left padding from sidebar */
+body { padding-left: 0 !important; margin-left: 0 !important; }
+
+/* If theme uses iframe or object for sticky, hide those too */
+iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display:none !important; }
+</style>
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54KT423" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="sticklist">
+    <input type="hidden" id="ismobile" value="0">
+    <button class="open-close-arrow">
+        <span class="open-arrow"><i class="fa fa-chevron-right"></i></span>
+        <span class="close-arrow"><i class="fa fa-chevron-left"></i></span>
+    </button>
+    <ul>
+        <li class="none-li inquiery-icon  imgnone">
+            <a href="javascript:;" class="click1">
+                <span class="icon1"> <i class="fa fa-envelope"></i></span> <span class="btn-text"> Send Inquiry</span>
+            </a>
+        </li>
+        <li class="download-pdf none-li inquiery-icon  imgnone">
+            <a pdf="pdf/NGPC-COMPANY-PROFILE.pdf" href="javascript:;" class="click2">
+                <span class="icon"> <i class="fa fa-file-pdf"></i></span> <span class="btn-text">Catalogue</span>
+            </a>
+        </li>
+        <li class="none-li inquiery-icon  imgnone">
+            <a href="tel:+91 90325 32199"
+                onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+91 90325 32199' });">
+                <span class="icon"> <i class="fa fa-phone-alt"></i></span> <span class="btn-text">Call</span>
+            </a>
+        </li>
+        <li class="whataspp-icon none-li imgnone">
+      <a onclick="gtag('event', 'send', { 'event_category': 'click on whatsapp', 'event_action': 'Mobile', 'event_label': '+919032532199' });" href="https://api.whatsapp.com/send?phone=919032532199&amp;text=Hello%20Fine Tech%20Power%20Controls!">
+        <span class="icon1"> <i class="fab fa-whatsapp"></i></span> <span class="btn-text"> Whatsapp</span></a>
+    </li>
+
+    </ul>
+</div>
+<div class="modal fade bs-example-modal-sm cstm-modal-top-header my-custom-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true" id="onload">
+    <div class="modal-dialog modal-lg">
+        <input type="hidden" id="ispopupopen" value="1">
+        <div class="modal-content">
+            <div class="modal-body stick_popup">
+                <h5 class="modal-title">Get Your Free Quote…!</h5>
+                <div class="stick_close" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></div>
+                <div class="row mt-40">
+                    <div class="col-md-5 col-sm-12 col-xs-12 px-0">
+                        <div class="logo-wrapper">
+                            <img src="assets/img/logo.png">
+                            <button class="btn-modal-gra">
+                                <a class="content-p" href="mailto:sathesh@finetechpowercontrols.com"
+                                    onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });"><b>sathesh@finetechpowercontrols.com</b></a>
+                                <br> <a class="content-p" href="tel:+91 90325 32199"
+                                    onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+91 95861 18114' });">
+                                    <b>+91 90325 32199</b>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12">
+
+                        <div class="footer-widgets tag-widget">
+                            <input id="inquiery-model" value="" type="hidden" />
+                            <input id="isloadopenmodel" value="" type="hidden" />
+
+                            <input name="junk_trap" class="junk_trap" type="hidden" />
+
+                            <form class="form-horizontal form1" action="https://www.finetechpowercontrols.com/inquiry-action.php" method="post"
+                                novalidate="novalidate">
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12">
+                                        <input name="name" id="name" type="text" placeholder="Name"
+                                            class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12">
+                                        <input name="email" id="email" type="text" placeholder="E-Mail Address"
+                                            class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback class-feedback">
+                                    <div class="col-md-12">
+                                        <input name="city" id="city" type="text" placeholder="City"
+                                            class="form-control">
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12">
+                                        <input name="number" id="number" type="tel" placeholder="Phone" maxlength="15"
+                                            minlength="10" class="form-control number21">
+
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" name="message" id="message"
+                                            placeholder="Requirement"></textarea>
+
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-8 col position-relative">
+                                                <input name="captcha" id="captcha" placeholder="Captcha Code"
+                                                    class="form-control" type="text">
+
+                                            </div>
+                                            <div class="col-md-4 col">
+                                                <img src="captcha.png" class="capside">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12 col-sm-3 col-xs-12">
+                                        <input name="submit" class="submit submitbutton" type="submit"
+                                            value="Submit Now!">
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+        <div class="clearfix"></div>
+
+    </div>
+
+    <div class="clearfix"></div>
+
+</div>
+
+<!-- End My Model -->
+
+<!-- catelog model -->
+<div class="modal fade bs-example-modal-sm cstm-modal-top-header my-custom-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true" id="onload1">
+    <div class="modal-dialog modal-sm">
+
+        <div class="modal-content">
+
+            <div class="modal-body ">
+                <h5 class="modal-title">Catalogue Request Form…!</h5>
+                <div class="stick_close" data-bs-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></div>
+                <div class="row mt-40">
+                    <div class="col-md-5 col-sm-12 col-xs-12 px-0">
+                        <div class="logo-wrapper">
+                            <img src="assets/img/logo.png">
+                            <button class="btn-modal-gra">
+                                <a class="content-p" href="mailto:sathesh@finetechpowercontrols.com"
+                                    onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });"><b>sathesh@finetechpowercontrols.com</b></a>
+                                <br> <a class="content-p" href="tel:+91 90325 32199"
+                                    onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+91 95861 18114' });"><b>+91 95861 18114                                    </b></a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-7 col-xs-12 ">
+                        <div class=" footer-widgets tag-widget formtop">
+                            <form class="form-horizontal form2" action="https://www.finetechpowercontrols.com/catalogue-action.php" method="post">
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12">
+                                        <input name="name" id="name2" type="text" placeholder="Name"
+                                            class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12">
+                                        <input name="email" id="email2" type="text" placeholder="E-Mail Address"
+                                            class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback class-feedback">
+                                    <div class="col-md-12">
+                                        <input name="city" id="city" type="text" placeholder="City"
+                                            class="form-control">
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12">
+                                        <input name="number" id="number2" type="tel" placeholder="Phone" maxlength="10"
+                                            minlength="10" class="form-control number21">
+
+                                    </div>
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-8 position-relative">
+                                                <input name="captcha" id="captcha2" placeholder="Captcha Code"
+                                                    class="form-control" type="text">
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <img src="captcha.png" class="capside">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group inline4">
+                                            <input type="hidden" id="pt" name="path" value="">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <div class="col-md-12 col-sm-3 col-xs-12">
+                                        <input name="submit2" id="submit2" class="submit submitbutton" type="submit"
+                                            value="Download Now">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end catelog model -->
+
+<div class="footer-box" style="display: none;">
+    <div class="book-app" style="background:#ff8230;" id="req-apnmt2">
+        <a class="nav_up click1" href="javascript:;" style="color:#FFF; font-size:12px;font-weight:600;"><i
+                class="fa fa-envelope" style="margin-right: 5px;"></i> Enquire Now</a>
+    </div>
+    <div class="book-app" style="background: #444a53;">
+        <a class="nav_up click2" pdf="pdf/NGPC-COMPANY-PROFILE.pdf" href="javascript:;"
+            style="color:#FFF; font-size:12px;font-weight:600;"><i class="fa fa-file-pdf-o"
+                style="margin-right: 5px;"></i> Catalogue</a>
+    </div>
+    <div class="book-app" style="background: #2db640;">
+    <a onclick="gtag('event', 'send', { 'event_category': 'click on whatsapp', 'event_action': 'Mobile', 'event_label': '+919032532199' });" href="https://api.whatsapp.com/send?phone=919032532199&amp;text=Hello%20Fine Tech%20Power%20Controls!"  target="_blank" style="color:#FFF; font-size:12px;font-weight:600;"><i class="fab fa-whatsapp" style="margin-right: 5px;"></i> Whatsapp</a>
+  </div>
+</div>
+
+<!-- End My Model -->
+
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <header class="header-area">
+        <div class="mheader-top theme-bg-blue">
+            <div class="custom-container">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-3 d-none"></div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-none d-lg-block">
+                        <div class="topbar-text text-center">
+                            <p>Leading Electrical Control Panel Manufacturer</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                        <div class="topbar-right">
+                            <span><i class="fa fa-envelope-open" style="margin-right: 5px;"></i></span>
+                            <a style="margin-right: 15px;" href="mailto:sathesh@finetechpowercontrols.com"
+                                onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });">
+                                sathesh@finetechpowercontrols.com</a>
+                            <span><i class="fa fa-phone" style="transform: rotate(90deg);margin-right: 5px;"></i></span>
+                            <a href="tel:+919032532199"
+                                onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+919032532199' });">
+                                +91 90325 32199</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-menu header-sticky">
+            <div class="custom-container">
+                <div class="row align-items-center">
+                    <div class="col-xxl-2 col-xl-2 col-lg-2 col">
+                        <div class="header-logo ">
+                            <a href="index.html"><img src="assets/img/logo.png" class="img-fluid" alt="img"></a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-10 col-xl-10 col-lg-10 col">
+
+                        <div class="main-menu main-menu-3 d-none d-lg-block" id="white-menu">
+                            <nav id="mobile-menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li class="has-dropdown"><a href="our-products.html">Our Products</a>
+                                        <!-- <ul class="submenu">
+                                            <li><a href="power-control-center-pcc-panels.php">Power Control Center (PCC) Panels</a></li>
+                                            <li><a href="motor-control-center-mcc-panel.php">Motor Control Center (MCC) Panel</a></li>
+                                            <li><a href="automatic-power-factor-correction-panels.php">Automatic Power Factor Correction Panels</a></li>
+                                            <li><a href="synchronizing-and-auto-load-sharing-panel.php">Synchronizing and Auto Load Sharing Panel</a></li>
+                                            <li><a href="automatic-mains-failure-amf-panel.php">Automatic Mains Failure (AMF) Panel</a></li>
+                                            <li><a href="power-factor-control-panels.php">Power Factor Control Panels</a></li>
+                                            <li><a href="dg-set-control-panels.php">DG Set Control Panels</a></li>
+                                            <li><a href="power-distribution-panels.php">Power Distribution Panels</a></li>
+                                            <li><a href="low-tension-control-panels.php">Low Tension Control Panels</a></li>
+                                            <li><a href="dg-synchronization-panels.php">DG Synchronization Panels</a></li>
+                                            <li><a href="power-control-center-panel-boards.php">Power Control Center Panel Boards</a></li>
+                                            <li><a href="fire-hydrant-control-panel.php">Fire Hydrant Control Panel</a></li>
+                                            <li><a href="vfd-based-control-panel.php">VFD Based Control Panel</a></li>
+                                            <li><a href="feeder-pillar-panel.php">Feeder Pillar Panel</a></li>
+                                            <li><a href="gi-cable-tray.php">Gi Cable Tray</a></li>
+                                        </ul> -->
+                                    </li>
+                                    <li><a href="industries-we-serve.html">Industries We Serve</a></li>
+                                    <!-- <li><a href="javascript:;">Case Studies</a></li>
+                                    <li><a href="javascript:;">Special Cases</a></li>
+                                    <li><a href="javascript:;">News & Events</a></li> -->
+                                    
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header__action-item d-lg-none d-flex align-items-center justify-content-end">
+                            <a href="javascript:void(0)" class="sidebar-toggle">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="offcanvas-overlay"></div>
+
+    <div class="sidebar__area">
+        <div class="sidebar__wrapper">
+            <div class="sidebar__top d-flex align-items-center mb-40">
+                <div class="sidebar__close mr-35">
+                    <button class="sidebar__close-btn sidebar-close">
+                        <svg viewBox="0 0 22 22">
+                            <path d="M12.41,11l5.29-5.29c0.39-0.39,0.39-1.02,0-1.41s-1.02-0.39-1.41,0L11,9.59L5.71,4.29c-0.39-0.39-1.02-0.39-1.41,0
+                            s-0.39,1.02,0,1.41L9.59,11l-5.29,5.29c-0.39,0.39-0.39,1.02,0,1.41C4.49,17.9,4.74,18,5,18s0.51-0.1,0.71-0.29L11,12.41l5.29,5.29
+                            C16.49,17.9,16.74,18,17,18s0.51-0.1,0.71-0.29c0.39-0.39,0.39-1.02,0-1.41L12.41,11z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="logo">
+                    <a href="index-3.html">
+                        <img src="assets/img/logo.png" alt="logo">
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar__content p-relative z-index-1">
+                <div class="sidebar__menu">
+                    <div class="mobile-menu"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<main>
+    <section class="slider-area fix">
+        <div class="slider-active slider-s-animation swiper-container">
+            <div class="swiper-wrapper">
+                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="5000">
+                    <div class="slide-bg">
+                        <img src="assets/img/nexgen-banner-1.jpg" alt="nexgen-banner-1" loading="lazy">
+                    </div>
+                </div>
+                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="5000">
+                    <div class="slide-bg">
+                        <img src="assets/img/nexgen-banner-2.jpg" alt="nexgen-banner-2" loading="lazy">
+                    </div>
+                </div>
+                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="5000">
+                    <div class="slide-bg">
+                        <img src="assets/img/nexgen-banner-3.jpg" alt="nexgen-banner-3" loading="lazy">
+                    </div>
+                </div>
+                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="5000">
+                    <div class="slide-bg">
+                        <img src="assets/img/nexgen-banner-4.jpg" alt="nexgen-banner-4" loading="lazy">
+                    </div>
+                </div>
+                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="5000">
+                    <div class="slide-bg">
+                        <img src="assets/img/nexgen-banner-5.jpg" alt="nexgen-banner-5" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev slide-prev"><i class="far fa-long-arrow-left"></i></div>
+            <div class="swiper-button-next slide-next"><i class="far fa-long-arrow-right"></i></div>
+        </div>
+    </section>
+    <section class="about-area  pt-150 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-6 col-xl-6 col-lg-6">
+                    <div class="mabout__thumb p-relative mb-50 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <div class="aabout__since d-flex align-items-center justify-content-center">
+                            <div>
+                                <img src="assets/img/about-us/about-icon.png" alt="about-icon" loading="lazy">
+                                <h1 class="counter-count counter-count2"><span class="counter">10</span>+</h1>
+                                <h3>Years <br>of Experience</h3>
+                            </div>
+                        </div>
+                        <div class="mabout__thumb-top mb-10">
+                            <img class="img-fluid w-100" src="assets/img/about-us/about-us-1.jpg" loading="lazy" alt="ab-1.jpg">
+                        </div>
+                        <div class="mabout__thumb-btm">
+                            <img class="img-fluid w-100" src="assets/img/about-us/about-us-2.jpg" loading="lazy" alt="ab-2.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-6 col-xl-6 col-lg-6">
+                    <div class="mabout-right pr-70 mb-45">
+                        <div class="section_title_wrapper mb-35 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                            <h2 class="msection-title">
+                            Electric Power & Control Panel <span>Manufacturer</span>
+                            </h2>
+                            <div class="msubtitle">
+                                <p>We are the leading electrical control panel manufacturer also provide abbreviation Panel in Hyderabad. electrical control panel is a combination of Multiple electrical devices which use electrical power to control the various mechanical functions of industrial equipment or machinery. We believe that our electrical control panel quality and efficient After Sale Service system is enhanced by developing deep and transparent relationship with our esteemed clients.</p>
+                                <p>Our company Next-Gen Power Controls has been widely acclaimed as one of the most reliable manufacturing, supplying, as well as distributing firm of Abbreviation Panel in the whole market arena. Our customers have appreciated us for providing them with a highly accurate and qualitative range of Electrical Panels and other services. This are inclined to provide our clients with the option of customization as per their specifications.</p>
+                            </div>
+                        </div>
+                        <div class="mabout-quality">
+                            <div class="mabout">
+                                <div class="mabout-bottom-btn d-flex align-items-center justify-content-start wow fadeInUp" data-wow-delay="0.9s" style="visibility: visible; animation-delay: 0.9s; animation-name: fadeInUp;">
+                                    <div class="mheader-button mbtn-btm-30 ml-10">
+                                        <a href="about-us.html" class="theme-btn home2-btn btn-blue"><i class="fal fa-angle-double-right"></i>Read More</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="procces ">
+        <div class="container-fluid px-0">
+            <div class="row no-gutters">
+                <div class="col-xl-4 col-md-12">
+                    <div class="pt-process-step pt-process-1 pt-bg-dark">
+                        <div class="pt-process-info">
+                            <h3 class="pt-process-title text-white">Our Vision </h3>
+                            <p class="pt-process-description text-white">Our Vision is be a BRAND, where the name is enough for buyer to choose.
+                            </p>
+                        </div>
+                        <div class="pt-btn-container">
+                            <a class="pt-button pt-btn-link" href="about-us.html">
+                                <div class="pt-button-block">
+                                    <span class="pt-button-line-left pt-btn-line-left"></span>
+                                    <span class="pt-button-text text-white">Read more</span>
+                                    <span class="pt-button-line-right pt-btn-line-right"></span>
+                                    <i class="fa fa-arrow pt-btn-icon  text-white"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <span class="pt-process-number">01</span>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-12">
+                    <div class="pt-process-step pt-process-1 pt-bg-primary">
+                        <div class="pt-process-info">
+                            <h3 class="pt-process-title text-white">OUR MISSION</h3>
+                            <p class="pt-process-description text-white">To provide best Quality, Highly Reliable, Human Friendly, Highly Safe & Cost Effective solutions and services as per customers applications & requirements. To achieve success through the commitment of our employees and actively engage, empower and continuously develop our workforce.
+                            </p>
+                        </div>
+                        <div class="pt-btn-container">
+                            <a class="pt-button pt-btn-link" href="about-us.html">
+                                <div class="pt-button-block">
+                                    <span class="pt-button-line-left pt-btn-line-left"></span>
+                                    <span class="pt-button-text text-white">Read more</span>
+                                    <span class="pt-button-line-right pt-btn-line-right"></span>
+                                    <i class="fa fa-arrow pt-btn-icon  text-white"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <span class="pt-process-number">02</span>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-12">
+                    <div class="pt-process-step pt-process-1 pt-bg-dark">
+                        <div class="pt-process-info">
+                            <h3 class="pt-process-title text-white">INFRASTRUCTURE</h3>
+                            <p class="pt-process-description text-white">Investing huge amount in our manufacturing facility has enabled us to entertain different industrial requirements within the said time frame. Further, we have parted our infrastructure facility into different segments for smooth execution of the undertaken job.
+                            </p>
+                        </div>
+                        <div class="pt-btn-container">
+                            <a class="pt-button pt-btn-link" href="about-us.html">
+                                <div class="pt-button-block">
+                                    <span class="pt-button-line-left pt-btn-line-left"></span>
+                                    <span class="pt-button-text text-white">Read more</span>
+                                    <span class="pt-button-line-right pt-btn-line-right"></span>
+                                    <i class="fa fa-arrow pt-btn-icon  text-white"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <span class="pt-process-number">03</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
+    <div class="recent-project-area theme-bg p-relative pt-120 pb-55 fix" >
+        <div class="thumb-left">
+            <img src="assets/img/home-products/Home-products-left.jpg" >
+        </div>
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-xxl-4">
+                    <div class="recent-project-thumb">
+                        <div class="section_title_wrapper mb-50 fadeInUp" data-wow-delay="0.3s">
+                            <span class="subtitle service-ex-subtitle" style="color: #fff;text-decoration: none;">
+                                Our Product Range
+                            </span>
+                            <h2 class="section-title custom-size white-color mb-15">
+                            Electrical Control Panel Manufacturer
+                            </h2>
+                            <div class="section-subtitle custom-subtitle mb-40">
+                                <p class="white-color">Manufactured using optimum quality components and ultra-modern technology under the direction of our dedicated professionals, these electrical panels are widely acclaimed among our patrons.</p>
+                            </div>
+                            <div class="recent-project-button mb-40">
+                                <a href="our-products.html" class="theme-btn">View More Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-8">
+                    <div class="padding-swiper p-relative">
+                        <div class="swiper-container project-active-1 wow fadeInUp" data-wow-delay="1s">
+                            <div class="swiper-wrapper">
+                                <div class="mproject__1 swiper-slide" data-swiper-autoplay="8000">
+                                    <div class="mproject__1--img">
+                                        <img src="assets/img/home-products/Automatic-Power-Factor-Control-Panels.jpg" class="img-fluid" alt="img">
+                                    </div>
+                                    <div class="mproject__1--overlay">
+                                        <div class="mproject__1--overlay__social">
+                                            <a href="automatic-power-factor-correction-panels.html"><i class="far fa-long-arrow-right"></i></a>
+                                        </div>
+                                        <div class="mproject__1--overlay__text">
+                                            <h4 class="mproject__1--title"><a href="automatic-power-factor-correction-panels.html">Automatic Power Factor Control Panels</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mproject__1 swiper-slide" data-swiper-autoplay="8000">
+                                    <div class="mproject__1--img">
+                                        <img src="assets/img/home-products/Motor-Control.jpg" class="img-fluid" alt="img">
+                                    </div>
+                                    <div class="mproject__1--overlay">
+                                        <div class="mproject__1--overlay__social">
+                                            <a href="motor-control-center-mcc-panel.html"><i class="far fa-long-arrow-right"></i></a>
+                                        </div>
+                                        <div class="mproject__1--overlay__text">
+                                            <h4 class="mproject__1--title"><a href="motor-control-center-mcc-panel.html">Motor Control</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mproject__1 swiper-slide" data-swiper-autoplay="8000">
+                                    <div class="mproject__1--img">
+                                        <img src="assets/img/home-products/power-control.jpg" class="img-fluid" alt="img">
+                                    </div>
+                                    <div class="mproject__1--overlay">
+                                        <div class="mproject__1--overlay__social">
+                                            <a href="power-control-center-pcc-panels.html"><i class="far fa-long-arrow-right"></i></a>
+                                        </div>
+                                        <div class="mproject__1--overlay__text">
+                                            <h4 class="mproject__1--title"><a href="power-control-center-pcc-panels.html">Power-Control</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-testimonial-slider-arrow">
+                            <div class=" project-button-next"><i class="fal fa-long-arrow-left"></i></div>
+                            <div class=" project-button-prev"><i class="fal fa-long-arrow-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="solutions-area pt-110 pb-90">
+        <div class="custom-container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-10">
+                    <div class="section_title_wrapper text-center mb-60 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <h2 class="msection-title">
+                        WHY CHOOSE <span>US</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                    <div class="mabout mabout2">
+                        <div class="mabout__single mabout__single2 d-flex mb-40">
+                            <div class="mabout__single-icon mabout-icon-dfcolor mr-30 ">
+                                <a class="" href="javascript:;"><img src="assets/img/why-choose-us/manufacuturing-unit.png"></a>
+                            </div>
+                            <div class="mabout__single-text">
+                                <h5 class="mabout-title mb-10"> <a href="javascript:;">Manufacturing unit</a></h5>
+                                <p>The sheet metal unit equipped with high tech machinery and facility including laser cutting, shearing and welding.</p>
+                            </div>
+                        </div>
+                        <div class="mabout__single mabout__single2 d-flex  mb-40">
+                            <div class="mabout__single-icon mabout-icon-dfcolor2 mr-30 ">
+                                <a class="" href="javascript:;"><img src="assets/img/why-choose-us/7-tankpower-coating.png"></a>
+                            </div>
+                            <div class="mabout__single-text">
+                                <h5 class="mabout-title mb-10"> <a href="javascript:;">7-Tank Powder Coating</a></h5>
+                                <p>1.Degreasing,2.Water Rinse-I 3. De-rusting Bath 4.Water Rinse-II 5.Phospating Bath 6.Water Rinse-III 7. Passivation Bath</p>
+                            </div>
+                        </div>
+                        <div class="mabout__single mabout__single2 d-flex  mb-40">
+                            <div class="mabout__single-icon mabout-icon-dfcolor3 mr-30 ">
+                                <a class="" href="javascript:;"><img src="assets/img/why-choose-us/assembly-and-wiring.png"></a>
+                            </div>
+                            <div class="mabout__single-text">
+                                <h5 class="mabout-title mb-10"> <a href="javascript:;">Assembly and Wiring</a></h5>
+                                <p>Assembly and wiring unit available with next generation tools & tackles. Busbar process machine helps to quantity products</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 order-xxl-3 wow fadeInUp" data-wow-delay="0.9s" style="visibility: visible; animation-delay: 0.9s; animation-name: fadeInUp;">
+                    <div class="mabout mabout2">
+                        <div class="mabout__single mabout__single2 d-flex mb-40">
+                            <div class="mabout__single-icon mabout-icon-dfcolor mr-30 ">
+                                <a class="" href="javascript:;"><img src="assets/img/why-choose-us/Performance-Test-Facility.png"></a>
+                            </div>
+                            <div class="mabout__single-text">
+                                <h5 class="mabout-title mb-10"> <a href="javascript:;">Performance Test Facility</a></h5>
+                                <p>When the panel is ready the outgoing quality control on the panel will be done. In this, H.V. Test , Meggar Test , Functional Test, Primary / Secondary Injection Test</p>
+                            </div>
+                        </div>
+                        <div class="mabout__single mabout__single2 d-flex  mb-40">
+                            <div class="mabout__single-icon mabout-icon-dfcolor2 mr-30 ">
+                                <a class="" href="javascript:;"><img src="assets/img/why-choose-us/cpri-approved.png"></a>
+                            </div>
+                            <div class="mabout__single-text">
+                                <h5 class="mabout-title mb-10"> <a href="javascript:;">CPRI Approved</a></h5>
+                                <p>Next-Gen Power Controls is CPRI  Certified Company</p>
+                            </div>
+                        </div>
+                        <div class="mabout__single mabout__single2 d-flex  mb-40">
+                            <div class="mabout__single-icon mabout-icon-dfcolor3 mr-30 ">
+                                <a class="" href="javascript:;"><img src="assets/img/why-choose-us/iso-9001-2015-certified.png"></a>
+                            </div>
+                            <div class="mabout__single-text">
+                                <h5 class="mabout-title mb-10"> <a href="javascript:;">ISO 9001:2015 Certified</a></h5>
+                                <p>We have devoloped new designs for Power & Control Panel with ISO Certified Products</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-6 col-xl-12 col-lg-12 col-md-12 order-xxl-2 wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                    <div class="solutions__thumb mb-30">
+                        <img src="assets/img/why-choose-us/why-choose-image.jpg" class="w-100" alt="img not found">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="client-reviews-area services-ex-bg pt-110 pb-120 ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6 p-relative mb-40">
+                 <style>
+                     .wp-gr .wp-google-name, .wp-gr .wp-google-text, .wp-gr a.wp-google-name {
+                            color: #FFF!important;
+                            
+                        }
+                      .wp-google-place{
+                          display:none!important;
+                      }  
+                 </style>
+                  <div class="section_title_wrapper mb-25 wow fadeInUp" data-wow-delay="0.3s">
+                        <span class="subtitle service-ex-subtitle" style="color: #fff;text-decoration: none;">
+                            Client feedback
+                        </span>
+                        <h2 class="section-title services-ex-title">
+                        Happy customer says <br> about Nextgen Power Controls
+                        </h2>
+                    </div>   
+                <div id="wpac-google-review"></div>
+                    <div class="section_title_wrapper mb-25 wow fadeInUp" data-wow-delay="0.3s">
+                        <span class="subtitle service-ex-subtitle" style="color: #fff;text-decoration: none;">
+                            Client feedback
+                        </span>
+                        <h2 class="section-title services-ex-title">
+                        Happy customer says <br> about Nextgen Power Controls
+                        </h2>
+                    </div>
+                    <div class="client-active swiper-container wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="swiper-wrapper">
+                            <div class="client swiper-slide">
+                                <div class="testimonial-text mb-50">
+                                    <p>"One stop solution of Power Distribution and All LT Panels without quality compromise. Leading manufacturer of PCC PANEL, MCC PANEL, APFC PANEL, AMF PANEL, LT PANEL and DG synchronise panel."</p>
+                                </div>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="testimonial-author-icon mr-30">
+                                        <i class="fal fa-quote-left"></i>
+                                    </div>
+                                    <div class="testimonial-author-text">
+                                        <h5 class="uppercase">Helly Amin</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="client swiper-slide">
+                                <div class="testimonial-text mb-50">
+                                    <p>"Sanjay Patel is Owner of NextGen have visionary person in his business and they trust on us for automation his drawing design. Thanks Sanjay bhai"</p>
+                                </div>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="testimonial-author-icon mr-30">
+                                        <i class="fal fa-quote-left"></i>
+                                    </div>
+                                    <div class="testimonial-author-text">
+                                        <h5 class="uppercase">Mayur Softwarewala</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="client swiper-slide">
+                                <div class="testimonial-text mb-50">
+                                    <p>"Best quality electric panel manufacturers with good back service team"</p>
+                                </div>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="testimonial-author-icon mr-30">
+                                        <i class="fal fa-quote-left"></i>
+                                    </div>
+                                    <div class="testimonial-author-text">
+                                        <h5 class="uppercase">Ajay Sakariya</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="client swiper-slide">
+                                <div class="testimonial-text mb-50">
+                                    <p>"one of the best service & quality provider panel manufacturer thank you next gen power control"</p>
+                                </div>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="testimonial-author-icon mr-30">
+                                        <i class="fal fa-quote-left"></i>
+                                    </div>
+                                    <div class="testimonial-author-text">
+                                        <h5 class="uppercase">Akshay Patel</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="client swiper-slide">
+                                <div class="testimonial-text mb-50">
+                                    <p>"Mfgr of All Types of Electrical Power & Control Panels Very Good Service , Fast Response"</p>
+                                </div>
+                                <div class="testimonial-author d-flex align-items-center">
+                                    <div class="testimonial-author-icon mr-30">
+                                        <i class="fal fa-quote-left"></i>
+                                    </div>
+                                    <div class="testimonial-author-text">
+                                        <h5 class="uppercase">Dipen Patel</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tp-testimonial-slider-arrow wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="testimonial-button-next swiper-button-next"><i class="fal fa-long-arrow-left"></i></div>
+                        <div class="testimonial-button-prev swiper-button-prev">  <i class="fal fa-long-arrow-right"></i></div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="achievement-group ml-100">
+                        <div class="achievement-item mb-30 wow fadeInUp" data-wow-delay="0.3s">
+                            <ul class="achievement-item-box d-flex align-items-center">
+                                <li><img src="assets/img/experience.png">
+                                </li>
+                                <li>
+                                    <h2 class="counter-count"><span class="counter">10</span>+</h2>
+                                    <p class="counter-title">Years of Experience</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="achievement-item mb-30 wow fadeInUp" data-wow-delay="0.6s">
+                            <ul class="achievement-item-box d-flex align-items-center">
+                                <li><img src="assets/img/happy-client.png">
+                                </li>
+                                <li>
+                                    <h2 class="counter-count"><span class="counter">500</span>+</h2>
+                                    <p class="counter-title">Happy Clients</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="achievement-item wow fadeInUp" data-wow-delay="0.9s">
+                            <ul class="achievement-item-box d-flex align-items-center">
+                                <li><img src="assets/img/products.png">
+                                </li>
+                                <li>
+                                    <h2 class="counter-count"><span class="counter">100</span>+</h2>
+                                    <p class="counter-title">Products</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="solutions-area pt-110">
+        <div class="custom-container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-10">
+                    <div class="section_title_wrapper text-center mb-60 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <h2 class="msection-title">
+                        INDUSTRIES <span>WE SERVE</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="section-content">
+                <div class="row">
+                    <div class="project project-light col-sm-6 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                        <figure>
+                            <img alt="" src="assets/img/industries-we-serve/chemical.jpg">
+                            <figcaption>
+                            <h4 class="project-category">Chemical</h4>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="project project-light col-sm-6 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                        <figure>
+                            <img alt="" src="assets/img/industries-we-serve/mining.jpg">
+                            <figcaption>
+                            <h4 class="project-category">Mining</h4>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="project project-light col-sm-6 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+                        <figure>
+                            <img alt="" src="assets/img/industries-we-serve/oil-and-gas.jpg">
+                            <figcaption>
+                            <h4 class="project-category">Oil & Gas</h4>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="project project-light col-sm-6 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay="0.7s" style="visibility: visible; animation-delay: 0.7s; animation-name: fadeInUp;">
+                        <figure>
+                            <img alt="" src="assets/img/industries-we-serve/pharma.jpg">
+                            <figcaption>
+                            <h4 class="project-category">Pharmaceutical</h4>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="project project-light col-sm-6 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                        <figure>
+                            <img alt="" src="assets/img/industries-we-serve/power-plant.jpg">
+                            <figcaption>
+                            <h4 class="project-category">Power Plant</h4>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="project project-light col-sm-6 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay="0.9s" style="visibility: visible; animation-delay: 0.9s; animation-name: fadeInUp;">
+                        <figure>
+                            <img alt="" src="assets/img/industries-we-serve/solar.jpg">
+                            <figcaption>
+                            <h4 class="project-category">Solar</h4>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="project project-light col-sm-6 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay="0.10s" style="visibility: visible; animation-delay: 0.10s; animation-name: fadeInUp;">
+                        <figure>
+                            <img alt="" src="assets/img/industries-we-serve/steel.jpg">
+                            <figcaption>
+                            <h4 class="project-category">Steel</h4>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="project project-light col-sm-6 col-md-4 col-lg-3 wow fadeInUp" data-wow-delay="0.11s" style="visibility: visible; animation-delay: 0.11s; animation-name: fadeInUp;">
+                        <figure>
+                            <img alt="" src="assets/img/industries-we-serve/textile.jpg">
+                            <figcaption>
+                            <h4 class="project-category">Textile</h4>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="footer" style="clear: both;">
+    <nav class="footer-top">
+        <div class="ui stackable equal width grid">
+            <div class="column">
+                <h3>QUICK LINKS</h3>
+                <a href="index.html"><i class="fa fa-angle-double-right"></i> Home</a>
+                <a href="about-us.html"><i class="fa fa-angle-double-right"></i> About Us</a>
+                <a href="our-products.html"><i class="fa fa-angle-double-right"></i> Our Products</a>
+                <a href="industries-we-serve.html"><i class="fa fa-angle-double-right"></i> Industries We Serve</a>
+                <a href="gallery.html"><i class="fa fa-angle-double-right"></i> Gallery</a>
+                <a href="contact.html"><i class="fa fa-angle-double-right"></i> Contact</a>
+
+                <img src="assets/img/make-in-india.html" class="img-fluid mt-5" />
+            </div>
+            <div class="column">
+                <h3>PRODUCTS</h3>
+                <a href="power-control-center-pcc-panels.html"><i class="fa fa-angle-double-right"></i> Power Control
+                    Center (PCC) Panels</a>
+                <a href="motor-control-center-mcc-panel.html"><i class="fa fa-angle-double-right"></i> Motor Control
+                    Center (MCC) Panel</a>
+                <a href="automatic-power-factor-correction-panels.html"><i class="fa fa-angle-double-right"></i>
+                    Automatic Power Factor Correction Panels</a>
+                <a href="synchronizing-and-auto-load-sharing-panel.html"><i class="fa fa-angle-double-right"></i>
+                    Synchronizing & Auto Load Sharing Panel</a>
+                <a href="automatic-mains-failure-amf-panel.html"><i class="fa fa-angle-double-right"></i> Automatic Mains
+                    Failure (AMF) Panel</a>
+                <a href="power-factor-control-panels.html"><i class="fa fa-angle-double-right"></i> Power Factor Control
+                    Panels</a>
+                <a href="dg-set-control-panels.html"><i class="fa fa-angle-double-right"></i> DG Set Control Panels</a>
+            </div>
+            <div class="column">
+                <h3>CONTACT</h3>
+                <span style="margin-bottom: 10px; display: block;"><strong class="font-f">Fine Tech Power
+                        Controls</strong></span><span><strong class="font-f">Corporate Office</strong></span> <a
+                    href="javascript:;" class="address-icon"
+                    style="margin-bottom: 10px; display: block;pointer-events: none;">
+                    Subash Nagar. IDA, <br>Jeedimetla, <br>. Plot No 101, <br>
+                    Hyderabad,,<br>Telangana - 500055
+                </a> <a href="tel:+919032532199"
+                    onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+919032532199' });"
+                    class="phone-icon" style="margin-bottom: 10px; display: block;"> +91 90325 32199</a> <a
+                    href="mailto:sathesh@finetechpowercontrols.com"
+                    onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });"
+                    class="mail-icon"> sathesh@finetechpowercontrols.com</a>
+            </div>
+            <div class="column my-custom-modal">
+                <h3>GET QUOTE</h3>
+                <form class="form-horizontal form3" action="https://www.finetechpowercontrols.com/inquiry-action.php" method="post" novalidate="novalidate">
+                    <div class="form-group has-feedback">
+                        <div class="col-md-12">
+                            <input name="name" id="name" type="text" placeholder="Name" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <div class="col-md-12">
+                            <input name="email" id="email" type="text" placeholder="E-Mail Address"
+                                class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback class-feedback">
+                        <div class="col-md-12">
+                            <input name="city" id="city" type="text" placeholder="City" class="form-control">
+
+                        </div>
+
+                    </div>
+                    <div class="form-group has-feedback">
+                        <div class="col-md-12">
+                            <input name="number" id="number" type="tel" placeholder="Phone" maxlength="15"
+                                minlength="10" class="form-control number21">
+
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <div class="col-md-12">
+                            <textarea class="form-control" name="message" id="message"
+                                placeholder="Requirement"></textarea>
+
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-8 col position-relative">
+                                    <input name="captcha" id="captcha" placeholder="Captcha Code" class="form-control"
+                                        type="text">
+
+                                </div>
+                                <div class="col-md-4 col">
+                                    <img src="captcha.png" class="capside">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <div class="col-md-12 col-sm-3 col-xs-12">
+                            <input name="submit" class="submit submitbutton" type="submit" value="Submit Now!">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- <div class="footer-logo-mindia"><img src="images/make-in-india.png" alt=""></div> -->
+    </nav>
+    <div class="footer-bottom">
+        <div class="socialRow">
+            <ul class="list-inline mb-0 socialListing text-center">
+                <li class="list-inline-item"><a
+                        href="https://www.facebook.com/"
+                        target="_blank" class="scl-item"><i class="icon fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:;" target="_blank" class="scl-item"><i
+                            class="icon fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:;" target="_blank" class="scl-item"><i
+                            class="icon fab fa-linkedin"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.instagram.com/" target="_blank"
+                        class="scl-item"><i class="icon fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+        <p>Copyright © 2025 Next-Gen Power Controls. All rights reserved.</p>
+    </div>
+</footer>
+<script src="assets/js/jquery-1.12.4.min.html"></script>
 <script src="assets/js/bootstrap.bundle.min.html"></script>
 <script src="assets/js/isotope.pkgd.min.html"></script>
 <script src="assets/js/slick.min.html"></script>
@@ -54,19 +1342,98 @@
 <script src="assets/js/jquery.validate.min.html"></script>
 <script src="assets/js/form-buzz.html"></script>
 <script src='../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js'></script>
-
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-  var tools = document.querySelectorAll('.floating-tools a');
-  tools.forEach(function(a){
-    a.addEventListener('mouseenter', function(){
-      var label = this.nextElementSibling;
-      if(label) { label.style.opacity = '1'; label.style.transform = 'translateX(0)'; }
-    });
-    a.addEventListener('mouseleave', function(){
-      var label = this.nextElementSibling;
-      if(label) { label.style.opacity = '0'; label.style.transform = 'translateX(6px)'; }
-    });
-  });
+var tpj2 = jQuery;
+
+tpj2.noConflict();
+tpj2(document).ready(function() {
+    tpj2("a.fancybox").fancybox()
 });
+</script>
+<script>
+var tpj2 = jQuery;
+
+tpj2.noConflict();
+tpj2(document).ready(function() {
+    //FANCYBOX
+    //https://github.com/fancyapps/fancyBox
+    tpj2(".fancybox").fancybox({
+        openEffect: 'elastic',
+        closeEffect: "elastic",
+    });
+});
+</script>
+<script type="text/javascript">
+var tpj2 = jQuery;
+
+tpj2.noConflict();
+tpj2('.counter').counterUp({
+    delay: 10,
+    time: 2000
+});
+tpj2('.counter').addClass('animated fadeInDownBig');
+</script>
+
+<!-- Floating right-side tools: WhatsApp + Call (styled like reference) -->
+
+<!-- Floating right-side tools: WhatsApp + Call (final corrected) -->
+
+<!-- Floating right-side tools -->
+<div class="floating-tools" style="position:fixed;right:18px;bottom:40px;z-index:99999;display:flex;flex-direction:column;gap:16px;">
+  <!-- WhatsApp -->
+  <a href="https://api.whatsapp.com/send?phone=919032532199&text=Hello%20Fine%20Tech%20Power%20Controls!" target="_blank" style="width:80px;height:80px;position:relative;display:flex;align-items:center;justify-content:center;text-decoration:none;">
+    <span style="position:absolute;inset:0;border-radius:50%;background:linear-gradient(180deg,#29b65b,#0fb14a);box-shadow:0 10px 28px rgba(0,0,0,0.18);"></span>
+    <span style="width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;z-index:2;">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="#25D366" d="M20.52 3.48A11.93..."/>
+      </svg>
+    </span>
+  </a>
+  <!-- Call -->
+  <a href="tel:+919032532199" style="width:80px;height:80px;position:relative;display:flex;align-items:center;justify-content:center;text-decoration:none;">
+    <span style="position:absolute;inset:0;border-radius:50%;background:linear-gradient(180deg,#e84b3a,#d32f1f);box-shadow:0 10px 28px rgba(0,0,0,0.18);"></span>
+    <span style="width:48px;height:48px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;z-index:2;">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path fill="#e84b3a" d="M20.487 16.14l-4.082..."/>
+      </svg>
+    </span>
+  </a>
+</div>
+
+
+
+  <!-- Call button -->
+  <a class="btn-call" href="tel:+919032532199" aria-label="Call us">
+    <span class="outer" aria-hidden="true"></span>
+    <span class="inner" aria-hidden="true">
+      <!-- Phone SVG icon (filled by CSS to red) -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20.487 16.14l-4.082-1.78a1.37 1.37 0 0 0-1.405.29l-1.88 1.88a15.09 15.09 0 0 1-7.028-7.03l1.88-1.88a1.37 1.37 0 0 0 .29-1.405L7.86 3.514A1.36 1.36 0 0 0 6.56 2.6L3.254 3.906C2.477 4.225 2 5.04 2 5.915c0 10.074 8.183 18.257 18.257 18.257.875 0 1.69-.477 2.009-1.254L21.4 17.44c-.3-.4-.9-.9-1.913-1.3z"/>
+      </svg>
+    </span>
+  </a>
+  <div class="label">Call</div>
+
+</div>
+
+</body>
+
+<!-- Mirrored from www.nextgenpanels.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Nov 2025 05:44:34 GMT -->
+</html>
+<script type="text/javascript">
+    var tpj2=jQuery;
+        
+        tpj2.noConflict();
+wpac_init = window.wpac_init || [];
+wpac_init.push({widget: 'GoogleReview', id: 34646, place_id: 'ChIJ6VdnvbGHXjkRXuBmVakqFZg', view_mode: 'list'});
+(function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '../cdn.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    tpj2(".wp-google-name").css("color","#fff");
+})();
 </script>
