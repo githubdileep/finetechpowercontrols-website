@@ -135,113 +135,133 @@
 
 
 <style>
-/* Floating WhatsApp button (inline SVG) */
-.whatsapp-float{
-  position: fixed;
-  left: 18px;
-  bottom: 120px;
-  background: #25D366;
-  padding: 12px;
-  border-radius: 50%;
-  z-index: 99999;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+/* ----- Remove/hide left-side legacy sticky icons ----- */
+/* Hide theme-provided whatsapp or tel links site-wide (we will re-enable ours inside .floating-tools) */
+a[href*="api.whatsapp.com"], a[href^="tel:"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
-.whatsapp-float svg { display:block; }
-@media (max-width: 768px) {
-  .whatsapp-float { left: 12px; bottom: 90px; padding: 10px; }
-}
-</style>
 
-
-<style>
-/* Hide catalog/mail */
-a[href^="mailto:"], a[href*="catalog"], a[href*="catalogue"],
-a[href*="Download Catalog"], [id*="catalog"], [class*="catalog"],
-[class*="download"], .book-app, .download-catalog, .download-btn,
-.sticklist, .sticky-icon, .sticky-left .mail, .sticky-left .catalog {
-  display:none!important;
-}
-/* Floating tools */
+/* ----- Floating tools container (right side) ----- */
 .floating-tools {
-  position:fixed; right:18px; bottom:40px; z-index:99999;
-  display:flex; flex-direction:column; gap:12px; align-items:center;
-  pointer-events:none;
+  position: fixed;
+  right: 18px;
+  bottom: 40px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  pointer-events: none;
 }
-.floating-tools a {
-  pointer-events:auto; width:56px; height:56px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  text-decoration:none; color:#fff;
-  box-shadow:0 6px 16px rgba(0,0,0,0.18);
-  transition:transform .12s ease, box-shadow .12s ease;
-}
-.floating-tools .btn-whatsapp {
-  background:linear-gradient(180deg,#29b65b,#0fb14a);
-}
-.floating-tools .btn-call {
-  background:linear-gradient(180deg,#e84b3a,#d32f1f);
-}
-.floating-tools svg { width:22px; height:22px; }
-.floating-tools a:hover {
-  transform:translateY(-4px);
-  box-shadow:0 10px 22px rgba(0,0,0,0.22);
-}
-.label {
-  position:absolute; right:70px; background:rgba(0,0,0,0.75);
-  color:#fff; padding:6px 10px; border-radius:6px; font-size:13px;
-  white-space:nowrap; opacity:0; transform:translateX(6px);
-  transition:opacity .12s ease, transform .12s ease;
-}
-.floating-tools a:hover + .label {
-  opacity:1; transform:translateX(0);
-}
-@media(max-width:768px){
-  .floating-tools{ right:12px; bottom:80px; }
-  .floating-tools a{ width:48px; height:48px; }
-  .label{ display:none; }
-}
-</style>
 
-
-<style>
-/* Override: larger buttons + subtle floating animation + hover scale */
+/* Ensure anchors inside are active */
 .floating-tools a {
-  width: 72px !important;
-  height: 72px !important;
-  border-radius: 50% !important;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  pointer-events: auto;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;              /* outer diameter */
+  height: 80px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  transition: transform .18s ease, box-shadow .18s ease;
+  position: relative;
+  overflow: visible;
+}
+
+/* Outer color circle */
+.floating-tools .outer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: floaty 3.6s ease-in-out infinite;
 }
-.floating-tools svg { width: 28px !important; height: 28px !important; }
+
+/* Inner white circle (smaller) that holds the icon */
+.floating-tools .inner {
+  width: 48px;              /* inner diameter */
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* WhatsApp outer color (green) */
+.floating-tools .btn-whatsapp .outer {
+  background: linear-gradient(180deg,#29b65b,#0fb14a);
+}
+
+/* Call outer color (red) */
+.floating-tools .btn-call .outer {
+  background: linear-gradient(180deg,#e84b3a,#d32f1f);
+}
+
+/* SVG icon sizes */
+.floating-tools svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Colour the SVG inside the white circle (icon uses currentColor) */
+.floating-tools .btn-whatsapp .inner svg path { fill: #25D366; } /* whatsapp green */
+.floating-tools .btn-call .inner svg path { fill: #e84b3a; }      /* call red */
 
 /* gentle float animation */
 @keyframes floaty {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-6px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
   100% { transform: translateY(0); }
 }
+.floating-tools a { animation: floaty 3.6s ease-in-out infinite; }
 
-/* stronger hover effect: pop and shadow */
+/* Hover pop */
 .floating-tools a:hover {
-  transform: translateY(-8px) scale(1.06) !important;
-  box-shadow: 0 18px 36px rgba(0,0,0,0.28) !important;
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.28);
 }
 
-/* adjust labels position for larger buttons */
-.label { right: 86px !important; }
+/* Hover label (desktop) */
+.floating-tools .label {
+  position: absolute;
+  right: 96px;
+  background: rgba(0,0,0,0.78);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .12s ease, transform .12s ease;
+  pointer-events: none;
+  z-index: 99999;
+}
+.floating-tools a:hover + .label { opacity: 1; transform: translateX(0); }
 
-/* Mobile adjustments */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .floating-tools a { width: 64px !important; height: 64px !important; animation: floaty 3.2s ease-in-out infinite; }
-  .floating-tools svg { width: 24px !important; height: 24px !important; }
-  .floating-tools { bottom: 90px !important; right: 12px !important; }
-  .label { display: none !important; }
+  .floating-tools { right: 12px; bottom: 90px; gap: 12px; }
+  .floating-tools a { width: 68px; height: 68px; }
+  .floating-tools .inner { width: 44px; height: 44px; }
+  .floating-tools .label { display: none; }
+}
+
+/* Re-enable our right-side anchors (they were hidden by earlier global rule) */
+.floating-tools a[href*="api.whatsapp.com"],
+.floating-tools a[href^="tel:"] {
+  display: inline-flex !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 </style>
 
@@ -275,7 +295,10 @@ a[href*="Download Catalog"], [id*="catalog"], [class*="catalog"],
                 <span class="icon"> <i class="fa fa-phone-alt"></i></span> <span class="btn-text">Call</span>
             </a>
         </li>
-        
+        <li class="whataspp-icon none-li imgnone">
+      <a onclick="gtag('event', 'send', { 'event_category': 'click on whatsapp', 'event_action': 'Mobile', 'event_label': '+919032532199' });" href="https://api.whatsapp.com/send?phone=919032532199&amp;text=Hello%20Fine Tech%20Power%20Controls!">
+        <span class="icon1"> <i class="fab fa-whatsapp"></i></span> <span class="btn-text"> Whatsapp</span></a>
+    </li>
 
     </ul>
 </div>
@@ -495,7 +518,9 @@ a[href*="Download Catalog"], [id*="catalog"], [class*="catalog"],
             style="color:#FFF; font-size:12px;font-weight:600;"><i class="fa fa-file-pdf-o"
                 style="margin-right: 5px;"></i> Catalogue</a>
     </div>
-    
+    <div class="book-app" style="background: #2db640;">
+    <a onclick="gtag('event', 'send', { 'event_category': 'click on whatsapp', 'event_action': 'Mobile', 'event_label': '+919032532199' });" href="https://api.whatsapp.com/send?phone=919032532199&amp;text=Hello%20Fine Tech%20Power%20Controls!"  target="_blank" style="color:#FFF; font-size:12px;font-weight:600;"><i class="fab fa-whatsapp" style="margin-right: 5px;"></i> Whatsapp</a>
+  </div>
 </div>
 
 <!-- End My Model -->
@@ -1323,45 +1348,34 @@ tpj2('.counter').counterUp({
 tpj2('.counter').addClass('animated fadeInDownBig');
 </script>
 
-<!-- Floating WhatsApp Button (inline SVG) -->
-<a href="https://api.whatsapp.com/send?phone=919032532199&text=Hello%20Fine%20Tech%20Power%20Controls!" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <path fill="#ffffff" d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.373 0 .01 5.373.01 12.001c0 2.117.553 4.19 1.603 6.023L0 24l6.23-1.612A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-11.999 0-3.199-1.247-6.201-3.48-8.52zM12 21.6c-1.24 0-2.45-.323-3.5-.932l-.25-.147-3.7.958.98-3.6-.16-.28A9.6 9.6 0 0 1 2.4 12C2.4 6.2 6.2 2.4 12 2.4c2.56 0 4.95.96 6.77 2.71A9.58 9.58 0 0 1 21.6 12c0 5.8-3.8 9.6-9.6 9.6z"/>
-    <path fill="#ffffff" d="M17.2 14.9c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.8.1s-1 .9-1.2 1.1c-.2.2-.4.2-.7.1-0.5-.2-1.8-.7-3.3-2C7.4 13 6.6 11.9 6.6 10.6c0-.6.2-.9.5-1.3.2-.3.5-.4.8-.4.2 0 .4 0 .6 0 .2 0 .4.1.6.3.2.2.6.7.8 1 .2.3.3.4.6.4.3 0 .6-.1 1-.3.4-.2 1-.4 1.6-.4.5 0 1 .1 1.4.3.4.2.8.5 1 .9.2.4.2.7 0 1-.2.3-.4.5-.7.7z"/>
-  </svg>
-</a>
-
-
-
-<!-- Floating right-side tools: WhatsApp + Call (correct SVGs) -->
+<!-- Floating right-side tools: WhatsApp + Call (styled like reference) -->
 <div class="floating-tools" aria-hidden="false">
 
   <!-- WhatsApp button -->
   <a class="btn-whatsapp" href="https://api.whatsapp.com/send?phone=919032532199&text=Hello%20Fine%20Tech%20Power%20Controls!" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <!-- WhatsApp SVG icon (white) -->
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <path fill="#ffffff" d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.373 0 .01 5.373.01 12.001c0 2.117.553 4.19 1.603 6.023L0 24l6.23-1.612A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-11.999 0-3.199-1.247-6.201-3.48-8.52zM12 21.6c-1.24 0-2.45-.323-3.5-.932l-.25-.147-3.7.958.98-3.6-.16-.28A9.6 9.6 0 0 1 2.4 12C2.4 6.2 6.2 2.4 12 2.4c2.56 0 4.95.96 6.77 2.71A9.58 9.58 0 0 1 21.6 12c0 5.8-3.8 9.6-9.6 9.6z"/>
-      <path fill="#ffffff" d="M17.2 14.9c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.8.1s-1 .9-1.2 1.1c-.2.2-.4.2-.7.1-0.5-.2-1.8-.7-3.3-2C7.4 13 6.6 11.9 6.6 10.6c0-.6.2-.9.5-1.3.2-.3.5-.4.8-.4.2 0 .4 0 .6 0 .2 0 .4.1.6.3.2.2.6.7.8 1 .2.3.3.4.6.4.3 0 .6-.1 1-.3.4-.2 1-.4 1.6-.4.5 0 1 .1 1.4.3.4.2.8.5 1 .9.2.4.2.7 0 1-.2.3-.4.5-.7.7z"/>
-    </svg>
+    <span class="outer" aria-hidden="true"></span>
+    <span class="inner" aria-hidden="true">
+      <!-- WhatsApp SVG icon (filled by CSS to green) -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.373 0 .01 5.373.01 12.001c0 2.117.553 4.19 1.603 6.023L0 24l6.23-1.612A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-11.999 0-3.199-1.247-6.201-3.48-8.52zM12 21.6c-1.24 0-2.45-.323-3.5-.932l-.25-.147-3.7.958.98-3.6-.16-.28A9.6 9.6 0 0 1 2.4 12C2.4 6.2 6.2 2.4 12 2.4c2.56 0 4.95.96 6.77 2.71A9.58 9.58 0 0 1 21.6 12c0 5.8-3.8 9.6-9.6 9.6z"/>
+        <path d="M17.2 14.9c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.8.1s-1 .9-1.2 1.1c-.2.2-.4.2-.7.1-0.5-.2-1.8-.7-3.3-2C7.4 13 6.6 11.9 6.6 10.6c0-.6.2-.9.5-1.3.2-.3.5-.4.8-.4.2 0 .4 0 .6 0 .2 0 .4.1.6.3.2.2.6.7.8 1 .2.3.3.4.6.4.3 0 .6-.1 1-.3.4-.2 1-.4 1.6-.4.5 0 1 .1 1.4.3.4.2.8.5 1 .9.2.4.2.7 0 1-.2.3-.4.5-.7.7z"/>
+      </svg>
+    </span>
   </a>
   <div class="label">WhatsApp</div>
 
   <!-- Call button -->
   <a class="btn-call" href="tel:+919032532199" aria-label="Call us">
-    <!-- Phone SVG icon (white) -->
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <path fill="#ffffff" d="M20.487 16.14l-4.082-1.78a1.37 1.37 0 0 0-1.405.29l-1.88 1.88a15.09 15.09 0 0 1-7.028-7.03l1.88-1.88a1.37 1.37 0 0 0 .29-1.405L7.86 3.514A1.36 1.36 0 0 0 6.56 2.6L3.254 3.906C2.477 4.225 2 5.04 2 5.915c0 10.074 8.183 18.257 18.257 18.257.875 0 1.69-.477 2.009-1.254L21.4 17.44c-.3-.4-.9-.9-1.913-1.3z"/>
-    </svg>
+    <span class="outer" aria-hidden="true"></span>
+    <span class="inner" aria-hidden="true">
+      <!-- Phone SVG icon (filled by CSS to red) -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20.487 16.14l-4.082-1.78a1.37 1.37 0 0 0-1.405.29l-1.88 1.88a15.09 15.09 0 0 1-7.028-7.03l1.88-1.88a1.37 1.37 0 0 0 .29-1.405L7.86 3.514A1.36 1.36 0 0 0 6.56 2.6L3.254 3.906C2.477 4.225 2 5.04 2 5.915c0 10.074 8.183 18.257 18.257 18.257.875 0 1.69-.477 2.009-1.254L21.4 17.44c-.3-.4-.9-.9-1.913-1.3z"/>
+      </svg>
+    </span>
   </a>
   <div class="label">Call</div>
 
-</div>
-
-
-  <a class="btn-call" href="tel:+919032532199">
-    <svg viewBox="0 0 24 24"><path fill="#fff" d="M20.487 16.14l-4.082..."/></svg>
-  </a>
-  <div class="label">Call</div>
 </div>
 
 </body>
