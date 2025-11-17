@@ -291,6 +291,42 @@ body { padding-left: 0 !important; margin-left: 0 !important; }
 iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display:none !important; }
 </style>
 
+
+<!-- START: Desktop-only floating button size override inserted by ChatGPT -->
+<style>
+/* Apply only on desktop screens (>= 992px) */
+@media (min-width: 992px) {
+  /* Target common floating tool selectors used in many themes.
+     Use !important to override inline or earlier rules. */
+  .floating-tools, .floating-tools .ftbtn, .floating-tools .floating-btn, .floating-tools a {
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+  }
+  .floating-tools .inner, .floating-tools .ftbtn .inner {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .floating-tools svg, .floating-tools img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  /* If there are explicit font-size rules for icons/text inside buttons */
+  .floating-tools i, .floating-tools .icon, .floating-tools span {
+    font-size: 14px !important;
+    line-height: 1 !important;
+  }
+}
+</style>
+<!-- END: Desktop-only floating button size override inserted by ChatGPT -->
 </head>
 
 <body>
