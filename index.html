@@ -133,14 +133,11 @@
 }
 </style>
 
-</style>
+
+<style>
 /* ----- Remove/hide left-side legacy sticky icons ----- */
 /* Hide theme-provided whatsapp or tel links site-wide (we will re-enable ours inside .floating-tools) */
-.sticky-icon, .sticklist, .sticky-left, .left-sticky, .sticky-sidebar, #sticky, #sticky-sidebar,
-.book-app, .bookapp, .floating-left, .left-float, .side-float, .side-icons, .social-left,
-a[style*="position: fixed"][href*="api.whatsapp.com"], a[style*="position: fixed"][href^="tel:"],
-iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] {
-  display: none !important;
+
   visibility: hidden !important;
   pointer-events: none !important;
 }
@@ -165,7 +162,7 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
+  width: 80px;              /* outer diameter */
   height: 80px;
   border-radius: 50%;
   background: transparent;
@@ -187,7 +184,7 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] {
 
 /* Inner white circle (smaller) that holds the icon */
 .floating-tools .inner {
-  width: 48px;
+  width: 48px;              /* inner diameter */
   height: 48px;
   border-radius: 50%;
   background: #ffffff;
@@ -198,24 +195,39 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] {
 }
 
 /* WhatsApp outer color (green) */
-.floating-tools .btn-whatsapp .outer { background: linear-gradient(180deg,#29b65b,#0fb14a); }
+.floating-tools .btn-whatsapp .outer {
+  background: linear-gradient(180deg,#29b65b,#0fb14a);
+}
 
 /* Call outer color (red) */
-.floating-tools .btn-call .outer { background: linear-gradient(180deg,#e84b3a,#d32f1f); }
+.floating-tools .btn-call .outer {
+  background: linear-gradient(180deg,#e84b3a,#d32f1f);
+}
 
 /* SVG icon sizes */
-.floating-tools svg { width: 24px; height: 24px; display: block; }
+.floating-tools svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
 
-/* Icon colour inside the white circle */
-.floating-tools .btn-whatsapp .inner svg path { fill: #25D366; }
-.floating-tools .btn-call .inner svg path { fill: #e84b3a; }
+/* Colour the SVG inside the white circle (icon uses currentColor) */
+.floating-tools .btn-whatsapp .inner svg path { fill: #25D366; } /* whatsapp green */
+.floating-tools .btn-call .inner svg path { fill: #e84b3a; }      /* call red */
 
 /* gentle float animation */
-@keyframes floaty { 0% { transform: translateY(0); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
+@keyframes floaty {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
 .floating-tools a { animation: floaty 3.6s ease-in-out infinite; }
 
 /* Hover pop */
-.floating-tools a:hover { transform: translateY(-8px) scale(1.04); box-shadow: 0 18px 36px rgba(0,0,0,0.28); }
+.floating-tools a:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.28);
+}
 
 /* Hover label (desktop) */
 .floating-tools .label {
@@ -244,12 +256,12 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] {
 }
 
 /* Re-enable our right-side anchors (they were hidden by earlier global rule) */
-.floating-tools {
+.floating-tools 
   visibility: visible !important;
   pointer-events: auto !important;
 }
-
 </style>
+
 
 <style>
 /* FORCE HIDE many possible left sticky classes/IDs from theme */
