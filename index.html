@@ -143,13 +143,10 @@
 }
 
 /* ----- Floating tools container (right side) ----- */
-
-/* --- adjusted floating-tools positioning (added by assistant) --- */
-/* Base behavior: smaller offset for small screens, larger on desktop */
 .floating-tools {
   position: fixed;
   right: 18px;
-  bottom: 90px;        /* safe base for most viewports */
+  bottom: 40px;
   z-index: 99999;
   display: flex;
   flex-direction: column;
@@ -157,26 +154,6 @@
   align-items: center;
   pointer-events: none;
 }
-
-/* Desktop screens: nudge the group higher so buttons never clip */
-@media (min-width: 992px) {
-  .floating-tools {
-    bottom: 120px !important; /* increase this if you want them higher */
-    right: 18px !important;
-    pointer-events: auto;
-  }
-}
-
-/* Mobile override (keep them visible above content like cookie bars) */
-@media (max-width: 768px) {
-  .floating-tools {
-    right: 12px;
-    bottom: 90px;
-    gap: 12px;
-  }
-}
-/* --- end assistant css --- */
-
 
 /* Ensure anchors inside are active */
 .floating-tools a {
@@ -1411,7 +1388,7 @@ tpj2('.counter').addClass('animated fadeInDownBig');
 <!-- Floating right-side tools -->
 
 <!-- Floating right-side tools (force-inline SVG fills) -->
-<div class="floating-tools" aria-hidden="false" >
+<div class="floating-tools" aria-hidden="false" style="position:fixed;right:18px;bottom:40px;z-index:99999;display:flex;flex-direction:column;gap:18px;pointer-events:auto;">
   <a class="btn-whatsapp" href="https://api.whatsapp.com/send?phone=919032532199&text=Hello%20Fine%20Tech%20Power%20Controls!" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:80px;height:80px;position:relative;">
     <span style="position:absolute;inset:0;border-radius:50%;background:linear-gradient(180deg,#29b65b,#0fb14a);box-shadow:0 10px 28px rgba(0,0,0,0.18);"></span>
     <span style="width:48px;height:48px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;z-index:2;">
