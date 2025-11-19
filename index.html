@@ -1044,7 +1044,7 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display
                       }  
                  </style>
 
-                 
+ 
         
                 <div id="wpac-google-review"></div>
                     <div class="section_title_wrapper mb-25 wow fadeInUp" data-wow-delay="0.3s">
@@ -1398,6 +1398,24 @@ var heroSwiper = new Swiper('.slider-active', {
     }
 });
 </script>
+
+<!-- client feedback init — move/copy this here -->
+<script>
+var clientSwiper = new Swiper('.client-active', {
+  loop: true,
+  speed: 700,
+  autoplay: { delay: 5000, disableOnInteraction: false },
+  slidesPerView: 1,
+  spaceBetween: 20,
+  navigation: {
+    nextEl: '.testimonial-button-next',
+    prevEl: '.testimonial-button-prev'
+  }
+});
+</script>
+
+
+
 <script>
 var tpj2 = jQuery;
 
