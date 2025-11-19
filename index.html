@@ -339,17 +339,38 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display
 </style>
 
 <style>
-/* Change OUR VISION background */
-.pt-process-step.pt-process-1 {
-    background-color: #0A2B5A !important;
+/* Target the three columns inside the .procces section exactly by column order */
+
+/* OUR VISION (left column) -> DARK BLUE */
+.procces .row.no-gutters > .col-xl-4:nth-child(1) .pt-process-step {
+  background-color: #0A2B5A !important;
+}
+.procces .row.no-gutters > .col-xl-4:nth-child(1) .pt-process-step,
+.procces .row.no-gutters > .col-xl-4:nth-child(1) .pt-process-step * {
+  color: #ffffff !important;
 }
 
-/* Keep text readable */
-.pt-process-step.pt-process-1 h3,
-.pt-process-step.pt-process-1 p,
-.pt-process-step.pt-process-1 a {
-    color: #ffffff !important;
+/* OUR MISSION (middle column) -> ORANGE */
+.procces .row.no-gutters > .col-xl-4:nth-child(2) .pt-process-step {
+  background-color: #F57C1F !important;
 }
+.procces .row.no-gutters > .col-xl-4:nth-child(2) .pt-process-step,
+.procces .row.no-gutters > .col-xl-4:nth-child(2) .pt-process-step * {
+  color: #ffffff !important;
+}
+
+/* INFRASTRUCTURE (right column) -> DARK BLUE */
+.procces .row.no-gutters > .col-xl-4:nth-child(3) .pt-process-step {
+  background-color: #0A2B5A !important;
+}
+.procces .row.no-gutters > .col-xl-4:nth-child(3) .pt-process-step,
+.procces .row.no-gutters > .col-xl-4:nth-child(3) .pt-process-step * {
+  color: #ffffff !important;
+}
+
+/* Small accessibility tweak: ensure links inside keep white color on hover */
+.procces .pt-process-step a { color: #ffffff !important; }
+.procces .pt-process-step a:hover { opacity: .9; }
 </style>
 
 
