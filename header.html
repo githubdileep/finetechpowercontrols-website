@@ -1,85 +1,88 @@
-<!-- header.html (full header — matches index.html top bar + nav + mobile sidebar) -->
+<!-- FINAL HEADER.HTML - MATCHES INDEX PAGE EXACTLY -->
+
 <header class="header-area">
 
-  <!-- Announcement / orange pill (centered) -->
-  <div class="announcement-wrap" style="background:transparent;padding:10px 0;">
-    <div class="custom-container" style="display:flex;justify-content:center">
-      <div style="background:#f58220;color:#fff;padding:8px 20px;border-radius:6px;font-weight:700;max-width:920px;text-align:center;">
-        Leading Electrical Control Panel Manufacturer
-      </div>
-    </div>
-  </div>
-
-  <!-- Top strip (dark blue background) with right side contact area (orange) -->
-  <div class="mheader-top" style="background:#0b3b52;color:#fff;">
+  <!-- Orange Announcement Pill -->
+  <div class="announcement-wrap">
     <div class="custom-container">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;">
-        <div style="flex:1"></div>
-        <div style="flex:0">
-          <!-- keep email & phone visible -->
-          <a href="mailto:sathesh@finetechpowercontrols.com" style="color:#fff;text-decoration:none;margin-right:18px;">
-            <i class="fa fa-envelope-open" style="margin-right:6px"></i> sathesh@finetechpowercontrols.com
+      <div class="announcement-inner">
+        <div class="announcement-pill">
+          Leading Electrical Control Panel Manufacturer
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark Blue Top Strip -->
+  <div class="mheader-top">
+    <div class="custom-container">
+      <div class="topbar-flex">
+        <div class="topbar-left"></div>
+
+        <div class="topbar-right">
+          <a href="mailto:sathesh@finetechpowercontrols.com">
+            <i class="fa fa-envelope-open"></i> &nbsp; sathesh@finetechpowercontrols.com
           </a>
-          <a href="tel:+919032532199" style="color:#fff;text-decoration:none;margin-left:6px;">
-            <i class="fa fa-phone" style="transform:rotate(90deg);margin-right:6px;"></i> +91 90325 32199
+          <a href="tel:+919032532199">
+            <i class="fa fa-phone" style="transform:rotate(90deg);"></i> &nbsp; +91 90325 32199
           </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Main header (logo + nav) -->
-  <div class="header-menu header-sticky" style="background:#fff;">
-    <div class="custom-container" style="padding:18px 0;">
-      <div style="display:flex;align-items:center;justify-content:space-between;">
-        <!-- logo -->
-        <div style="flex:0 0 auto;">
-          <a href="/index.html" class="header-logo">
-            <img src="/assets/img/logo.png" alt="FINETECH" style="height:60px; display:block;">
+  <!-- Main Header: Logo + Navigation -->
+  <div class="header-menu header-sticky">
+    <div class="custom-container">
+      <div class="header-flex">
+
+        <!-- Logo -->
+        <div class="header-logo">
+          <a href="/index.html">
+            <img src="/assets/img/logo.png" alt="FineTech Logo">
           </a>
         </div>
 
-        <!-- nav (centered) -->
-        <div style="flex:1; text-align:center;">
-          <nav id="main-nav" style="display:inline-block;">
-            <ul style="list-style:none;margin:0;padding:0;display:flex;gap:36px;align-items:center;font-weight:700;">
-              <li><a href="/index.html" data-page="home" style="color:#111;text-decoration:none;">HOME</a></li>
-              <li><a href="/about-us.html" data-page="about" style="color:#111;text-decoration:none;">ABOUT US</a></li>
-              <li><a href="/our-products.html" data-page="products" style="color:#111;text-decoration:none;">OUR PRODUCTS</a></li>
-              <li><a href="/industries-we-serve.html" data-page="industries" style="color:#111;text-decoration:none;">INDUSTRIES WE SERVE</a></li>
-              <li><a href="/contact.html" data-page="contact" style="color:#111;text-decoration:none;">CONTACT</a></li>
-            </ul>
-          </nav>
-        </div>
+        <!-- Navigation Center -->
+        <nav id="main-nav">
+          <ul>
+            <li><a href="/index.html" data-page="home">HOME</a></li>
+            <li><a href="/about-us.html" data-page="about">ABOUT US</a></li>
+            <li><a href="/our-products.html" data-page="products">OUR PRODUCTS</a></li>
+            <li><a href="/industries-we-serve.html" data-page="industries">INDUSTRIES WE SERVE</a></li>
+            <li><a href="/contact.html" data-page="contact">CONTACT</a></li>
+          </ul>
+        </nav>
 
-        <!-- right placeholder so nav stays centered -->
-        <div style="flex:0 0 120px;"></div>
+        <!-- Dummy right block for center-balancing -->
+        <div class="header-right-space"></div>
+
       </div>
     </div>
   </div>
-
-  <!-- Big page-title stripe (orange + blue) — this is normally part of each page hero, but index uses a top stripe -->
-  <!-- We do NOT force hero content into header so page-specific hero remains. Keep header clean. -->
 
 </header>
 
-<!-- offcanvas overlay (mobile) -->
+
+<!-- Mobile Sidebar -->
 <div class="offcanvas-overlay"></div>
 
-<!-- mobile sidebar skeleton (copied from original theme) -->
 <div class="sidebar__area" aria-hidden="true">
   <div class="sidebar__wrapper">
-    <div class="sidebar__top d-flex align-items-center mb-40">
-      <div class="sidebar__close mr-35">
-        <button class="sidebar__close-btn sidebar-close" aria-label="Close">
-          <svg width="20" height="20" viewBox="0 0 22 22"><path d="M12.41,11l5.29-5.29c0.39-0.39,0.39-1.02,0-1.41..."/></svg>
-        </button>
-      </div>
-      <div class="logo">
-        <a href="/index.html"><img src="/assets/img/logo.png" alt="Logo" style="height:48px"></a>
+
+    <div class="sidebar__top">
+      <button class="sidebar__close sidebar-close" aria-label="Close Menu">
+        ✕
+      </button>
+
+      <div class="sidebar-logo">
+        <a href="/index.html">
+          <img src="/assets/img/logo.png" alt="">
+        </a>
       </div>
     </div>
-    <div class="sidebar__content p-relative z-index-1">
+
+    <div class="sidebar__content">
       <div class="sidebar__menu">
         <div class="mobile-menu"></div>
       </div>
@@ -87,36 +90,167 @@
   </div>
 </div>
 
-<!-- small script to apply active state and copy menu for mobile -->
+
+<!-- HEADER JS -->
 <script>
-  (function(){
-    // highlight active menu link
-    try {
-      var map = {
-        'index.html':'home','':'home',
-        'about-us.html':'about',
-        'our-products.html':'products',
-        'industries-we-serve.html':'industries',
-        'contact.html':'contact'
-      };
-      var p = location.pathname.split('/').pop();
-      var pageKey = map[p] || null;
-      if (pageKey) {
-        var el = document.querySelector('a[data-page="'+pageKey+'"]');
-        if (el) el.classList.add('active');
-      }
+(function(){
+  // Highlight active menu item
+  var map = {
+    "index.html": "home",
+    "": "home",
+    "about-us.html": "about",
+    "our-products.html": "products",
+    "industries-we-serve.html": "industries",
+    "contact.html": "contact"
+  };
 
-      // populate mobile menu if missing
-      var mainNav = document.querySelector('#main-nav ul');
-      var mobileMenu = document.querySelector('.mobile-menu');
-      if (mainNav && mobileMenu && mobileMenu.innerHTML.trim()==='') {
-        mobileMenu.innerHTML = '<ul>' + mainNav.innerHTML + '</ul>';
-      }
+  var file = location.pathname.split("/").pop();
+  var key = map[file];
+  if (key) {
+    var item = document.querySelector('#main-nav a[data-page="'+key+'"]');
+    if (item) item.classList.add("active");
+  }
 
-      // mobile open/close wiring (toggling 'offcanvas-open' on body)
-      document.querySelectorAll('.sidebar-toggle, .sidebar-close, .sidebar__close-btn').forEach(function(btn){
-        btn.addEventListener('click', function(e){ e.preventDefault(); document.body.classList.toggle('offcanvas-open'); });
-      });
-    } catch(e){ console.warn(e); }
-  })();
+  // Mobile menu clone
+  var mainNav = document.querySelector("#main-nav ul");
+  var mobileMenu = document.querySelector(".mobile-menu");
+  if (mainNav && mobileMenu) {
+    mobileMenu.innerHTML = "<ul>" + mainNav.innerHTML + "</ul>";
+  }
+
+  // Mobile open/close
+  document.querySelectorAll(".sidebar-toggle, .sidebar-close").forEach(btn => {
+    btn.addEventListener("click", function(){
+      document.body.classList.toggle("offcanvas-open");
+    });
+  });
+
+})();
 </script>
+
+
+<!-- HEADER CSS -->
+<style>
+/* === Announcement Pill === */
+.announcement-wrap {
+  background: transparent;
+  padding: 12px 0;
+}
+.announcement-inner {
+  display: flex;
+  justify-content: center;
+}
+.announcement-pill {
+  background: #f58220;
+  color: #fff;
+  padding: 10px 26px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-align: center;
+  font-size: 17px;
+}
+
+/* === Dark Blue Top Strip === */
+.mheader-top {
+  background: #0b3b52;
+  padding: 10px 0;
+}
+.topbar-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbar-right {
+  display: flex;
+  gap: 22px;
+}
+.topbar-right a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* === Main Header === */
+.header-menu {
+  background: #fff;
+  padding: 15px 0;
+}
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.header-logo img {
+  height: 65px;
+  width: auto;
+  display: block;
+}
+
+/* Navigation */
+#main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+#main-nav a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 0;
+}
+#main-nav a:hover,
+#main-nav a.active {
+  color: #f58220;
+}
+
+/* Right balancing block */
+.header-right-space {
+  width: 140px;
+}
+
+/* Mobile Sidebar */
+.sidebar__area {
+  background: #fff;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  right: -320px;
+  height: 100%;
+  z-index: 99999;
+  transition: 0.3s;
+  padding: 20px;
+}
+body.offcanvas-open .sidebar__area {
+  right: 0;
+}
+.offcanvas-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+}
+body.offcanvas-open .offcanvas-overlay {
+  display: block;
+}
+.sidebar__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebar__close {
+  background: none;
+  border: none;
+  font-size: 26px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  #main-nav ul { display: none; }
+}
+</style>
