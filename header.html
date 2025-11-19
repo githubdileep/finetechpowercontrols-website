@@ -3,90 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shared Header</title>
+  <title>Shared Header (fixed conflicts)</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&family=Saira+Semi+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Strong header CSS (overrides other theme CSS) -->
+  <!-- Strong header CSS and conflict-hiding rules -->
   <style>
-    /* basic box sizing */
+    /* base */
     .ft-h * { box-sizing: border-box; }
 
-    /* TOP ROW (single horizontal row) */
-    .ft-top {
-      width:100%;
-      background:#fff;
-      position:relative;
-      z-index:10000 !important;
-    }
-    .ft-top .inner {
-      max-width:1200px; margin:0 auto; padding:12px 20px;
-      display:flex !important; align-items:center !important; justify-content:space-between !important;
-      gap:12px;
+    /* ===== Hide known conflicting header/sidebar selectors from original theme =====
+       This forcibly hides any old sidebars / mobile menus / floating bars that cause the
+       vertical menu to appear. We intentionally use !important to override existing theme CSS.
+    */
+    .mobile-menu, .sidebar__area, .sidebar, .offcanvas-overlay, .offcanvas-backdrop,
+    .sticklist, .sticklist*, .footer-box, .footer-box * , #sticklist, .left-panel, .right-panel {
+      display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      height: 0 !important;
+      width: 0 !important;
+      overflow: hidden !important;
     }
 
+    /* A broad safety-net: hide any element that looks like a vertical mobile nav on left */
+    /* caution: very aggressive selector but needed for legacy theme conflicts */
+    [class*="mobile"][style*="position:fixed"], [class*="sidebar"][style*="position:fixed"] {
+      display:none !important;
+    }
+
+    /* ===== Top row: orange pill + contact (same row) ===== */
+    .ft-top { width:100%; background:#fff; position:relative; z-index:10000 !important; }
+    .ft-top .inner { max-width:1200px; margin:0 auto; padding:12px 20px; display:flex !important; align-items:center !important; justify-content:space-between !important; gap:12px; }
     .ft-left-spacer { flex:1 1 1px; min-width:0; }
+    .ft-pill { flex:0 0 auto; background:#f58220 !important; color:#fff !important; padding:12px 30px !important; border-radius:8px !important; font-weight:700 !important; font-family:'Saira Semi Condensed',sans-serif !important; font-size:17px !important; white-space:nowrap; box-shadow:none !important; }
 
-    .ft-pill {
-      flex:0 0 auto;
-      background:#f58220 !important;
-      color:#fff !important;
-      padding:12px 30px !important;
-      border-radius:8px !important;
-      font-weight:700 !important;
-      font-family:'Saira Semi Condensed',sans-serif !important;
-      font-size:17px !important;
-      white-space:nowrap;
-      box-shadow:none !important;
-    }
-
-    .ft-contact {
-      flex:0 0 auto;
-      display:flex !important;
-      gap:20px; align-items:center;
-      background:#0b3b52 !important; color:#fff !important;
-      padding:10px 18px !important; border-radius:8px !important;
-      white-space:nowrap;
-    }
+    .ft-contact { flex:0 0 auto; display:flex !important; gap:20px; align-items:center; background:#0b3b52 !important; color:#fff !important; padding:10px 18px !important; border-radius:8px !important; white-space:nowrap; }
     .ft-contact a { color:#fff !important; text-decoration:none !important; display:flex; gap:8px; align-items:center; font-weight:600; font-family:'Mulish',sans-serif; }
 
-    /* NAV area */
-    .ft-nav { width:100%; background:#fff; border-bottom:4px solid #f58220; z-index:9999 !important; position:relative; }
-    .ft-nav .inner {
-      max-width:1200px; margin:0 auto; padding:16px 20px;
-      display:flex !important; align-items:center !important; justify-content:space-between !important;
-      gap:12px;
-    }
-
+    /* ===== Nav area ===== */
+    .ft-nav { width:100%; background:#fff; border-bottom:4px solid #f58220; position:relative; z-index:9999 !important; }
+    .ft-nav .inner { max-width:1200px; margin:0 auto; padding:16px 20px; display:flex !important; align-items:center !important; justify-content:space-between !important; gap:12px; }
     .ft-logo img { height:65px !important; display:block !important; }
-
-    /* center menu strongly enforced */
     .ft-menu { flex:1 1 auto; display:flex !important; justify-content:center !important; }
     .ft-menu ul { list-style:none; display:flex !important; gap:36px !important; margin:0 !important; padding:0 !important; align-items:center !important; }
     .ft-menu a { text-decoration:none !important; color:#111 !important; font-weight:700 !important; font-family:'Saira Semi Condensed',sans-serif !important; font-size:16px !important; }
     .ft-menu a:hover, .ft-menu a.active { color:#f58220 !important; }
-
     .ft-right-space { flex:0 0 140px; }
 
-    /* MOBILE SIDEBAR - hidden on desktop forcibly */
-    .ft-overlay { display:none !important; }
-    .ft-sidebar { display:none !important; position:fixed; right:0; top:0; width:300px; height:100%; z-index:99999; }
+    /* ===== Mobile behavior ===== */
+    .ft-overlay, .ft-sidebar, .ft-mobile-menu { display:none !important; } /* keep them hidden unless we intentionally show on small screens */
 
-    /* show mobile toggler only on small screens */
+    /* Show mobile toggle only on small screens */
     .ft-mobile-toggle { display:none; }
 
-    /* prevent other CSS from showing hidden elements */
-    .ft-sidebar, .ft-overlay, .ft-mobile-menu { visibility: visible !important; opacity: 1 !important; }
-
-    /* responsive adjustments */
-    @media (max-width: 991px) {
+    @media (max-width:991px) {
       .ft-left-spacer { display:none; }
       .ft-top .inner { flex-wrap:wrap; }
       .ft-contact { width:100%; justify-content:flex-end; margin-top:8px; }
-      .ft-menu ul { display:none !important; } /* hide desktop menu on mobile */
+      .ft-menu ul { display:none !important; } /* desktop menu hidden on mobile */
       .ft-mobile-toggle { display:block; position:fixed; right:18px; bottom:18px; z-index:100001; background:#f58220; color:#fff; border:0; padding:9px 12px; border-radius:50%; font-size:20px; cursor:pointer; }
       .ft-sidebar { display:block !important; right:-320px; transition:right .25s ease; }
       body.offcanvas-open .ft-sidebar { right:0 !important; }
@@ -94,14 +72,13 @@
       body.offcanvas-open .ft-overlay { display:block; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:99998; }
     }
 
-    /* ensure header stays above hero */
-    .ft-top, .ft-nav { position: relative; z-index: 10000 !important; }
+    /* ensure header above hero */
+    .ft-top, .ft-nav { position:relative; z-index:10000 !important; }
 
   </style>
 </head>
 <body>
 
-<!-- HEADER (ft-h wrapper prevents collisions) -->
 <div class="ft-h">
 
   <!-- TOP ROW -->
@@ -113,11 +90,9 @@
 
       <div class="ft-contact" role="region" aria-label="Contact">
         <a href="mailto:sathesh@finetechpowercontrols.com" aria-label="email">
-          <!-- envelope icon -->
           <svg width="16" height="12" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
           <span>sathesh@finetechpowercontrols.com</span>
         </a>
-
         <a href="tel:+919032532199" aria-label="phone">
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M6.6 10.8c1.6 3.2 4.2 5.8 7.4 7.4l2.1-2.1c.3-.3.8-.4 1.2-.2 1.3.5 2.7.8 4.1.8.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.1 21 3 14.9 3 7c0-.6.4-1 1-1h2.6c.6 0 1 .4 1 1 0 1.4.3 2.8.8 4.1.1.4 0 .9-.3 1.2L6.6 10.8z"/></svg>
           <span>+91 90325 32199</span>
@@ -151,10 +126,10 @@
 
 </div>
 
-<!-- mobile toggle (visible only on narrow screens) -->
+<!-- mobile toggle (small screens only) -->
 <button class="ft-mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('offcanvas-open')">≡</button>
 
-<!-- mobile sidebar (menu will be cloned into .ft-mobile-menu) -->
+<!-- mobile sidebar (cloned menu) -->
 <div class="ft-sidebar" aria-hidden="true">
   <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;">
     <a href="/index.html"><img src="/assets/img/logo.png" alt="logo" style="height:48px" onerror="this.src='/img/logo.png'"></a>
@@ -166,10 +141,35 @@
 <!-- overlay -->
 <div class="ft-overlay" onclick="document.body.classList.remove('offcanvas-open')"></div>
 
-<!-- Header JS -->
+<!-- JS: remove known old nodes and clone menu for mobile + guards -->
 <script>
 (function(){
-  // 1) set active nav link
+  try {
+    // 1) Defensive removal of known legacy header/mobile/sidebar elements that conflict
+    var selectorsToRemove = [
+      '.sidebar__area', '.mobile-menu', '.sticklist', '#sticklist', '.offcanvas-overlay', '.left-panel',
+      '.right-panel', '.footer-box', '.sidebar', '.offcanvas-backdrop'
+    ];
+    selectorsToRemove.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(n){
+        try { n.parentNode && n.parentNode.removeChild(n); } catch(e){}
+      });
+    });
+    // also remove any elements that have class names like "mobile" and are fixed positioned (heuristic)
+    document.querySelectorAll('*').forEach(function(n){
+      try{
+        var c = n.className || '';
+        if(typeof c === 'string' && /mobile|sidebar|offcanvas|sticklist/i.test(c)) {
+          var st = window.getComputedStyle(n);
+          if(st.position === 'fixed' || st.position === 'absolute') {
+            n.parentNode && n.parentNode.removeChild(n);
+          }
+        }
+      } catch(e){}
+    });
+  } catch(e){ /* ignore */ }
+
+  // 2) set active nav link
   var map = {"":"home","index.html":"home","about-us.html":"about","our-products.html":"products","industries-we-serve.html":"industries","contact.html":"contact"};
   var file = location.pathname.split('/').pop();
   var key = map[file] || null;
@@ -178,7 +178,7 @@
     if(el) el.classList.add('active');
   }
 
-  // 2) clone desktop menu to mobile
+  // 3) clone desktop menu to mobile sidebar
   var desktopUL = document.querySelector('.ft-menu ul');
   var mobileNav = document.querySelector('.ft-mobile-menu');
   if(desktopUL && mobileNav){
@@ -188,11 +188,10 @@
     });
   }
 
-  // 3) Safety guard: if screen becomes wide, remove offcanvas-open and hide sidebar
+  // 4) safety guard to ensure sidebar closed on wide screens
   function guardSidebar(){
     if(window.innerWidth >= 992){
       document.body.classList.remove('offcanvas-open');
-      // make sure sidebar remains hidden even if other css tries to show it
       var sb = document.querySelector('.ft-sidebar');
       if(sb) sb.style.right = '-320px';
       var overlay = document.querySelector('.ft-overlay');
@@ -202,18 +201,9 @@
   window.addEventListener('resize', guardSidebar);
   guardSidebar();
 
-  // 4) defensive: hide mobile-menu if some external CSS tries to show it on desktop
-  function enforceDesktopStyles(){
-    var mobileMenu = document.querySelector('.ft-mobile-menu');
-    if(window.innerWidth >= 992 && mobileMenu){
-      mobileMenu.style.display = 'none';
-    } else if(mobileMenu){
-      mobileMenu.style.display = 'block';
-    }
-  }
-  window.addEventListener('resize', enforceDesktopStyles);
-  enforceDesktopStyles();
-
+} catch(e){
+  console.warn('header fix script error', e);
+}
 })();
 </script>
 
