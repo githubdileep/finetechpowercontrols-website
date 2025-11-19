@@ -331,27 +331,203 @@
 </footer>
 
 <!-- Floating right-side tools -->
+<!-- Paste this in place of your existing floating-tools block -->
+<style>
+  /* Floating container (keep your fixed positioning) */
+  .floating-tools {
+    position: fixed;
+    right: 6px;
+    bottom: 140px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    pointer-events: auto;
+    align-items: center;
+  }
 
-<!-- Floating right-side tools (force-inline SVG fills) -->
-<div class="floating-tools" aria-hidden="false" style="position:fixed;right:6px;bottom:140px;z-index:99999;display:flex;flex-direction:column;gap:18px;pointer-events:auto;">
-  <a class="btn-whatsapp" href="https://api.whatsapp.com/send?phone=919032532199&text=Hello%20Fine%20Tech%20Power%20Controls!" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;position:relative;">
-    <span style="position:absolute;inset:0;border-radius:50%;background:linear-gradient(180deg,#29b65b,#0fb14a);box-shadow:0 10px 28px rgba(0,0,0,0.18);"></span>
-    <span style="width:48px;height:48px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;z-index:2;">
-      <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path style="fill:#25D366 !important;" d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.373 0 .01 5.373.01 12.001c0 2.117.553 4.19 1.603 6.023L0 24l6.23-1.612A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-11.999 0-3.199-1.247-6.201-3.48-8.52zM12 21.6c-1.24 0-2.45-.323-3.5-.932l-.25-.147-3.7.958.98-3.6-.16-.28A9.6 9.6 0 0 1 2.4 12C2.4 6.2 6.2 2.4 12 2.4c2.56 0 4.95.96 6.77 2.71A9.58 9.58 0 0 1 21.6 12c0 5.8-3.8 9.6-9.6 9.6z"/><path style="fill:#25D366 !important;" d="M17.2 14.9c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.8.1s-1 .9-1.2 1.1c-.2.2-.4.2-.7.1-0.5-.2-1.8-.7-3.3-2C7.4 13 6.6 11.9 6.6 10.6c0-.6.2-.9.5-1.3.2-.3.5-.4.8-.4.2 0 .4 0 .6 0 .2 0 .4.1.6.3.2.2.6.7.8 1 .2.3.3.4.6.4.3 0 .6-.1 1-.3.4-.2 1-.4 1.6-.4.5 0 1 .1 1.4.3.4.2.8.5 1 .9.2.4.2.7 0 1-.2.3-.4.5-.7.7z"/>
+  /* shared button outer clickable size */
+  .float-btn {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    border-radius: 50%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* outer drop shadow / gradient ring background (keeps the glossy look) */
+  .btn-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+    /* optional subtle radial to mimic previous gradient */
+    background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.06), transparent 35%),
+                linear-gradient(180deg,#29b65b,#0fb14a);
+    transform: translateZ(0);
+  }
+
+  /* inner white disc with green ring (WhatsApp style) */
+  .wa-inner {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff;
+    border: 7px solid #25D366; /* ring thickness */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  /* SVG phone glyph should be green */
+  .wa-inner svg { width: 28px; height: 28px; }
+  .wa-inner svg path { fill: #25D366; }
+
+  /* Call button styling (keeps your red gradient + white inner) */
+  .btn-call .btn-bg {
+    background: linear-gradient(180deg,#e84b3a,#d32f1f);
+  }
+  .call-inner {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:2;
+    border: 0;
+  }
+  .call-inner svg { width: 28px; height: 28px; }
+  .call-inner svg path { fill: #e84b3a; }
+</style>
+
+<div class="floating-tools" aria-hidden="false">
+  <!-- WhatsApp button -->
+
+<!-- Final fixed floating buttons (paste whole block, replacing previous floating tools) -->
+<style>
+/* Floating container */
+.floating-tools {
+  position: fixed;
+  right: 12px;
+  bottom: 90px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  pointer-events: auto;
+}
+
+/* Generic button container */
+.float-btn {
+  --size: 64px;
+  --inner: 56px;
+  --initial-offset: 0px;
+
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  transform: translateY(var(--initial-offset));
+  transition: box-shadow .2s ease;
+}
+
+/* OUTER shadow */
+.float-btn .btn-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.03);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.16);
+  z-index: 1;
+}
+
+/* Inner solid circle */
+.float-btn .circle {
+  width: var(--inner);
+  height: var(--inner);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Ensure SVG paths are white and cannot be overridden */
+.float-btn svg path {
+  fill: #ffffff !important;
+}
+
+/* Colors */
+.btn-whatsapp .circle { background: #25D366; }
+.btn-call     .circle { background: #FF4B3B; }
+
+/* Gentle bounce animation */
+.float-btn:hover {
+  animation: soft-bounce 0.45s ease-out forwards;
+}
+
+@keyframes soft-bounce {
+  0%   { transform: translateY(var(--initial-offset)); }
+  35%  { transform: translateY(calc(var(--initial-offset) - 10px)); }
+  65%  { transform: translateY(calc(var(--initial-offset) - 6px)); }
+  100% { transform: translateY(calc(var(--initial-offset) - 8px)); }
+}
+
+.float-btn:hover .btn-bg {
+  box-shadow: 0 26px 60px rgba(0,0,0,0.22);
+}
+</style>
+
+<div class="floating-tools">
+
+  <!-- WHATSAPP BUTTON -->
+  <a class="float-btn btn-whatsapp"
+     href="https://api.whatsapp.com/send?phone=919032532199&text=Hello%20Fine%20Tech%20Power%20Controls!"
+     target="_blank" aria-label="WhatsApp"
+     style="--initial-offset: -4px;">
+    <span class="btn-bg" aria-hidden="true"></span>
+    <span class="circle" aria-hidden="true" title="Chat on WhatsApp">
+      <!-- Official WhatsApp bubble + phone (full path included) -->
+      <svg width="28" height="28" viewBox="0 0 256 258" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M128.004 0C57.305 0 0 57.306 0 128.004c0 22.574 5.957 44.326 17.219 63.63L0 258l68.52-17.957c18.523 10.16 39.41 15.5 60.006 15.5h.002c70.699 0 128.004-57.307 128.004-128.004C256.53 57.306 198.703 0 128.004 0zm68.745 169.15c-3.77-1.882-22.34-11.03-25.8-12.306-3.46-1.276-5.984-1.882-8.507 1.883-2.522 3.762-9.735 12.302-11.94 14.824-2.21 2.517-4.39 2.826-8.158.94-3.77-1.883-15.89-5.863-30.27-18.711-11.189-9.98-18.75-22.285-20.953-26.047-2.202-3.765-.235-5.796 1.648-7.677 1.692-1.693 3.77-4.44 5.663-6.66 1.89-2.217 2.52-3.77 3.77-6.288 1.257-2.517.628-4.7-.314-6.583-.94-1.883-8.158-19.529-11.51-26.478-3.035-6.484-6.14-5.6-8.505-5.71-2.203-.116-4.725-.116-7.247-.116-2.52 0-6.63.944-10.1 4.7-3.46 3.762-13.24 12.95-13.24 31.577 0 18.63 13.56 36.637 15.45 39.156 1.883 2.518 26.79 42.3 65.06 59.308 9.088 3.927 16.166 6.266 21.7 8.02 9.112 2.899 17.4 2.492 23.94 1.51 7.3-1.083 22.34-9.135 25.49-17.955 3.14-8.82 3.14-16.393 2.203-17.953-1.0-1.563-3.46-2.52-7.23-4.403z"/>
       </svg>
     </span>
   </a>
 
-  <a class="btn-call" href="tel:+919032532199" aria-label="Call" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;position:relative;">
-    <span style="position:absolute;inset:0;border-radius:50%;background:linear-gradient(180deg,#e84b3a,#d32f1f);box-shadow:0 10px 28px rgba(0,0,0,0.18);"></span>
-    <span style="width:48px;height:48px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;z-index:2;">
-      <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path style="fill:#e84b3a !important;" d="M20.487 16.14l-4.082-1.78a1.37 1.37 0 0 0-1.405.29l-1.88 1.88a15.09 15.09 0 0 1-7.028-7.03l1.88-1.88a1.37 1.37 0 0 0 .29-1.405L7.86 3.514A1.36 1.36 0 0 0 6.56 2.6L3.254 3.906C2.477 4.225 2 5.04 2 5.915c0 10.074 8.183 18.257 18.257 18.257.875 0 1.69-.477 2.009-1.254L21.4 17.44c-.3-.4-.9-.9-1.913-1.3z"/>
+  <!-- CALL BUTTON -->
+  <a class="float-btn btn-call"
+     href="tel:+919032532199"
+     aria-label="Call"
+     style="--initial-offset: 6px;">
+    <span class="btn-bg" aria-hidden="true"></span>
+    <span class="circle" aria-hidden="true" title="Call us">
+      <!-- Handset icon (full path included) -->
+      <svg width="26" height="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1v3.5c0 .55-.45 1-1 1C10.07 21.5 2.5 13.93 2.5 4c0-.55.45-1 1-1H7c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.13.33.04.7-.24 1.01l-2.71 2.21z"/>
       </svg>
     </span>
   </a>
+
 </div>
+
+
+
 <!-- end floating tools -->
  
 
