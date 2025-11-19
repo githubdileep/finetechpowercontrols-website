@@ -3,148 +3,139 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Header - FineTech (shared)</title>
+  <title>Shared Header</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300;400;600;700&family=Saira+Semi+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&family=Saira+Semi+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- STRONG, SELF-CONTAINED HEADER STYLES (overrides theme where needed) -->
+  <!-- Strong header CSS (overrides other theme CSS) -->
   <style>
-    /* Reset small header-specific things */
-    .ft-header * { box-sizing: border-box; }
+    /* basic box sizing */
+    .ft-h * { box-sizing: border-box; }
 
-    /* Top-row container: left spacer, center pill, right contact */
-    .ft-top-row { width: 100%; background: #ffffff; }
-    .ft-top-row .ft-top-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex !important;
-      align-items: center !important;
-      gap: 16px;
-      justify-content: space-between !important;
+    /* TOP ROW (single horizontal row) */
+    .ft-top {
+      width:100%;
+      background:#fff;
+      position:relative;
+      z-index:10000 !important;
     }
-
-    /* left spacer to balance centering */
-    .ft-top-left { flex: 1 1 1px; min-width: 0; }
-
-    /* announcement pill centered visually */
-    .ft-pill {
-      flex: 0 0 auto;
-      background: #f58220 !important;
-      color: #fff !important;
-      padding: 12px 30px !important;
-      border-radius: 8px !important;
-      font-weight: 700 !important;
-      font-family: 'Saira Semi Condensed', sans-serif !important;
-      font-size: 17px !important;
-      line-height: 1 !important;
-      box-shadow: none !important;
-      white-space: nowrap;
-    }
-
-    /* right contact block (dark blue) */
-    .ft-top-right {
-      flex: 0 0 auto;
-      display: flex !important;
-      gap: 22px;
-      align-items: center;
-      background: #0b3b52 !important;
-      padding: 10px 18px !important;
-      border-radius: 8px !important;
-    }
-    .ft-top-right a { color: #fff !important; text-decoration: none !important; font-weight: 600 !important; font-family: 'Mulish', sans-serif !important; display:flex; gap:8px; align-items:center; white-space:nowrap;}
-    .ft-top-right svg { width:18px; height:18px; fill:#fff; }
-
-    /* main nav area */
-    .ft-nav-wrap { width:100%; background:#fff; border-bottom: 4px solid #f58220; }
-    .ft-nav-inner {
-      max-width:1200px; margin:0 auto; padding: 14px 20px;
+    .ft-top .inner {
+      max-width:1200px; margin:0 auto; padding:12px 20px;
       display:flex !important; align-items:center !important; justify-content:space-between !important;
-      gap: 12px;
+      gap:12px;
     }
 
-    /* logo */
-    .ft-logo img { height: 65px !important; display:block; }
+    .ft-left-spacer { flex:1 1 1px; min-width:0; }
 
-    /* nav centered with right spacer for balance */
-    .ft-menu { flex: 1 1 auto; display:flex !important; justify-content:center !important; }
-    .ft-menu ul { list-style:none; display:flex !important; gap:36px; margin:0; padding:0; align-items:center; }
-    .ft-menu a { font-family: 'Saira Semi Condensed', sans-serif !important; font-weight:700 !important; font-size:16px !important; text-decoration:none !important; color:#111 !important; padding:6px 2px; }
-    .ft-menu a:hover, .ft-menu a.active { color: #f58220 !important; }
-
-    .ft-right-space { flex: 0 0 140px; }
-
-    /* mobile sidebar (hidden by default) */
-    .ft-sidebar { position: fixed; top:0; right:-320px; width:300px; height:100%; background:#fff; z-index:99999; transition:right .25s ease; padding:18px; overflow:auto;}
-    body.offcanvas-open .ft-sidebar { right:0 !important; }
-    .ft-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.45); display:none; z-index:99998; }
-    body.offcanvas-open .ft-overlay { display:block !important; }
-
-    /* mobile menu inside sidebar */
-    .ft-mobile-menu { display:block; }
-    .ft-mobile-menu ul { list-style:none; padding: 8px 0; margin:0; }
-    .ft-mobile-menu a { display:block; padding:12px 6px; color:#111; text-decoration:none; font-weight:600; }
-
-    /* ensure menu hidden on desktop */
-    @media (min-width: 992px) {
-      .ft-mobile-menu { display:none; }
+    .ft-pill {
+      flex:0 0 auto;
+      background:#f58220 !important;
+      color:#fff !important;
+      padding:12px 30px !important;
+      border-radius:8px !important;
+      font-weight:700 !important;
+      font-family:'Saira Semi Condensed',sans-serif !important;
+      font-size:17px !important;
+      white-space:nowrap;
+      box-shadow:none !important;
     }
+
+    .ft-contact {
+      flex:0 0 auto;
+      display:flex !important;
+      gap:20px; align-items:center;
+      background:#0b3b52 !important; color:#fff !important;
+      padding:10px 18px !important; border-radius:8px !important;
+      white-space:nowrap;
+    }
+    .ft-contact a { color:#fff !important; text-decoration:none !important; display:flex; gap:8px; align-items:center; font-weight:600; font-family:'Mulish',sans-serif; }
+
+    /* NAV area */
+    .ft-nav { width:100%; background:#fff; border-bottom:4px solid #f58220; z-index:9999 !important; position:relative; }
+    .ft-nav .inner {
+      max-width:1200px; margin:0 auto; padding:16px 20px;
+      display:flex !important; align-items:center !important; justify-content:space-between !important;
+      gap:12px;
+    }
+
+    .ft-logo img { height:65px !important; display:block !important; }
+
+    /* center menu strongly enforced */
+    .ft-menu { flex:1 1 auto; display:flex !important; justify-content:center !important; }
+    .ft-menu ul { list-style:none; display:flex !important; gap:36px !important; margin:0 !important; padding:0 !important; align-items:center !important; }
+    .ft-menu a { text-decoration:none !important; color:#111 !important; font-weight:700 !important; font-family:'Saira Semi Condensed',sans-serif !important; font-size:16px !important; }
+    .ft-menu a:hover, .ft-menu a.active { color:#f58220 !important; }
+
+    .ft-right-space { flex:0 0 140px; }
+
+    /* MOBILE SIDEBAR - hidden on desktop forcibly */
+    .ft-overlay { display:none !important; }
+    .ft-sidebar { display:none !important; position:fixed; right:0; top:0; width:300px; height:100%; z-index:99999; }
+
+    /* show mobile toggler only on small screens */
+    .ft-mobile-toggle { display:none; }
+
+    /* prevent other CSS from showing hidden elements */
+    .ft-sidebar, .ft-overlay, .ft-mobile-menu { visibility: visible !important; opacity: 1 !important; }
 
     /* responsive adjustments */
     @media (max-width: 991px) {
-      .ft-top-inner { flex-wrap:wrap; }
-      .ft-top-left { display:none; } /* remove left spacer on small screens */
-      .ft-top-right { width:100%; justify-content:flex-end; margin-top:8px; }
-      .ft-menu ul { display:none; } /* hide desktop nav on mobile (sidebar used) */
+      .ft-left-spacer { display:none; }
+      .ft-top .inner { flex-wrap:wrap; }
+      .ft-contact { width:100%; justify-content:flex-end; margin-top:8px; }
+      .ft-menu ul { display:none !important; } /* hide desktop menu on mobile */
+      .ft-mobile-toggle { display:block; position:fixed; right:18px; bottom:18px; z-index:100001; background:#f58220; color:#fff; border:0; padding:9px 12px; border-radius:50%; font-size:20px; cursor:pointer; }
+      .ft-sidebar { display:block !important; right:-320px; transition:right .25s ease; }
+      body.offcanvas-open .ft-sidebar { right:0 !important; }
+      .ft-overlay { display:none; }
+      body.offcanvas-open .ft-overlay { display:block; position:fixed; inset:0; background:rgba(0,0,0,0.45); z-index:99998; }
     }
 
-    /* strong z-index to keep header above hero */
-    .ft-top-row, .ft-nav-wrap { position:relative; z-index: 9999 !important; }
-
-    /* small visual tweak if font fallback required */
-    .ft-pill, .ft-top-right a, .ft-menu a { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+    /* ensure header stays above hero */
+    .ft-top, .ft-nav { position: relative; z-index: 10000 !important; }
 
   </style>
-
 </head>
 <body>
 
-<!-- HEADER WRAPPER -->
-<div class="ft-header">
+<!-- HEADER (ft-h wrapper prevents collisions) -->
+<div class="ft-h">
 
-  <!-- TOP ROW: left spacer, pill, contact -->
-  <div class="ft-top-row">
-    <div class="ft-top-inner">
-      <div class="ft-top-left" aria-hidden="true"></div>
+  <!-- TOP ROW -->
+  <div class="ft-top" role="banner">
+    <div class="inner">
+      <div class="ft-left-spacer" aria-hidden="true"></div>
 
-      <div class="ft-pill" role="banner">Leading Electrical Control Panel Manufacturer</div>
+      <div class="ft-pill">Leading Electrical Control Panel Manufacturer</div>
 
-      <div class="ft-top-right" role="region" aria-label="Contact">
-        <a href="mailto:sathesh@finetechpowercontrols.com">
-          <!-- small envelope svg -->
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+      <div class="ft-contact" role="region" aria-label="Contact">
+        <a href="mailto:sathesh@finetechpowercontrols.com" aria-label="email">
+          <!-- envelope icon -->
+          <svg width="16" height="12" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
           <span>sathesh@finetechpowercontrols.com</span>
         </a>
 
-        <a href="tel:+919032532199">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.6 3.2 4.2 5.8 7.4 7.4l2.1-2.1c.3-.3.8-.4 1.2-.2 1.3.5 2.7.8 4.1.8.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.1 21 3 14.9 3 7c0-.6.4-1 1-1h2.6c.6 0 1 .4 1 1 0 1.4.3 2.8.8 4.1.1.4 0 .9-.3 1.2L6.6 10.8z"/></svg>
+        <a href="tel:+919032532199" aria-label="phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M6.6 10.8c1.6 3.2 4.2 5.8 7.4 7.4l2.1-2.1c.3-.3.8-.4 1.2-.2 1.3.5 2.7.8 4.1.8.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.1 21 3 14.9 3 7c0-.6.4-1 1-1h2.6c.6 0 1 .4 1 1 0 1.4.3 2.8.8 4.1.1.4 0 .9-.3 1.2L6.6 10.8z"/></svg>
           <span>+91 90325 32199</span>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- NAV (logo - centered menu - right spacer) -->
-  <div class="ft-nav-wrap">
-    <div class="ft-nav-inner">
+  <!-- NAV -->
+  <div class="ft-nav" role="navigation" aria-label="Main">
+    <div class="inner">
       <div class="ft-logo">
-        <a href="/index.html"><img src="/assets/img/logo.png" alt="FineTech Power Controls" onerror="this.src='/img/logo.png'"></a>
+        <a href="/index.html">
+          <img src="/assets/img/logo.png" alt="FineTech Power Controls" onerror="this.src='/img/logo.png'">
+        </a>
       </div>
 
-      <div class="ft-menu" role="navigation" aria-label="Main">
+      <div class="ft-menu" role="menubar" aria-label="Primary menu">
         <ul>
           <li><a href="/index.html" data-page="home">HOME</a></li>
           <li><a href="/about-us.html" data-page="about">ABOUT US</a></li>
@@ -160,63 +151,69 @@
 
 </div>
 
-<!-- mobile sidebar & overlay -->
-<div class="ft-overlay" onclick="document.body.classList.remove('offcanvas-open')"></div>
+<!-- mobile toggle (visible only on narrow screens) -->
+<button class="ft-mobile-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('offcanvas-open')">≡</button>
+
+<!-- mobile sidebar (menu will be cloned into .ft-mobile-menu) -->
 <div class="ft-sidebar" aria-hidden="true">
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;">
     <a href="/index.html"><img src="/assets/img/logo.png" alt="logo" style="height:48px" onerror="this.src='/img/logo.png'"></a>
     <button onclick="document.body.classList.remove('offcanvas-open')" aria-label="Close" style="background:none;border:0;font-size:22px;cursor:pointer;">✕</button>
   </div>
   <nav class="ft-mobile-menu" aria-label="Mobile menu"></nav>
 </div>
 
-<!-- HEADER JS: active item, mobile clone, toggle -->
+<!-- overlay -->
+<div class="ft-overlay" onclick="document.body.classList.remove('offcanvas-open')"></div>
+
+<!-- Header JS -->
 <script>
 (function(){
-  try{
-    // set active nav link by filename
-    var map = {
-      "":"home","index.html":"home",
-      "about-us.html":"about",
-      "our-products.html":"products",
-      "industries-we-serve.html":"industries",
-      "contact.html":"contact"
-    };
-    var file = location.pathname.split("/").pop();
-    var key = map[file] || null;
-    if(key){
-      var node = document.querySelector('.ft-menu a[data-page="'+key+'"]');
-      if(node) node.classList.add('active');
+  // 1) set active nav link
+  var map = {"":"home","index.html":"home","about-us.html":"about","our-products.html":"products","industries-we-serve.html":"industries","contact.html":"contact"};
+  var file = location.pathname.split('/').pop();
+  var key = map[file] || null;
+  if(key){
+    var el = document.querySelector('.ft-menu a[data-page="'+key+'"]');
+    if(el) el.classList.add('active');
+  }
+
+  // 2) clone desktop menu to mobile
+  var desktopUL = document.querySelector('.ft-menu ul');
+  var mobileNav = document.querySelector('.ft-mobile-menu');
+  if(desktopUL && mobileNav){
+    mobileNav.innerHTML = '<ul>' + desktopUL.innerHTML + '</ul>';
+    mobileNav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ document.body.classList.remove('offcanvas-open'); });
+    });
+  }
+
+  // 3) Safety guard: if screen becomes wide, remove offcanvas-open and hide sidebar
+  function guardSidebar(){
+    if(window.innerWidth >= 992){
+      document.body.classList.remove('offcanvas-open');
+      // make sure sidebar remains hidden even if other css tries to show it
+      var sb = document.querySelector('.ft-sidebar');
+      if(sb) sb.style.right = '-320px';
+      var overlay = document.querySelector('.ft-overlay');
+      if(overlay) overlay.style.display = 'none';
     }
+  }
+  window.addEventListener('resize', guardSidebar);
+  guardSidebar();
 
-    // clone desktop menu into mobile sidebar
-    var desktopUL = document.querySelector('.ft-menu ul');
-    var mobileNav = document.querySelector('.ft-mobile-menu');
-    if(desktopUL && mobileNav){
-      mobileNav.innerHTML = '<ul>' + desktopUL.innerHTML + '</ul>';
-      // attach click handlers to mobile menu links to close sidebar
-      mobileNav.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){ document.body.classList.remove('offcanvas-open'); });
-      });
+  // 4) defensive: hide mobile-menu if some external CSS tries to show it on desktop
+  function enforceDesktopStyles(){
+    var mobileMenu = document.querySelector('.ft-mobile-menu');
+    if(window.innerWidth >= 992 && mobileMenu){
+      mobileMenu.style.display = 'none';
+    } else if(mobileMenu){
+      mobileMenu.style.display = 'block';
     }
+  }
+  window.addEventListener('resize', enforceDesktopStyles);
+  enforceDesktopStyles();
 
-    // Create a small mobile toggle button dynamically (only if theme doesn't provide)
-    var smallToggle = document.createElement('button');
-    smallToggle.setAttribute('aria-label','Open menu');
-    smallToggle.style.cssText = 'position:fixed;right:18px;bottom:18px;z-index:100000;background:#f58220;color:#fff;border:0;padding:10px 12px;border-radius:50%;cursor:pointer;display:none;';
-    smallToggle.innerText = '≡';
-    smallToggle.onclick = function(){ document.body.classList.toggle('offcanvas-open'); };
-    document.body.appendChild(smallToggle);
-
-    // Show toggle only on small screens
-    function updateToggle(){
-      if(window.innerWidth < 992) smallToggle.style.display = 'block';
-      else smallToggle.style.display = 'none';
-    }
-    window.addEventListener('resize', updateToggle);
-    updateToggle();
-
-  }catch(e){ console.warn('header init err', e); }
 })();
 </script>
 
