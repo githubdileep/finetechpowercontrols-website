@@ -1,244 +1,186 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
+<html lang="en">
 
-<!-- SELF-CONTAINED FONTS -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300&family=Saira+Semi+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300;400;600;700&family=Saira+Semi+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- SELF-CONTAINED CSS (NO DEPENDENCY ON main.css) -->
 <style>
-
 /* RESET */
-* { margin:0; padding:0; box-sizing:border-box; }
+* {margin:0; padding:0; box-sizing:border-box;}
 
-/* ===== ORANGE PILL ===== */
-.announcement-wrap { padding:12px 0; text-align:center; }
-.announcement-pill {
-    display:inline-block;
-    background:#f58220;
-    color:#fff;
-    padding:12px 30px;
-    font-weight:700;
-    font-size:17px;
-    border-radius:6px;
-    font-family:'Saira Semi Condensed', sans-serif;
-}
+/* GLOBAL FONTS */
+body, a, span { font-family: 'Mulish', sans-serif; }
 
-/* ===== DARK BLUE TOP STRIP ===== */
-.mheader-top {
-    background:#0b3b52;
-    color:#fff;
-    font-family:'Mulish', sans-serif;
-}
-.topbar-flex {
+/* ===========================
+   TOP ROW: Pill + Contact Bar
+   =========================== */
+.top-row-wrap { background:#ffffff; width:100%; }
+.top-row {
     max-width:1200px;
-    margin:auto;
-    padding:10px 20px;
+    margin:0 auto;
+    padding:12px 20px;
     display:flex;
-    justify-content:flex-end;
-    gap:25px;
-}
-.topbar-flex a {
-    color:#fff;
-    text-decoration:none;
-    font-size:14px;
-}
-
-/* ===== MAIN HEADER ===== */
-.header-area {
-    width:100%;
-    background:#fff;
-    font-family:'Saira Semi Condensed', sans-serif;
-}
-
-.header-menu {
-    background:#fff;
-    border-bottom:1px solid #ddd;
-}
-.header-flex {
-    max-width:1200px;
-    margin:auto;
-    padding:15px 20px;
-    display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
-.header-logo img {
-    height:65px;
-}
-
-/* ===== NAVIGATION ===== */
-#main-nav ul {
-    list-style:none;
-    display:flex;
-    gap:45px;
-}
-#main-nav ul li a {
-    text-decoration:none;
-    color:#111;
+/* Orange Pill */
+.announcement-pill {
+    background:#f58220;
+    padding:12px 30px;
+    border-radius:8px;
+    color:#fff;
+    font-size:17px;
     font-weight:700;
-    font-size:16px;
-    letter-spacing:0.4px;
-    padding-bottom:5px;
+    font-family:'Saira Semi Condensed', sans-serif;
 }
-#main-nav ul li a:hover,
-#main-nav ul li a.active {
+
+/* Contact Bar (dark blue block) */
+.top-right {
+    display:flex;
+    align-items:center;
+    gap:30px;
+    background:#0b3b52;
+    padding:12px 22px;
+    border-radius:8px;
+}
+
+.top-right .contact-item {
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+/* Icons */
+.top-right svg {
+    width:18px;
+    height:18px;
+    fill:#ffffff;
+}
+
+/* Responsive */
+@media(max-width:900px) {
+    .top-row {flex-wrap:wrap;}
+    .top-right {width:100%; justify-content:flex-end; margin-top:10px;}
+}
+
+/* ===========================
+     MAIN NAVIGATION BAR
+   =========================== */
+.navbar-wrap {
+    width:100%;
+    background:#ffffff;
+    border-bottom:3px solid #e36f20;
+}
+
+.navbar-container {
+    max-width:1200px;
+    margin:0 auto;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.nav-logo img {
+    height:55px;
+}
+
+.nav-menu {
+    display:flex;
+    gap:40px;
+}
+
+.nav-menu a {
+    text-decoration:none;
+    font-family:'Saira Semi Condensed', sans-serif;
+    font-size:18px;
+    font-weight:700;
+    color:#0b0b0b;
+}
+
+.nav-menu a:hover {
     color:#f58220;
 }
 
-/* RIGHT SPACER FOR PERFECT CENTERING */
-.header-right-space {
-    width:140px;
+/* Mobile */
+@media(max-width:850px) {
+    .nav-menu {flex-wrap:wrap; gap:20px; justify-content:center;}
+    .navbar-container {flex-direction:column; gap:20px;}
+    .nav-logo img {height:50px;}
 }
-
-/* ===== MOBILE SIDEBAR ===== */
-.sidebar__area {
-    position:fixed;
-    top:0;
-    right:-320px;
-    width:300px;
-    height:100%;
-    background:#fff;
-    z-index:99999;
-    padding:20px;
-    transition:0.3s ease;
-}
-.sidebar__top {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-.sidebar__close {
-    background:none;
-    border:none;
-    font-size:24px;
-}
-.sidebar-logo img {
-    height:45px;
-}
-.mobile-menu ul {
-    list-style:none;
-    padding:20px 0;
-}
-.mobile-menu ul a {
-    display:block;
-    padding:10px 0;
-    text-decoration:none;
-    color:#111;
-    font-weight:700;
-}
-.offcanvas-open .sidebar__area {
-    right:0;
-}
-.offcanvas-overlay {
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.45);
-    display:none;
-    z-index:9999;
-}
-.offcanvas-open .offcanvas-overlay {
-    display:block;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:991px) {
-    #main-nav ul { display:none; }
-}
-
 </style>
 
 </head>
+
+
+
 <body>
 
-<!-- ORANGE PILL -->
-<div class="announcement-wrap">
-  <div class="announcement-pill">Leading Electrical Control Panel Manufacturer</div>
-</div>
+<!-- ===========================
+     1. TOP ROW (PILL + CONTACT)
+     =========================== -->
+<div class="top-row-wrap">
+  <div class="top-row">
 
-<!-- DARK BLUE STRIP -->
-<div class="mheader-top">
-  <div class="topbar-flex">
-    <a href="mailto:sathesh@finetechpowercontrols.com"><i class="fa fa-envelope-open"></i> sathesh@finetechpowercontrols.com</a>
-    <a href="tel:+919032532199"><i class="fa fa-phone" style="transform:rotate(90deg)"></i> +91 90325 32199</a>
-  </div>
-</div>
-
-<!-- MAIN HEADER -->
-<header class="header-area">
-  <div class="header-menu">
-    <div class="header-flex">
-
-      <!-- LOGO -->
-      <div class="header-logo">
-        <a href="/index.html">
-          <img src="/assets/img/logo.png" alt="FineTech Power Controls">
-        </a>
+      <!-- Orange Pill -->
+      <div class="announcement-pill">
+          Leading Electrical Control Panel Manufacturer
       </div>
 
-      <!-- NAVIGATION -->
-      <nav id="main-nav">
-        <ul>
-          <li><a href="/index.html" data-page="home">HOME</a></li>
-          <li><a href="/about-us.html" data-page="about">ABOUT US</a></li>
-          <li><a href="/our-products.html" data-page="products">OUR PRODUCTS</a></li>
-          <li><a href="/industries-we-serve.html" data-page="industries">INDUSTRIES WE SERVE</a></li>
-          <li><a href="/contact.html" data-page="contact">CONTACT</a></li>
-        </ul>
-      </nav>
+      <!-- Contact Bar -->
+      <div class="top-right">
 
-      <div class="header-right-space"></div>
+        <a class="contact-item" href="mailto:sathesh@finetechpowercontrols.com">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+            <span>sathesh@finetechpowercontrols.com</span>
+        </a>
 
-    </div>
-  </div>
-</header>
+        <a class="contact-item" href="tel:+919032532199">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.6 3.2 4.2 5.8 7.4 7.4l2.1-2.1c.3-.3.8-.4 1.2-.2 1.3.5 2.7.8 4.1.8.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.1 21 3 14.9 3 7c0-.6.4-1 1-1h2.6c.6 0 1 .4 1 1 0 1.4.3 2.8.8 4.1.1.4 0 .9-.3 1.2L6.6 10.8z"/></svg>
+            <span>+91 90325 32199</span>
+        </a>
 
-<!-- MOBILE SIDEBAR -->
-<div class="offcanvas-overlay"></div>
-<div class="sidebar__area">
-  <div class="sidebar__top">
-    <button class="sidebar__close">✕</button>
-    <div class="sidebar-logo"><a href="/index.html"><img src="/assets/img/logo.png"></a></div>
-  </div>
-  <div class="sidebar__content">
-    <div class="mobile-menu"></div>
+      </div>
+
   </div>
 </div>
 
-<!-- SELF-CONTAINED JS -->
-<script>
-(function(){
-  // Highlight active menu
-  var page = location.pathname.split('/').pop();
-  var map = {
-    "": "home",
-    "index.html": "home",
-    "about-us.html": "about",
-    "our-products.html": "products",
-    "industries-we-serve.html": "industries",
-    "contact.html": "contact"
-  };
-  if (map[page]) {
-    var el = document.querySelector('a[data-page="'+map[page]+'"]');
-    if(el) el.classList.add('active');
-  }
 
-  // Clone menu for mobile
-  var main = document.querySelector('#main-nav ul');
-  var mobile = document.querySelector('.mobile-menu');
-  if(main && mobile) mobile.innerHTML = '<ul>' + main.innerHTML + '</ul>';
 
-  // Open/close sidebar
-  document.querySelectorAll('.sidebar__close').forEach(btn => {
-    btn.addEventListener('click', () => document.body.classList.remove('offcanvas-open'));
-  });
+<!-- ===========================
+     2. MAIN NAVIGATION
+     =========================== -->
+<div class="navbar-wrap">
+  <div class="navbar-container">
 
-})();
-</script>
+      <!-- Logo -->
+      <a href="/index.html" class="nav-logo">
+          <img src="/img/logo.png" alt="FineTech Power Controls">
+      </a>
+
+      <!-- Menu -->
+      <div class="nav-menu">
+          <a href="/index.html">HOME</a>
+          <a href="/about-us.html">ABOUT US</a>
+          <a href="/our-products.html">OUR PRODUCTS</a>
+          <a href="/industries-we-serve.html">INDUSTRIES WE SERVE</a>
+          <a href="/contact.html">CONTACT</a>
+      </div>
+
+  </div>
+</div>
+
 
 </body>
 </html>
