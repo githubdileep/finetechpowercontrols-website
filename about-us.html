@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Electrical Control Panel Manufacturer - Fine Tech Power Controls</title>
-    <meta name="description" content="Fine Tech Power Controls is a Hyderabad-based manufacturer of PCC, MCC, AMF, APFC, DG synchronization and power distribution panels, delivering reliable, safe and cost-effective solutions since 2014.">
+    <title>About Us - Fine Tech Power Controls</title>
+    <meta name="description" content="Fine Tech Power Controls - Leading Electrical Control Panel Manufacturer in Hyderabad">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Fonts and styles (keep these) -->
+    <!-- Fonts and styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300&family=Saira+Semi+Condensed:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/custom-bootstrap.css">
@@ -26,305 +26,227 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/model-custom.css">
     <link rel="stylesheet" href="assets/css/sidebar-btn.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css">
-
-    <!-- Google Tag Manager -->
-    <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-54KT423');
-    </script>
-
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-    </script>
 </head>
 
 <body>
-  <!-- GTM noscript -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54KT423" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- progress indicator -->
-  <div class="progress-wrap" aria-hidden="true">
-    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102" focusable="false" aria-hidden="true">
-      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-    </svg>
+<!-- ===================== SHARED HEADER PLACEHOLDER ===================== -->
+<div id="header-placeholder"></div>
+
+<script>
+(function(){
+  var tryUrls = ['/header.html', 'header.html', './header.html'];
+  var tried = 0;
+
+  var fallbackHeader = `
+<header class="header-area">
+  <div class="mheader-top theme-bg-blue">
+    <div class="custom-container">
+      <div class="row align-items-center">
+        <div class="col-xl-4 d-none d-lg-block">
+          <div class="topbar-text text-center">
+            <p>Leading Electrical Control Panel Manufacturer</p>
+          </div>
+        </div>
+        <div class="col-xl-8">
+          <div class="topbar-right">
+            <a href="mailto:sathesh@finetechpowercontrols.com">sathesh@finetechpowercontrols.com</a>
+            &nbsp; 
+            <a href="tel:+919032532199">+91 90325 32199</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- ===== SHARED HEADER PLACEHOLDER ===== -->
-  <div id="header-placeholder"></div>
-
-  <!-- Inline robust header loader (no external file dependency) -->
-  <script>
-  (function(){
-    // List of paths to try (hosted root first)
-    var paths = ['/header.html','header.html','./header.html'];
-    var tries = 0;
-
-    function tryFetch() {
-      if (tries >= paths.length) {
-        console.error('header-loader: all attempts to fetch header.html failed. Tried:', paths);
-        console.info('Open DevTools > Network to inspect requests. If testing locally via file://, run a local server or ensure header.html sits next to this file.');
-        return;
-      }
-      var p = paths[tries++];
-      fetch(p, {cache: 'no-cache'}).then(function(resp){
-        if (!resp.ok) throw new Error('HTTP ' + resp.status + ' for ' + p);
-        return resp.text();
-      }).then(function(html){
-        insertHeader(html);
-      }).catch(function(err){
-        console.warn('header-loader fetch failed for', p, err);
-        // try next path after small delay
-        setTimeout(tryFetch, 20);
-      });
-    }
-
-    function insertHeader(html) {
-      var ph = document.getElementById('header-placeholder');
-      if (!ph) {
-        ph = document.createElement('div');
-        ph.id = 'header-placeholder';
-        document.body.insertBefore(ph, document.body.firstChild);
-      }
-      ph.innerHTML = html;
-      initHeader();
-      console.info('header-loader: header injected from server.');
-    }
-
-    function initHeader() {
-      try {
-        // set active menu item
-        var map = {
-          'index.html': 'home', '': 'home',
-          'about-us.html': 'about',
-          'our-products.html': 'products',
-          'industries-we-serve.html': 'industries',
-          'contact.html': 'contact'
-        };
-        var path = location.pathname.split('/').pop();
-        var pageKey = map[path] || null;
-        if (pageKey) {
-          var el = document.querySelector('#header-placeholder nav a[data-page="'+pageKey+'"]') || document.querySelector('#header-placeholder nav a[href$="'+path+'"]');
-          if (el) el.classList.add('active');
-        }
-
-        // wire sidebar toggle (mobile)
-        var toggles = document.querySelectorAll('#header-placeholder .sidebar-toggle, #header-placeholder .sidebar-close, .sidebar-toggle, .sidebar-close');
-        toggles.forEach(function(btn){
-          btn.addEventListener('click', function(e){
-            e.preventDefault();
-            document.body.classList.toggle('offcanvas-open');
-          });
-        });
-
-        // If mobile menu plugin expects .mobile-menu element to be filled, copy menu markup there
-        try {
-          var mainMenu = document.querySelector('#header-placeholder nav#mobile-menu');
-          var mobileMenuContainer = document.querySelector('#header-placeholder .mobile-menu');
-          if (mainMenu && mobileMenuContainer && mobileMenuContainer.innerHTML.trim() === '') {
-            mobileMenuContainer.innerHTML = '<ul>' + Array.from(mainMenu.querySelectorAll('ul > li')).map(function(li){ return '<li>'+li.innerHTML+'</li>'; }).join('') + '</ul>';
-          }
-        } catch(e){ /* non-fatal */ }
-
-      } catch(e) {
-        console.warn('initHeader error', e);
-      }
-    }
-
-    // Kickoff
-    tryFetch();
-  })();
-  </script>
-  <!-- ===== END INLINE LOADER ===== -->
-
-  <main>
-    <section class="default-hero">
-      <img src="assets/img/breadcums/about-us.jpg" alt="About us hero - Fine Tech Power Controls" class="img-fluid">
-      <div class="page-name-wrapper wow slideInLeft" data-wow-delay="0.3s">
-        <h1>About Us</h1>
-      </div>
-    </section>
-
-    <section class="tp-contact-area pt-50 pb-50 about-us">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-5">
-            <div class="about-us-img-box">
-              <div class="img-box">
-                <img src="assets/img/about-us.jpg" alt="Fine Tech Power Controls manufacturing facility" class="img-fluid">
-              </div>
-            </div>
+  <div class="header-menu header-sticky">
+    <div class="custom-container">
+      <div class="row align-items-center">
+        <div class="col-2">
+          <div class="header-logo">
+            <a href="/index.html">
+              <img src="/assets/img/logo.png" class="img-fluid" alt="Logo">
+            </a>
           </div>
-          <div class="col-lg-7">
-            <div class="about-us-text-box">
-              <div class="sec-title">
-                <h2>Welcome to Fine Tech Power Controls</h2>
-                <h3>Leading Electric Power & Control Panel Manufacturer</h3>
-                <p class="sec-explain">One of the leading players in the industry, Fine Tech Power Controls is conducting its business operations as a Manufacturer and Supplier of precision-engineered products in the domestic market. The offered lot is inclusive of Power Control Centre Panels, Low Tension Control Panels, Motor Control Panels, Power Factor Control Panels, DG Set Control Panels, Power Distribution Panels, Automatic Power Factor Panels, Auto Mains Failure Panels, DG Synchronization Panels and Power Control Center Panel Boards. Designed and developed using modern work methods and techniques, our products stand high on the counts of performance, durability and quality. Ours is a group of domain-specific professionals who go the extra mile to fulfil varied requirements of clients.</p>
-                <p class="sec-explain">Fine Tech Power Controls is a Hyderabad, India based company and running successfully under the able guidance of <strong>Mr. Sathesh Kumar</strong>, Proprietor. Under his leadership, we have adopted ethical business practices and affordable pricing policies that help us in gaining and maintaining a large customer base. As a company, we commenced our business operations in 2014.</p>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="col-10">
+          <nav id="mobile-menu">
+            <ul>
+              <li><a href="/index.html" data-page="home">HOME</a></li>
+              <li><a href="/about-us.html" data-page="about">ABOUT US</a></li>
+              <li><a href="/our-products.html" data-page="products">OUR PRODUCTS</a></li>
+              <li><a href="/industries-we-serve.html" data-page="industries">INDUSTRIES WE SERVE</a></li>
+              <li><a href="/contact.html" data-page="contact">CONTACT</a></li>
+            </ul>
+          </nav>
         </div>
       </div>
-    </section>
-
-    <section class="procces">
-      <div class="container-fluid px-0">
-        <div class="row no-gutters">
-          <div class="col-xl-4 col-md-12">
-            <div class="pt-process-step pt-process-1 pt-bg-dark">
-              <div class="pt-process-info">
-                <h3 class="pt-process-title text-white">Our Vision</h3>
-                <p class="pt-process-description text-white">Our Vision is to be a BRAND, where the name is enough for buyer to choose.</p>
-              </div>
-              <span class="pt-process-number">01</span>
-            </div>
-          </div>
-
-          <div class="col-xl-4 col-md-12">
-            <div class="pt-process-step pt-process-1 pt-bg-primary">
-              <div class="pt-process-info">
-                <h3 class="pt-process-title text-white">OUR MISSION</h3>
-                <p class="pt-process-description text-white">To provide best Quality, Highly Reliable, Human Friendly, Highly Safe & Cost Effective solutions and services as per customers applications & requirements. To achieve success through the commitment of our employees and actively engage, empower and continuously develop our workforce.</p>
-              </div>
-              <span class="pt-process-number">02</span>
-            </div>
-          </div>
-
-          <div class="col-xl-4 col-md-12">
-            <div class="pt-process-step pt-process-1 pt-bg-dark">
-              <div class="pt-process-info">
-                <h3 class="pt-process-title text-white">INFRASTRUCTURE</h3>
-                <p class="pt-process-description text-white">Investing huge amount in our manufacturing facility has enabled us to entertain different industrial requirements within the said time frame. Further, we have parted our infrastructure facility into different segments for smooth execution of the undertaken job.</p>
-              </div>
-              <span class="pt-process-number">03</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer unchanged (kept same as original file) -->
-  <footer id="footer" style="clear: both;">
-    <nav class="footer-top">
-      <div class="ui stackable equal width grid">
-        <div class="column">
-          <h3>QUICK LINKS</h3>
-          <a href="index.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Home</a>
-          <a href="about-us.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> About Us</a>
-          <a href="our-products.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Our Products</a>
-          <a href="industries-we-serve.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Industries We Serve</a>
-          <a href="contact.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Contact</a>
-
-          <img src="assets/img/make-in-india.png" class="img-fluid mt-5" alt="Make in India">
-        </div>
-        <div class="column">
-          <h3>PRODUCTS</h3>
-          <a href="power-control-center-pcc-panels.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Power Control Center (PCC) Panels</a>
-          <a href="motor-control-center-mcc-panel.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Motor Control Center (MCC) Panel</a>
-          <a href="automatic-power-factor-correction-panels.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Automatic Power Factor Correction Panels</a>
-          <a href="synchronizing-and-auto-load-sharing-panel.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Synchronizing & Auto Load Sharing Panel</a>
-          <a href="automatic-mains-failure-amf-panel.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Automatic Mains Failure (AMF) Panel</a>
-          <a href="power-factor-control-panels.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Power Factor Control Panels</a>
-          <a href="dg-set-control-panels.html"><i class="fa fa-angle-double-right" aria-hidden="true"></i> DG Set Control Panels</a>
-        </div>
-        <div class="column">
-          <h3>CONTACT</h3>
-          <span style="margin-bottom: 10px; display: block;"><strong class="font-f">Fine Tech Power Controls</strong></span>
-          <span><strong class="font-f">Corporate Office</strong></span>
-          <div class="address-icon" style="margin-bottom: 10px; display: block; pointer-events: none;">
-            Plot No 101 <br>Subhash Nagar, <br>IDA Jeedimetla, <br>Hyderabad,<br>Telangana - 500055
-          </div>
-          <a href="tel:+919032532199" class="phone-icon" style="margin-bottom: 10px; display: block;">+91 90325 32199</a>
-          <a href="mailto:sathesh@finetechpowercontrols.com" class="mail-icon">sathesh@finetechpowercontrols.com</a>
-        </div>
-        <div class="column my-custom-modal">
-          <h3>GET QUOTE</h3>
-          <form class="form-horizontal form3" action="https://www.finetechpowercontrols.com/inquiry-action.php" method="post" novalidate>
-            <div class="form-group has-feedback">
-              <div class="col-md-12"><input name="name" id="name3" type="text" placeholder="Name" class="form-control"></div>
-            </div>
-            <div class="form-group has-feedback">
-              <div class="col-md-12"><input name="email" id="email3" type="email" placeholder="E-Mail Address" class="form-control"></div>
-            </div>
-            <div class="form-group has-feedback class-feedback">
-              <div class="col-md-12"><input name="city" id="city3" type="text" placeholder="City" class="form-control"></div>
-            </div>
-            <div class="form-group has-feedback">
-              <div class="col-md-12"><input name="number" id="number3" type="tel" placeholder="Phone" maxlength="15" minlength="10" class="form-control number21"></div>
-            </div>
-            <div class="form-group has-feedback">
-              <div class="col-md-12"><textarea class="form-control" name="message" id="message3" placeholder="Requirement"></textarea></div>
-            </div>
-            <div class="form-group has-feedback">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-8 col position-relative"><input name="captcha" id="captcha3" placeholder="Captcha Code" class="form-control" type="text"></div>
-                  <div class="col-md-4 col"><img src="assets/img/captcha.png" class="capside" alt="captcha"></div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group has-feedback">
-              <div class="col-md-12 col-sm-3 col-xs-12"><input name="submit" class="submit submitbutton" type="submit" value="Submit Now!"></div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-
-    <div class="footer-bottom">
-      <div class="socialRow">
-        <ul class="list-inline mb-0 socialListing text-center">
-          <li class="list-inline-item"><a href="https://www.facebook.com/FineTechPowerControls" target="_blank" rel="noopener" class="scl-item"><i class="icon fab fa-facebook-f"></i></a></li>
-          <li class="list-inline-item"><a href="https://twitter.com/" target="_blank" rel="noopener" class="scl-item"><i class="icon fab fa-twitter"></i></a></li>
-          <li class="list-inline-item"><a href="https://www.linkedin.com/in/sanjay-patel-7357461a2" target="_blank" rel="noopener" class="scl-item"><i class="icon fab fa-linkedin-in"></i></a></li>
-          <li class="list-inline-item"><a href="https://www.instagram.com/sanjaypatel71087/" target="_blank" rel="noopener" class="scl-item"><i class="icon fab fa-instagram"></i></a></li>
-        </ul>
-      </div>
-      <p>Copyright © 2025 Fine Tech Power Controls. All rights reserved.</p>
     </div>
-  </footer>
+  </div>
+</header>
+`;
 
-  <!-- Floating right-side tools (unchanged) -->
-  <!-- (kept as in your original file) -->
+  function applyActive() {
+    var map = {
+      "index.html":"home",
+      "about-us.html":"about",
+      "our-products.html":"products",
+      "industries-we-serve.html":"industries",
+      "contact.html":"contact"
+    };
+    var p = location.pathname.split("/").pop();
+    var key = map[p];
+    if (key) {
+      var el = document.querySelector('#header-placeholder nav a[data-page="'+key+'"]');
+      if (el) el.classList.add("active");
+    }
+  }
 
-  <!-- Scripts (unchanged) -->
-  <script src="assets/js/jquery-1.12.4.min.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/isotope.pkgd.min.js"></script>
-  <script src="assets/js/slick.min.js"></script>
-  <script src="assets/js/swiper-bundle.min.js"></script>
-  <script src="assets/js/waypoints.min.js"></script>
-  <script src="assets/js/jquery.nice-select.min.js"></script>
-  <script src="assets/js/venobox.min.js"></script>
-  <script src="assets/js/backToTop.js"></script>
-  <script src="assets/js/jquery.meanmenu.min.js"></script>
-  <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/js/owl.carousel.min.js"></script>
-  <script src="assets/js/jquery.counterup.min.js"></script>
-  <script src="assets/js/wow.min.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/index.js"></script>
-  <script src="assets/js/jquery.validate.min.js"></script>
-  <script src="assets/js/form-buzz.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js"></script>
+  function inject(html) {
+    document.getElementById("header-placeholder").innerHTML = html;
+    applyActive();
+  }
 
-  <script>
-    // small safety: if header didn't inject, show developer hint (after load)
-    window.addEventListener('load', function(){
-      var ph = document.getElementById('header-placeholder');
-      if (!ph || ph.children.length === 0) {
-        console.warn('Header not injected. Open DevTools -> Console & Network. Look for GET /header.html (404) or fetch errors. If testing locally (file://), run a local server or ensure header.html path is correct.');
-      }
-    });
-  </script>
+  function tryFetch() {
+    if (tried >= tryUrls.length) {
+      inject(fallbackHeader);
+      return;
+    }
+    var url = tryUrls[tried++];
+    fetch(url, {cache:"no-cache"})
+      .then(r => {
+        if (!r.ok) throw 0;
+        return r.text();
+      })
+      .then(html => {
+        if (html.includes("<header")) inject(html);
+        else inject(fallbackHeader);
+      })
+      .catch(e => setTimeout(tryFetch, 50));
+  }
+
+  tryFetch();
+})();
+</script>
+
+<!-- ===================== END SHARED HEADER ===================== -->
+
+<main>
+
+<section class="default-hero">
+  <img src="assets/img/breadcums/about-us.jpg" class="img-fluid" alt="">
+  <div class="page-name-wrapper">
+    <h1>ABOUT US</h1>
+  </div>
+</section>
+
+<section class="tp-contact-area pt-50 pb-50 about-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="about-us-img-box">
+          <img src="assets/img/about-us.jpg" class="img-fluid" alt="">
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <h2>Welcome To Fine Tech Power Controls</h2>
+        <h3>Leading Electric Power & Control Panel Manufacturer</h3>
+
+        <p>Fine Tech Power Controls is conducting its business operations as a Manufacturer and Supplier of precision-engineered products in the domestic market. The offered lot includes Power Control Centre Panels, Low Tension Control Panels, Motor Control Panels, Power Factor Control Panels, DG Set Control Panels, Power Distribution Panels, Automatic Power Factor Panels, Auto Mains Failure Panels, DG Synchronization Panels, and Power Control Center Panel Boards.</p>
+
+        <p>Fine Tech Power Controls is a Hyderabad, India based company and running successfully under the able guidance of <strong>Mr. Sathesh Kumar</strong>, Proprietor. As a company, we commenced our business operations in 2014.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="procces">
+  <div class="container-fluid px-0">
+    <div class="row no-gutters">
+
+      <div class="col-xl-4">
+        <div class="pt-process-step pt-bg-dark">
+          <h3 class="text-white">Our Vision</h3>
+          <p class="text-white">Our Vision is to be a BRAND, where the name itself is enough for the buyer to choose.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-4">
+        <div class="pt-process-step pt-bg-primary">
+          <h3 class="text-white">Our Mission</h3>
+          <p class="text-white">To provide best Quality, Highly Reliable, Human Friendly, Highly Safe & Cost Effective solutions.</p>
+        </div>
+      </div>
+
+      <div class="col-xl-4">
+        <div class="pt-process-step pt-bg-dark">
+          <h3 class="text-white">Infrastructure</h3>
+          <p class="text-white">Investing huge amount in our manufacturing facility enables us to entertain different industrial requirements.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="footer">
+  <nav class="footer-top">
+    <div class="ui stackable equal width grid">
+
+      <div class="column">
+        <h3>QUICK LINKS</h3>
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="our-products.html">Our Products</a>
+        <a href="industries-we-serve.html">Industries We Serve</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="column">
+        <h3>PRODUCTS</h3>
+        <a href="power-control-center-pcc-panels.html">PCC Panels</a>
+        <a href="motor-control-center-mcc-panel.html">MCC Panels</a>
+        <a href="automatic-power-factor-correction-panels.html">APFC Panels</a>
+        <a href="synchronizing-and-auto-load-sharing-panel.html">Synchronizing Panel</a>
+        <a href="automatic-mains-failure-amf-panel.html">AMF Panel</a>
+      </div>
+
+      <div class="column">
+        <h3>CONTACT</h3>
+        Fine Tech Power Controls<br>
+        Plot No 101, IDA Jeedimetla,<br>
+        Hyderabad - 500055<br><br>
+        <a href="tel:+919032532199">+91 90325 32199</a><br>
+        <a href="mailto:sathesh@finetechpowercontrols.com">sathesh@finetechpowercontrols.com</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="footer-bottom">
+    <p>© 2025 Fine Tech Power Controls. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="assets/js/jquery-1.12.4.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/slick.min.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/waypoints.min.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/venobox.min.js"></script>
+<script src="assets/js/backToTop.js"></script>
+<script src="assets/js/jquery.meanmenu.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/jquery.counterup.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/index.js"></script>
 
 </body>
 </html>
