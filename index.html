@@ -40,6 +40,56 @@
 
     <link rel="preload" fetchpriority="high" as="image" href="#" type="image/jpg">
 
+<style>
+/* Ensure topbar announcement is visible on all screen sizes */
+.mheader-top {
+  position: relative !important;
+  z-index: 9999 !important; /* keep it above other header elements */
+}
+
+/* Make the topbar columns stack cleanly on mobile and keep text visible */
+@media (max-width: 991px) {
+  .mheader-top .row {
+    align-items: center;
+  }
+
+  /* force the announcement to be full width and centered on small screens */
+  .mheader-top .topbar-text,
+  .mheader-top .topbar-text .topbar-ann {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 6px 0 !important;
+    padding: 6px 10px !important;
+  }
+
+  /* stronger visible style for the orange pill in case another rule overrides it */
+  .mheader-top .topbar-text .topbar-ann {
+    background-color: #F57C1F !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* ensure the right-side contact links move below/above cleanly and don't overlap */
+  .mheader-top .topbar-right {
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 6px !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* if any earlier rule hid .topbar-text, override it */
+.topbar-text { display: block !important; visibility: visible !important; opacity: 1 !important; }
+</style>
+
     <!-- Google Tag Manager -->
     <script>
     (function(w, d, s, l, i) {
