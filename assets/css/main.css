@@ -3542,6 +3542,8 @@ input.main-search-input:-ms-input-placeholder {
   transition: all 8s ease-out 0s;
 }
 
+
+
 .swiper-slide-active .slide-bg {
   -webkit-transform: scale(1.12);
   -moz-transform: scale(1.12);
