@@ -307,6 +307,8 @@
     </div>
 <main>
     
+    <!-- REMOVED HERO SECTION TO PREVENT FLOATING TEXT -->
+
     <section class="tp-contact-area pt-110 pb-120">
         <div class="container">
             <div class="row">
@@ -364,18 +366,23 @@
                     </div>
                 </div>
                 <div class="col-lg-8 my-custom-modal">
-                    <form class="form-horizontal form5" action="https://www.sathesh@finetechpowercontrols.com/inquiry-action.php" method="post"
+                    <form class="form-horizontal form5" action="https://formsubmit.co/sathesh@finetechpowercontrols.com" method="POST"
                         novalidate="novalidate">
+                        <!-- FormSubmit Configuration (Recommended) -->
+                        <input type="hidden" name="_subject" value="New Contact Inquiry from Website">
+                        <input type="hidden" name="_captcha" value="false"> <!-- Disable default captcha to use yours or none -->
+                        <input type="hidden" name="_template" value="table">
+
                         <div class="form-group has-feedback">
                             <div class="col-md-12">
-                                <input name="name" id="name" type="text" placeholder="Name" class="form-control">
+                                <input name="name" id="name" type="text" placeholder="Name" class="form-control" required>
 
                             </div>
                         </div>
                         <div class="form-group has-feedback">
                             <div class="col-md-12">
-                                <input name="email" id="email" type="text" placeholder="E-Mail Address"
-                                    class="form-control">
+                                <input name="email" id="email" type="email" placeholder="E-Mail Address"
+                                    class="form-control" required>
 
                             </div>
                         </div>
@@ -389,31 +396,18 @@
                         <div class="form-group has-feedback">
                             <div class="col-md-12">
                                 <input name="number" id="number" type="tel" placeholder="Phone" maxlength="15"
-                                    minlength="10" class="form-control number21">
+                                    minlength="10" class="form-control number21" required>
 
                             </div>
                         </div>
                         <div class="form-group has-feedback">
                             <div class="col-md-12">
                                 <textarea class="form-control" name="message" id="message"
-                                    placeholder="Requirement"></textarea>
+                                    placeholder="Requirement" required></textarea>
 
                             </div>
                         </div>
-                        <div class="form-group has-feedback">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-8 col position-relative">
-                                        <input name="captcha" id="captcha" placeholder="Captcha Code"
-                                            class="form-control" type="text">
 
-                                    </div>
-                                    <div class="col-md-4 col">
-                                        <img src="captcha.png" class="capside">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-group has-feedback">
                             <div class="col-md-12 col-sm-3 col-xs-12">
                                 <input name="submit" class="submit submitbutton" type="submit" value="Submit Now!">
@@ -431,7 +425,7 @@
         <div class="ui stackable equal width grid">
             <div class="column">
                 <h3>QUICK LINKS</h3>
-                <a href="index-2.html"><i class="fa fa-angle-double-right"></i> Home</a>
+                <a href="index.html"><i class="fa fa-angle-double-right"></i> Home</a>
                 <a href="about-us.html"><i class="fa fa-angle-double-right"></i> About Us</a>
                 <a href="our-products.html"><i class="fa fa-angle-double-right"></i> Our Products</a>
                 <a href="industries-we-serve.html"><i class="fa fa-angle-double-right"></i> Industries We Serve</a>
@@ -465,7 +459,7 @@
             </div>
             <div class="column my-custom-modal">
                 <h3>GET QUOTE</h3>
-                <form class="form-horizontal form3" action="https://www.sathesh@finetechpowercontrols.com/inquiry-action.php" method="post" novalidate="novalidate">
+                <form class="form-horizontal form3" action="https://formsubmit.co/sathesh@finetechpowercontrols.com" method="post" novalidate="novalidate">
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
                             <input name="name" id="name" type="text" placeholder="Name" class="form-control">
@@ -639,7 +633,7 @@
      target="_blank" aria-label="WhatsApp"
      style="--initial-offset: -4px;">
      <!-- Ensure your image file 'WhatsApp Logo on Green Background.png' is in the same folder as this HTML file -->
-    <img src="whatsapp-logo.png" alt="WhatsApp" 
+    <img src="WhatsApp Logo on Green Background.png" alt="WhatsApp" 
          style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; box-shadow: 0 14px 40px rgba(0,0,0,0.16);">
   </a>
 
@@ -679,8 +673,8 @@
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/index.js"></script>
-<script src="assets/js/jquery.validate.min.js"></script>
-<script src="assets/js/form-buzz.js"></script>
+<!-- <script src="assets/js/jquery.validate.min.js"></script> -->
+<!-- <script src="assets/js/form-buzz.js"></script> -->
 <script src='../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js'></script>
 <script>
 var tpj2 = jQuery;
