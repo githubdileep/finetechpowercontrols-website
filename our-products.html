@@ -40,6 +40,115 @@
 
     <link rel="preload" fetchpriority="high" as="image" href="#" type="image/jpg">
 
+<style>
+/* overall strip color */
+.mheader-top {
+  background: #0A2B5A !important; /* dark blue */
+}
+
+/* make the row stretch so pill vertical-centers */
+.mheader-top .row.align-items-center {
+  align-items: center !important;
+}
+
+/* the orange rounded pill */
+.topbar-pill {
+  display: inline-block;
+  background: #F57C1F;            /* orange */
+  color: #fff;
+  padding: 10px 22px;             /* pill padding */
+  border-radius: 8px;             /* rounded corners */
+  box-shadow: 0 2px 0 rgba(0,0,0,0.12) inset, 0 6px 18px rgba(0,0,0,0.12);
+  border: 4px solid rgba(255,255,255,0.06); /* subtle border */
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  margin-left: 8px;               /* small spacing from edge */
+  vertical-align: middle;
+}
+
+/* ensure the text inside pill is white and not overridden */
+.topbar-pill p {
+  margin: 0;
+  color: #ffffff !important;
+  padding: 0;
+}
+
+/* make sure the left column background stays transparent so the pill sits on blue */
+.mheader-top .col-xl-4.d-none.d-lg-block,
+.mheader-top .topbar-text {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* keep right contact area aligned and white */
+.mheader-top .topbar-right {
+  background: transparent !important;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 8px 14px !important;
+}
+
+/* responsive tweaks for smaller screens */
+@media (max-width: 1199px) {
+  .topbar-pill { padding: 8px 18px; font-size: 15px; }
+}
+@media (max-width: 991px) {
+  /* hide pill on small screens if needed (optional) */
+  .topbar-pill { display: none; }
+}
+</style>
+
+<style>
+/* Overall strip dark blue */
+.mheader-top {
+    background: #0A2B5A !important;
+}
+
+/* Orange pill styling with more margin */
+.topbar-pill {
+    display: inline-block;
+    background: #F57C1F;
+    color: #fff;
+    padding: 10px 26px !important;
+    border-radius: 10px !important;
+    margin: 6px 0 !important;
+    font-weight: 600;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.12) inset, 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Keep white text inside pill */
+.topbar-pill p {
+    margin: 0;
+    color: #ffffff !important;
+}
+
+/* Correct layout: pill left, email/phone right */
+.mheader-top .row.align-items-center {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+/* Right side contact alignment */
+.topbar-right {
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 22px !important;
+    background: transparent !important;
+}
+
+/* Make right section text/icons white */
+.topbar-right a,
+.topbar-right span,
+.topbar-right i {
+    color: #ffffff !important;
+}
+</style>
+
     <!-- Google Tag Manager -->
     <script>
     (function(w, d, s, l, i) {
@@ -81,68 +190,91 @@
         </svg>
     </div>
 
-    <header class="header-area">
-        <div class="mheader-top theme-bg-blue">
-            <div class="custom-container">
-                <div class="row align-items-center">
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+<header class="header-area">
+    <!-- ================= TOP STRIP ================= -->
+<div class="mheader-top" style="background:#0A2B5A !important;">
+        <div class="custom-container">
+            <div class="row align-items-center">
+                
+                <div class="col-xl-3 col-lg-3 d-none"></div>
 
+<div class="col d-flex align-items-center">
+  <div class="topbar-pill">
+      <p>Leading Electrical Control Panel Manufacturer</p>
+  </div>
+</div>
+
+
+
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                    <div class="topbar-right">
+                        <span>
+                            <i class="fa fa-envelope-open" style="margin-right: 5px;"></i>
+                        </span>
+                        <a style="margin-right: 15px;" href="mailto:sathesh@finetechpowercontrols.com"
+                            onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });">
+                            sathesh@finetechpowercontrols.com
+                        </a>
+
+                        <span>
+                            <i class="fa fa-phone" style="transform: rotate(90deg); margin-right: 5px;"></i>
+                        </span>
+                        <a href="tel:+919032532199"
+                            onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+919032532199' });">
+                            +91 90325 32199
+                        </a>
                     </div>
-                    <div class="col-xl-5 col-lg-5 col-md-5 d-none d-lg-block">
-                        <div class="topbar-text text-center">
-                            <p>Leading Electrical Control Panel Manufacturer</p>
-                        </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MAIN HEADER MENU ================= -->
+    <div class="header-menu header-sticky">
+        <div class="custom-container">
+            <div class="row align-items-center">
+
+                <!-- LOGO -->
+                <div class="col-xxl-2 col-xl-2 col-lg-2 col">
+                    <div class="header-logo">
+                        <a href="index.html">
+                            <img src="assets/img/logo.png" class="img-fluid" alt="">
+                        </a>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="topbar-right">
-                            <span><i class="fa fa-envelope-open" style="margin-right: 5px;"></i></span>
-                            <a style="margin-right: 15px;" href="mailto:sathesh@finetechpowercontrols.com"
-                                onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });">
-                                sathesh@finetechpowercontrols.com</a>
-                            <span><i class="fa fa-phone" style="transform: rotate(90deg);margin-right: 5px;"></i></span>
-                            <a href="tel:+919032532199"
-                                onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+919586118114' });">
-                                +91 90325 32199</a>
-                        </div>
+                </div>
+
+                <!-- NAVIGATION -->
+                <div class="col-xxl-10 col-xl-10 col-lg-10 col">
+
+                    <div class="main-menu main-menu-3 d-none d-lg-block" id="white-menu">
+                        <nav id="mobile-menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li class="has-dropdown active"><a href="our-products.html">Our Products</a>
+                                    <!-- Submenu removed for brevity -->
+                                </li>
+                                <li><a href="industries-we-serve.html">Industries We Serve</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
                     </div>
+
+                    <!-- MOBILE MENU ICON -->
+                    <div class="header__action-item d-lg-none d-flex align-items-center justify-content-end">
+                        <a href="javascript:void(0)" class="sidebar-toggle">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
-        <div class="header-menu header-sticky">
-            <div class="custom-container">
-                <div class="row align-items-center">
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col">
-                        <div class="header-logo ">
-                            <a href="index.html"><img src="assets/img/logo.png" class="img-fluid" alt="img"></a>
-                        </div>
-                    </div>
-                    <div class="col-xxl-10 col-xl-10 col-lg-10 col">
-
-                        <div class="main-menu main-menu-3 d-none d-lg-block" id="white-menu">
-                            <nav id="mobile-menu">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about-us.html">About Us</a></li>
-                                    <li class="has-dropdown"><a href="our-products.html">Our Products</a>
-                                        <!-- Submenu removed for brevity -->
-                                    </li>
-                                    <li><a href="industries-we-serve.html">Industries We Serve</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="header__action-item d-lg-none d-flex align-items-center justify-content-end">
-                            <a href="javascript:void(0)" class="sidebar-toggle">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    </div>
+</header>
     <div class="offcanvas-overlay"></div>
 
     <div class="sidebar__area">
@@ -246,13 +378,6 @@
 </div>
 
 <main>
-   <section class="default-hero">
-      <img src="assets/img/breadcums/gallery.html" alt="">
-      <div class="page-name-wrapper wow slideInLeft" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: slideInLeft;">
-         <h1>Our Products</h1>
-      </div>
-   </section>
-
    <!-- ====== Modified products section: each product has image (left) + description (right) ====== -->
    <section class="tp-contact-area pt-50 pb-50">
       <div class="custom-container">
@@ -492,103 +617,22 @@
 <!-- Floating right-side tools -->
 <!-- Paste this in place of your existing floating-tools block -->
 <style>
-  /* Floating container (keep your fixed positioning) */
-  .floating-tools {
-    position: fixed;
-    right: 6px;
-    bottom: 140px;
-    z-index: 99999;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    pointer-events: auto;
-    align-items: center;
-  }
-
-  /* shared button outer clickable size */
-  .float-btn {
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    position: relative;
-    border-radius: 50%;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* outer drop shadow / gradient ring background (keeps the glossy look) */
-  .btn-bg {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.18);
-    /* optional subtle radial to mimic previous gradient */
-    background: radial-gradient(circle at 30% 25%, rgba(255,255,255,0.06), transparent 35%),
-                linear-gradient(180deg,#29b65b,#0fb14a);
-    transform: translateZ(0);
-  }
-
-  /* inner white disc with green ring (WhatsApp style) */
-  .wa-inner {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #fff;
-    border: 7px solid #25D366; /* ring thickness */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    z-index: 2;
-    overflow: hidden;
-  }
-
-  /* SVG phone glyph should be green */
-  .wa-inner svg { width: 28px; height: 28px; }
-  .wa-inner svg path { fill: #25D366; }
-
-  /* Call button styling (keeps your red gradient + white inner) */
-  .btn-call .btn-bg {
-    background: linear-gradient(180deg,#e84b3a,#d32f1f);
-  }
-  .call-inner {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:2;
-    border: 0;
-  }
-  .call-inner svg { width: 28px; height: 28px; }
-  .call-inner svg path { fill: #e84b3a; }
-</style>
-
-<div class="floating-tools" aria-hidden="false">
-  <!-- WhatsApp button -->
-
-<!-- Final fixed floating buttons (paste whole block, replacing previous floating tools) -->
-<style>
 /* Floating container */
 .floating-tools {
   position: fixed;
-  right: 12px;
-  bottom: 90px;
+  right: 18px;
+  bottom: 40px;
   z-index: 99999;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   align-items: center;
   pointer-events: auto;
 }
 
 /* Generic button container */
 .float-btn {
-  --size: 64px;
+  --size: 80px;
   --inner: 56px;
   --initial-offset: 0px;
 
@@ -611,7 +655,7 @@
   inset: 0;
   border-radius: 50%;
   background: rgba(0,0,0,0.03);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.16);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
   z-index: 1;
 }
 
@@ -651,22 +695,37 @@
 .float-btn:hover .btn-bg {
   box-shadow: 0 26px 60px rgba(0,0,0,0.22);
 }
+
+/* Custom WhatsApp Button Sizing */
+.custom-wa-btn {
+  width: 80px !important;
+  height: 80px !important;
+}
+
+@media (max-width: 768px) {
+  .floating-tools .custom-wa-btn {
+    width: 68px !important; /* Scale down on mobile */
+    height: 68px !important;
+  }
+  
+  /* Also ensure call button scales */
+  .float-btn {
+    width: 68px !important;
+    height: 68px !important;
+  }
+}
 </style>
 
 <div class="floating-tools">
 
-  <!-- WHATSAPP BUTTON -->
-  <a class="float-btn btn-whatsapp"
+  <!-- WHATSAPP BUTTON (Replaced with Image) -->
+  <a class="float-btn custom-wa-btn"
      href="https://api.whatsapp.com/send?phone=919032532199&text=Hello%20Fine%20Tech%20Power%20Controls!"
      target="_blank" aria-label="WhatsApp"
      style="--initial-offset: -4px;">
-    <span class="btn-bg" aria-hidden="true"></span>
-    <span class="circle" aria-hidden="true" title="Chat on WhatsApp">
-      <!-- Official WhatsApp bubble + phone (full path included) -->
-      <svg width="28" height="28" viewBox="0 0 256 258" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M128.004 0C57.305 0 0 57.306 0 128.004c0 22.574 5.957 44.326 17.219 63.63L0 258l68.52-17.957c18.523 10.16 39.41 15.5 60.006 15.5h.002c70.699 0 128.004-57.307 128.004-128.004C256.53 57.306 198.703 0 128.004 0zm68.745 169.15c-3.77-1.882-22.34-11.03-25.8-12.306-3.46-1.276-5.984-1.882-8.507 1.883-2.522 3.762-9.735 12.302-11.94 14.824-2.21 2.517-4.39 2.826-8.158.94-3.77-1.883-15.89-5.863-30.27-18.711-11.189-9.98-18.75-22.285-20.953-26.047-2.202-3.765-.235-5.796 1.648-7.677 1.692-1.693 3.77-4.44 5.663-6.66 1.89-2.217 2.52-3.77 3.77-6.288 1.257-2.517.628-4.7-.314-6.583-.94-1.883-8.158-19.529-11.51-26.478-3.035-6.484-6.14-5.6-8.505-5.71-2.203-.116-4.725-.116-7.247-.116-2.52 0-6.63.944-10.1 4.7-3.46 3.762-13.24 12.95-13.24 31.577 0 18.63 13.56 36.637 15.45 39.156 1.883 2.518 26.79 42.3 65.06 59.308 9.088 3.927 16.166 6.266 21.7 8.02 9.112 2.899 17.4 2.492 23.94 1.51 7.3-1.083 22.34-9.135 25.49-17.955 3.14-8.82 3.14-16.393 2.203-17.953-1.0-1.563-3.46-2.52-7.23-4.403z"/>
-      </svg>
-    </span>
+     <!-- Ensure your image file 'WhatsApp Logo on Green Background.png' is in the same folder as this HTML file -->
+    <img src="whatsapp-logo.png" alt="WhatsApp" 
+         style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; box-shadow: 0 14px 40px rgba(0,0,0,0.16);">
   </a>
 
   <!-- CALL BUTTON -->
