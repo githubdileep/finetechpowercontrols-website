@@ -1235,6 +1235,11 @@ We ordered a set of PCC and AMF panels for our site. Every wire was clearly labe
             <div class="column my-custom-modal">
                 <h3>GET QUOTE</h3>
                 <form class="form-horizontal form3" action="https://formsubmit.co/sathesh@finetechpowercontrols.com" method="post" novalidate="novalidate">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New Quote Request from Website">
+                    <input type="hidden" name="_captcha" value="false"> 
+                    <input type="hidden" name="_template" value="table">
+
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
                             <input name="name" id="name" type="text" placeholder="Name" class="form-control" required>
@@ -1386,19 +1391,19 @@ tpj2('.counter').addClass('animated fadeInDownBig');
 /* Floating container */
 .floating-tools {
   position: fixed;
-  right: 12px;
-  bottom: 90px;
+  right: 18px;
+  bottom: 40px;
   z-index: 99999;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   align-items: center;
   pointer-events: auto;
 }
 
 /* Generic button container */
 .float-btn {
-  --size: 64px;
+  --size: 80px;
   --inner: 56px;
   --initial-offset: 0px;
 
@@ -1421,7 +1426,7 @@ tpj2('.counter').addClass('animated fadeInDownBig');
   inset: 0;
   border-radius: 50%;
   background: rgba(0,0,0,0.03);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.16);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
   z-index: 1;
 }
 
@@ -1470,14 +1475,14 @@ tpj2('.counter').addClass('animated fadeInDownBig');
 
 @media (max-width: 768px) {
   .floating-tools .custom-wa-btn {
-    width: 78px !important; /* Scale down on mobile */
-    height: 78px !important;
+    width: 68px !important; /* Scale down on mobile */
+    height: 68px !important;
   }
   
   /* Also ensure call button scales */
   .float-btn {
-    width: 78px !important;
-    height: 78px !important;
+    width: 68px !important;
+    height: 68px !important;
   }
 }
 </style>
