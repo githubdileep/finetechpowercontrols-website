@@ -40,6 +40,32 @@
 
     <link rel="preload" fetchpriority="high" as="image" href="#" type="image/jpg">
 
+    <!-- Google Tag Manager -->
+    <script>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-54KT423');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    </script>
+
 <style>
 /* overall strip color */
 .mheader-top {
@@ -149,31 +175,66 @@
 }
 </style>
 
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            '../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-54KT423');
-    </script>
-    <!-- End Google Tag Manager -->
-    <script>
-    window.dataLayer = window.dataLayer || [];
+<!-- Hero Animation Styles -->
+<style>
+/* Custom keyframe animation for sliding in from left */
+@keyframes creativeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px); /* Start off-screen left */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* End at normal position */
+  }
+}
 
-    function gtag() {
-        dataLayer.push(arguments);
+.creative-float-left {
+  animation: creativeSlideIn 1.5s ease-out forwards; /* Slower animation */
+  opacity: 0; /* Start invisible to prevent flicker before animation starts */
+  display: inline-block;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Hero Section Grid Layout */
+.hero-grid-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-orange-box {
+    background-color: #F57C1F; /* Orange */
+    width: 30%; /* Adjusted width to 30% */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text horizontally */
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden; /* Clip animation if it goes out */
+}
+
+.hero-blue-box {
+    background-color: #0A2B5A; /* Dark Blue */
+    width: 70%; /* Remaining width 70% */
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .hero-grid-container {
+        flex-direction: column;
     }
-    </script>
+    .hero-orange-box, .hero-blue-box {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+    .hero-blue-box {
+        display: none; /* Optional: hide blue part on mobile if empty */
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -190,91 +251,68 @@
         </svg>
     </div>
 
-<header class="header-area">
-    <!-- ================= TOP STRIP ================= -->
-<div class="mheader-top" style="background:#0A2B5A !important;">
-        <div class="custom-container">
-            <div class="row align-items-center">
-                
-                <div class="col-xl-3 col-lg-3 d-none"></div>
+    <header class="header-area">
+        <div class="mheader-top theme-bg-blue">
+            <div class="custom-container">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
 
-<div class="col d-flex align-items-center">
-  <div class="topbar-pill">
-      <p>Leading Electrical Control Panel Manufacturer</p>
-  </div>
-</div>
-
-
-
-                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
-                    <div class="topbar-right">
-                        <span>
-                            <i class="fa fa-envelope-open" style="margin-right: 5px;"></i>
-                        </span>
-                        <a style="margin-right: 15px;" href="mailto:sathesh@finetechpowercontrols.com"
-                            onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });">
-                            sathesh@finetechpowercontrols.com
-                        </a>
-
-                        <span>
-                            <i class="fa fa-phone" style="transform: rotate(90deg); margin-right: 5px;"></i>
-                        </span>
-                        <a href="tel:+919032532199"
-                            onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+919032532199' });">
-                            +91 90325 32199
-                        </a>
                     </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- ================= MAIN HEADER MENU ================= -->
-    <div class="header-menu header-sticky">
-        <div class="custom-container">
-            <div class="row align-items-center">
-
-                <!-- LOGO -->
-                <div class="col-xxl-2 col-xl-2 col-lg-2 col">
-                    <div class="header-logo">
-                        <a href="index.html">
-                            <img src="assets/img/logo.png" class="img-fluid" alt="">
-                        </a>
+                    <div class="col-xl-5 col-lg-5 col-md-5 d-none d-lg-block">
+                        <div class="topbar-text text-center">
+                            <p>Leading Electrical Control Panel Manufacturer</p>
+                        </div>
                     </div>
-                </div>
-
-                <!-- NAVIGATION -->
-                <div class="col-xxl-10 col-xl-10 col-lg-10 col">
-
-                    <div class="main-menu main-menu-3 d-none d-lg-block" id="white-menu">
-                        <nav id="mobile-menu">
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li class="has-dropdown active"><a href="our-products.html">Our Products</a>
-                                    <!-- Submenu removed for brevity -->
-                                </li>
-                                <li><a href="industries-we-serve.html">Industries We Serve</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </nav>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div class="topbar-right">
+                            <span><i class="fa fa-envelope-open" style="margin-right: 5px;"></i></span>
+                            <a style="margin-right: 15px;" href="mailto:sathesh@finetechpowercontrols.com"
+                                onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });">
+                                sathesh@finetechpowercontrols.com</a>
+                            <span><i class="fa fa-phone" style="transform: rotate(90deg);margin-right: 5px;"></i></span>
+                            <a href="tel:+919032532199"
+                                onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+919586118114' });">
+                                +91 90325 32199</a>
+                        </div>
                     </div>
-
-                    <!-- MOBILE MENU ICON -->
-                    <div class="header__action-item d-lg-none d-flex align-items-center justify-content-end">
-                        <a href="javascript:void(0)" class="sidebar-toggle">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </a>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </div>
-</header>
+        <div class="header-menu header-sticky">
+            <div class="custom-container">
+                <div class="row align-items-center">
+                    <div class="col-xxl-2 col-xl-2 col-lg-2 col">
+                        <div class="header-logo ">
+                            <a href="index.html"><img src="assets/img/logo.png" class="img-fluid" alt="img"></a>
+                        </div>
+                    </div>
+                    <div class="col-xxl-10 col-xl-10 col-lg-10 col">
+
+                        <div class="main-menu main-menu-3 d-none d-lg-block" id="white-menu">
+                            <nav id="mobile-menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li class="has-dropdown active"><a href="our-products.html">Our Products</a>
+                                        <!-- Submenu removed for brevity -->
+                                    </li>
+                                    <li><a href="industries-we-serve.html">Industries We Serve</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header__action-item d-lg-none d-flex align-items-center justify-content-end">
+                            <a href="javascript:void(0)" class="sidebar-toggle">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
     <div class="offcanvas-overlay"></div>
 
     <div class="sidebar__area">
@@ -319,16 +357,21 @@
           </div>
           <div class="col-md-7 col-sm-7 col-xs-12">
             <div class="widget footer-widgets tag-widget formtop">
-              <form class="form-horizontal form4" action="https://www.finetechpowercontrols.com/inquiry-action.php" method="post">
+              <form class="form-horizontal form4" action="https://formsubmit.co/sathesh@finetechpowercontrols.com" method="post">
+                <!-- FormSubmit Configuration (Recommended) -->
+                <input type="hidden" name="_subject" value="New Quote Request from Website">
+                <input type="hidden" name="_captcha" value="false"> 
+                <input type="hidden" name="_template" value="table">
+
                 <div class="form-group has-feedback">
                   <div class="col-md-12">
-                    <input name="name" id="name" type="text" placeholder="Your Name:" class="form-control">
+                    <input name="name" id="name" type="text" placeholder="Your Name:" class="form-control" required>
                     <span class="form-control-feedback glyphicon glyphicon-ok"></span>
                   </div>
                 </div>
                 <div class="form-group has-feedback">
                   <div class="col-md-12">
-                    <input name="email" id="email" type="text" placeholder="E-Mail Address" class="form-control">
+                    <input name="email" id="email" type="text" placeholder="E-Mail Address" class="form-control" required>
                     <span class="form-control-feedback glyphicon glyphicon-ok"></span>
                   </div>
                 </div>
@@ -340,29 +383,17 @@
                 </div>
                 <div class="form-group has-feedback">
                   <div class="col-md-12">
-                    <input name="number" id="number" type="tel" placeholder="Your Phone:" maxlength="10" minlength="10" class="form-control number21">
+                    <input name="number" id="number" type="tel" placeholder="Your Phone:" maxlength="10" minlength="10" class="form-control number21" required>
                     <span class="form-control-feedback glyphicon glyphicon-ok"></span>
                   </div>
                 </div>
                 <div class="form-group has-feedback">
                   <div class="col-md-12">
-                    <textarea class="form-control" name="message" id="message" placeholder="Requirement"></textarea>
+                    <textarea class="form-control" name="message" id="message" placeholder="Requirement" required></textarea>
                     <span class="form-control-feedback glyphicon glyphicon-ok"></span>
                   </div>
                 </div>
-                <div class="form-group has-feedback">
-                  <div class="col-md-12">
-                    <div class="row">
-                      <div class="col-md-8 col p-relative ">
-                        <input name="captcha" id="captcha" placeholder="Captcha Code:" class="form-control" type="text">
-                        <span class="form-control-feedback glyphicon glyphicon-ok"></span>
-                      </div>
-                      <div class="col-md-4 col">
-                        <img src="captcha.png" class="capside">
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <!-- Captcha removed for FormSubmit use -->
                 <div class="form-group has-feedback">
                   <div class="col-md-3 col-sm-3 col-xs-12">
                     <input style="" name="submit" class="submit submitbutton" type="submit" value="SUBMIT">
@@ -378,6 +409,20 @@
 </div>
 
 <main>
+    <!-- NEW HERO SECTION WITH SPLIT DESIGN AND ANIMATION -->
+    <section class="default-hero" style="position: relative; overflow: hidden; height: 100px;"> 
+        <!-- Replaced background image with split color containers -->
+        <div class="hero-grid-container">
+            <!-- Left Orange Box with Animated Text -->
+            <div class="hero-orange-box">
+                <h1 class="creative-float-left" style="font-size: 36px; font-weight: 800; color: #ffffff; text-transform: uppercase; margin: 0;">Our Products</h1>
+            </div>
+            <!-- Right Blue Box (Empty or background pattern) -->
+            <div class="hero-blue-box">
+            </div>
+        </div>
+    </section>
+
    <!-- ====== Modified products section: each product has image (left) + description (right) ====== -->
    <section class="tp-contact-area pt-50 pb-50">
       <div class="custom-container">
@@ -549,17 +594,22 @@
             </div>
             <div class="column my-custom-modal">
                 <h3>GET QUOTE</h3>
-                <form class="form-horizontal form3" action="https://www.finetechpowercontrols.com/inquiry-action.php" method="post" novalidate="novalidate">
+                <form class="form-horizontal form3" action="https://formsubmit.co/sathesh@finetechpowercontrols.com" method="post" novalidate="novalidate">
+                    <!-- FormSubmit Configuration (Recommended) -->
+                    <input type="hidden" name="_subject" value="New Quote Request from Website">
+                    <input type="hidden" name="_captcha" value="false"> 
+                    <input type="hidden" name="_template" value="table">
+
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
-                            <input name="name" id="name" type="text" placeholder="Name" class="form-control">
+                            <input name="name" id="name" type="text" placeholder="Name" class="form-control" required>
 
                         </div>
                     </div>
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
                             <input name="email" id="email" type="text" placeholder="E-Mail Address"
-                                class="form-control">
+                                class="form-control" required>
 
                         </div>
                     </div>
@@ -573,31 +623,18 @@
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
                             <input name="number" id="number" type="tel" placeholder="Phone" maxlength="15"
-                                minlength="10" class="form-control number21">
+                                minlength="10" class="form-control number21" required>
 
                         </div>
                     </div>
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
                             <textarea class="form-control" name="message" id="message"
-                                placeholder="Requirement"></textarea>
+                                placeholder="Requirement" required></textarea>
 
                         </div>
                     </div>
-                    <div class="form-group has-feedback">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-8 col position-relative">
-                                    <input name="captcha" id="captcha" placeholder="Captcha Code" class="form-control"
-                                        type="text">
-
-                                </div>
-                                <div class="col-md-4 col">
-                                    <img src="captcha.png" class="capside">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="form-group has-feedback">
                         <div class="col-md-12 col-sm-3 col-xs-12">
                             <input name="submit" class="submit submitbutton" type="submit" value="Submit Now!">
@@ -606,7 +643,7 @@
                 </form>
             </div>
         </div>
-        </nav>
+    </nav>
     <div class="footer-bottom">
 
         </div>
@@ -762,8 +799,8 @@
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/index.js"></script>
-<script src="assets/js/jquery.validate.min.js"></script>
-<script src="assets/js/form-buzz.js"></script>
+<!-- <script src="assets/js/jquery.validate.min.js"></script> -->
+<!-- <script src="assets/js/form-buzz.js"></script> -->
 <script src='../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js'></script>
 <script>
 var tpj2 = jQuery;
