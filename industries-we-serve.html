@@ -160,6 +160,66 @@
 }
 </style>
 
+<!-- Hero Animation Styles -->
+<style>
+/* Custom keyframe animation for sliding in from left */
+@keyframes creativeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px); /* Start off-screen left */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* End at normal position */
+  }
+}
+
+.creative-float-left {
+  animation: creativeSlideIn 1.5s ease-out forwards; /* Slower animation */
+  opacity: 0; /* Start invisible to prevent flicker before animation starts */
+  display: inline-block;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Hero Section Grid Layout */
+.hero-grid-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-orange-box {
+    background-color: #F57C1F; /* Orange */
+    width: 30%; /* Adjusted width to 30% */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text horizontally */
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden; /* Clip animation if it goes out */
+}
+
+.hero-blue-box {
+    background-color: #0A2B5A; /* Dark Blue */
+    width: 70%; /* Remaining width 70% */
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .hero-grid-container {
+        flex-direction: column;
+    }
+    .hero-orange-box, .hero-blue-box {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+    }
+    .hero-blue-box {
+        display: none; /* Optional: hide blue part on mobile if empty */
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -251,7 +311,19 @@
 
 <main>
 
-<!-- (Removed default-hero section with floating text as requested) -->
+    <!-- NEW HERO SECTION WITH SPLIT DESIGN AND ANIMATION -->
+    <section class="default-hero" style="position: relative; overflow: hidden; height: 100px;"> 
+        <!-- Replaced background image with split color containers -->
+        <div class="hero-grid-container">
+            <!-- Left Orange Box with Animated Text -->
+            <div class="hero-orange-box">
+                <h1 class="creative-float-left" style="font-size: 30px; font-weight: 800; color: #ffffff; text-transform: uppercase; margin: 0;">Industries We Serve</h1>
+            </div>
+            <!-- Right Blue Box (Empty or background pattern) -->
+            <div class="hero-blue-box">
+            </div>
+        </div>
+    </section>
 
 <section class="tp-contact-area pt-50 pb-50">
     <div class="container">
@@ -401,7 +473,7 @@
 
             <div class="column my-custom-modal">
                 <h3>GET QUOTE</h3>
-                <form class="form-horizontal form3" action="#" method="post">
+                <form class="form-horizontal form3" action="https://formsubmit.co/sathesh@finetechpowercontrols.com" method="post">
 
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
@@ -430,6 +502,12 @@
                     <div class="form-group has-feedback">
                         <div class="col-md-12">
                             <textarea class="form-control" name="message" placeholder="Requirement"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group has-feedback">
+                        <div class="col-md-12 col-sm-3 col-xs-12">
+                            <input name="submit" class="submit submitbutton" type="submit" value="Submit Now!">
                         </div>
                     </div>
 
@@ -593,6 +671,42 @@
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/index.js"></script>
+<!-- <script src="assets/js/jquery.validate.min.js"></script> -->
+<!-- <script src="assets/js/form-buzz.js"></script> -->
+<script src='../cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.pack.js'></script>
+<script>
+var tpj2 = jQuery;
 
+tpj2.noConflict();
+tpj2(document).ready(function() {
+    tpj2("a.fancybox").fancybox()
+});
+</script>
+<script>
+var tpj2 = jQuery;
+
+tpj2.noConflict();
+tpj2(document).ready(function() {
+    //FANCYBOX
+    //https://github.com/fancyapps/fancyBox
+    tpj2(".fancybox").fancybox({
+        openEffect: 'elastic',
+        closeEffect: "elastic",
+    });
+});
+</script>
+<script type="text/javascript">
+var tpj2 = jQuery;
+
+tpj2.noConflict();
+tpj2('.counter').counterUp({
+    delay: 10,
+    time: 2000
+});
+tpj2('.counter').addClass('animated fadeInDownBig');
+</script>
 </body>
+
+
+<!-- Mirrored from www.sathesh@finetechpowercontrols.com/contact.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Nov 2025 05:44:57 GMT -->
 </html>
