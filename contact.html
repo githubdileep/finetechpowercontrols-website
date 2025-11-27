@@ -68,106 +68,95 @@
     </script>
 
 <style>
-/* overall strip color */
-.mheader-top {
-  background: #0A2B5A !important; /* dark blue */
+.pt-bg-dark {
+    background-color: #0A2B5A !important;
 }
-
-/* make the row stretch so pill vertical-centers */
-.mheader-top .row.align-items-center {
-  align-items: center !important;
-}
-
-/* the orange rounded pill */
-.topbar-pill {
-  display: inline-block;
-  background: #F57C1F;            /* orange */
-  color: #fff;
-  padding: 10px 22px;             /* pill padding */
-  border-radius: 8px;             /* rounded corners */
-  box-shadow: 0 2px 0 rgba(0,0,0,0.12) inset, 0 6px 18px rgba(0,0,0,0.12);
-  border: 4px solid rgba(255,255,255,0.06); /* subtle border */
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 1;
-  margin-left: 8px;               /* small spacing from edge */
-  vertical-align: middle;
-}
-
-/* ensure the text inside pill is white and not overridden */
-.topbar-pill p {
-  margin: 0;
-  color: #ffffff !important;
-  padding: 0;
-}
-
-/* make sure the left column background stays transparent so the pill sits on blue */
-.mheader-top .col-xl-4.d-none.d-lg-block,
-.mheader-top .topbar-text {
-  background: transparent !important;
-  padding: 0 !important;
-}
-
-/* keep right contact area aligned and white */
-.mheader-top .topbar-right {
-  background: transparent !important;
-  color: #ffffff !important;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 8px 14px !important;
-}
-
-/* responsive tweaks for smaller screens */
-@media (max-width: 1199px) {
-  .topbar-pill { padding: 8px 18px; font-size: 15px; }
-}
-@media (max-width: 991px) {
-  /* hide pill on small screens if needed (optional) */
-  .topbar-pill { display: none; }
+.pt-bg-primary {
+    background-color: #F57C1F !important;
 }
 </style>
 
+
+<!-- Header Top Strip Styles (Copied from Index) -->
 <style>
-/* Overall strip dark blue */
+/* Ensure topbar announcement is visible on all screen sizes */
 .mheader-top {
-    background: #0A2B5A !important;
+  position: relative !important;
+  z-index: 9999 !important; /* keep it above other header elements */
 }
 
-/* Orange pill styling with more margin */
-.topbar-pill {
-    display: inline-block;
-    background: #F57C1F;
-    color: #fff;
-    padding: 10px 26px !important;
-    border-radius: 10px !important;
+/* Make the topbar columns stack cleanly on mobile and keep text visible */
+@media (max-width: 991px) {
+  .mheader-top .row {
+    align-items: center;
+  }
+
+  /* force the announcement to be full width and centered on small screens */
+  .mheader-top .topbar-text,
+  .mheader-top .topbar-text .topbar-ann {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
     margin: 6px 0 !important;
-    font-weight: 600;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.12) inset, 0 6px 18px rgba(0,0,0,0.12);
-}
+    padding: 6px 10px !important;
+  }
 
-/* Keep white text inside pill */
-.topbar-pill p {
-    margin: 0;
-    color: #ffffff !important;
-}
+  /* stronger visible style for the orange pill in case another rule overrides it */
+  .mheader-top .topbar-text .topbar-ann {
+    background-color: #F57C1F !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+  }
 
-/* Correct layout: pill left, email/phone right */
-.mheader-top .row.align-items-center {
+  /* ensure the right-side contact links move below/above cleanly and don't overlap */
+  .mheader-top .topbar-right {
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 6px !important;
     display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* if any earlier rule hid .topbar-text, override it */
+.topbar-text { display: block !important; visibility: visible !important; opacity: 1 !important; }
+
+/* Additional Index-style header colors */
+.mheader-top {
+    background-color: #0A2B5A !important;
+    padding-top: 2px !important;
+    padding-bottom: 5px !important;
+}
+.mheader-top .topbar-text p {
+    margin: 2px !important;
+    padding: 4px !important;
+    font-size: 16px !important;
+}
+
+/* The Orange Pill Style */
+.topbar-text p {
+    background-color: #F57C1F  !important;
+    color: #ffffff !important;
+    padding: 10px 20px !important;
+    border-radius: 6px !important;
 }
 
 /* Right side contact alignment */
-.topbar-right {
-    margin-left: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 22px !important;
-    background: transparent !important;
+.mheader-top .custom-container .row { align-items: center; }
+.mheader-top .topbar-right {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  font-size: 16px;
 }
-
 /* Make right section text/icons white */
 .topbar-right a,
 .topbar-right span,
@@ -252,44 +241,34 @@
         </svg>
     </div>
     <header class="header-area">
-    <!-- ================= TOP STRIP ================= -->
-<div class="mheader-top" style="background:#0A2B5A !important;">
-        <div class="custom-container">
-            <div class="row align-items-center">
-                
-                <div class="col-xl-3 col-lg-3 d-none"></div>
-
-<div class="col d-flex align-items-center">
-  <div class="topbar-pill">
-      <p>Leading Electrical Control Panel Manufacturer</p>
+      <!-- ================= TOP STRIP (Updated to match Index) ================= -->
+    <div class="mheader-top theme-bg-blue">
+            <div class="custom-container">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-3 d-none"></div>
+                    <!-- topbar text - make visible on all screen sizes -->
+<div class="col-12 col-md-4">
+  <div class="topbar-text text-center">
+    <p class="topbar-ann">Leading Electrical Control Panel Manufacturer</p>
   </div>
 </div>
 
-
-
-                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
-                    <div class="topbar-right">
-                        <span>
-                            <i class="fa fa-envelope-open" style="margin-right: 5px;"></i>
-                        </span>
-                        <a style="margin-right: 15px;" href="mailto:sathesh@finetechpowercontrols.com"
-                            onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });">
-                            sathesh@finetechpowercontrols.com
-                        </a>
-
-                        <span>
-                            <i class="fa fa-phone" style="transform: rotate(90deg); margin-right: 5px;"></i>
-                        </span>
-                        <a href="tel:+919032532199"
-                            onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+919032532199' });">
-                            +91 90325 32199
-                        </a>
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                        <div class="topbar-right">
+                            <span><i class="fa fa-envelope-open" style="margin-right: 5px;"></i></span>
+                            <a style="margin-right: 15px;" href="mailto:sathesh@finetechpowercontrols.com"
+                                onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });">
+                                sathesh@finetechpowercontrols.com</a>
+                            <span><i class="fa fa-phone" style="transform: rotate(90deg);margin-right: 5px;"></i></span>
+                            <a href="tel:+919032532199"
+                                onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+919032532199' });">
+                                +91 90325 32199</a>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
+
         <div class="header-menu header-sticky">
             <div class="custom-container">
                 <div class="row align-items-center">
