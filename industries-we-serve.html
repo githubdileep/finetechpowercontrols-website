@@ -213,8 +213,32 @@
 
 <body>
 
-<!-- (REMOVED STICKLIST SIDEBAR COMPLETELY) -->
+<div class="offcanvas-overlay" aria-hidden="true"></div>
 
+    <div class="sidebar__area" aria-hidden="true">
+        <div class="sidebar__wrapper">
+            <div class="sidebar__top d-flex align-items-center mb-40">
+                <div class="sidebar__close mr-35">
+                    <button class="sidebar__close-btn sidebar-close" aria-label="Close sidebar">
+                        <svg viewBox="0 0 22 22" aria-hidden="true">
+                            <path d="M12.41,11l5.29-5.29c0.39-0.39,0.39-1.02,0-1.41s-1.02-0.39-1.41,0L11,9.59L5.71,4.29c-0.39-0.39-1.02-0.39-1.41,0
+                            s-0.39,1.02,0,1.41L9.59,11l-5.29,5.29c-0.39,0.39-0.39,1.02,0,1.41C4.49,17.9,4.74,18,5,18s0.51-0.1,0.71-0.29L11,12.41l5.29,5.29
+                            C16.49,17.9,16.74,18,17,18s0.51-0.1,0.71-0.29c0.39-0.39,0.39-1.02,0-1.41L12.41,11z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="logo">
+                    <a href="index.html"><img src="assets/img/logo.png" alt="Fine Tech Power Controls logo"></a>
+                </div>
+            </div>
+            <div class="sidebar__content p-relative z-index-1">
+                <div class="sidebar__menu">
+                    <div class="mobile-menu" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 <!-- (REMOVED FOOTER-BOX MOBILE SHORTCUTS COMPLETELY) -->
 
 <div class="progress-wrap">
@@ -686,5 +710,4 @@ tpj2('.counter').addClass('animated fadeInDownBig');
 </body>
 
 
-<!-- Mirrored from www.sathesh@finetechpowercontrols.com/contact.php by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 17 Nov 2025 05:44:57 GMT -->
 </html>
