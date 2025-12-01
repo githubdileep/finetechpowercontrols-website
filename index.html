@@ -1468,6 +1468,22 @@ tpj2('.counter').addClass('animated fadeInDownBig');
     height: 68px !important;
   }
 }
+
+/* START OF NEW CODE */
+/* Hide Call Button on Desktop */
+.btn-call {
+    display: none !important;
+}
+
+/* Show Call Button on Mobile */
+@media (max-width: 768px) {
+    .btn-call {
+        display: inline-flex !important;
+    }
+}
+/* END OF NEW CODE */
+
+
 </style>
 
 <div class="floating-tools">
