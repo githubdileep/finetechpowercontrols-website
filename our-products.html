@@ -754,6 +754,7 @@ Built for reliability and long-term performance, our Power Factor Control Panels
 <!-- Paste this in place of your existing floating-tools block -->
 <style>
 /* Floating container */
+/* --- Floating Tools Container (Aligned with About Us) --- */
 .floating-tools {
   position: fixed;
   right: 12px;
@@ -766,12 +767,11 @@ Built for reliability and long-term performance, our Power Factor Control Panels
   pointer-events: auto;
 }
 
-/* Generic button container */
+/* --- Generic Button Styles --- */
 .float-btn {
   --size: 80px;
   --inner: 56px;
-  --initial-offset: 0px;
-
+  
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
@@ -781,11 +781,44 @@ Built for reliability and long-term performance, our Power Factor Control Panels
   position: relative;
   cursor: pointer;
   text-decoration: none;
-  transform: translateY(var(--initial-offset));
   transition: box-shadow .2s ease;
+  
+  /* THIS LINE ADDS THE FLOATING ANIMATION */
+  animation: floatUpDn 3s ease-in-out infinite;
 }
 
-/* OUTER shadow */
+/* --- Mobile Adjustments --- */
+@media (max-width: 768px) {
+  .floating-tools .custom-wa-btn {
+    width: 68px !important;
+    height: 68px !important;
+  }
+  .float-btn {
+    width: 68px !important;
+    height: 68px !important;
+  }
+}
+
+/* --- Hide Call Button on Desktop --- */
+.btn-call {
+    display: none !important;
+}
+
+/* --- Show Call Button on Mobile --- */
+@media (max-width: 768px) {
+    .btn-call {
+        display: inline-flex !important;
+    }
+}
+
+/* --- The Animation Keyframes (REQUIRED) --- */
+@keyframes floatUpDn {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-12px); } /* Moves up 12px */
+    100% { transform: translateY(0px); }
+}
+
+/* --- Button Colors & Shapes --- */
 .float-btn .btn-bg {
   position: absolute;
   inset: 0;
@@ -795,7 +828,6 @@ Built for reliability and long-term performance, our Power Factor Control Panels
   z-index: 1;
 }
 
-/* Inner solid circle */
 .float-btn .circle {
   width: var(--inner);
   height: var(--inner);
@@ -807,49 +839,10 @@ Built for reliability and long-term performance, our Power Factor Control Panels
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-/* Ensure SVG paths are white and cannot be overridden */
-.float-btn svg path {
-  fill: #ffffff !important;
-}
-
-/* Colors */
 .btn-whatsapp .circle { background: #25D366; }
 .btn-call     .circle { background: #FF4B3B; }
-
-/* Gentle bounce animation */
-.float-btn:hover {
-  animation: soft-bounce 0.45s ease-out forwards;
-}
-
-@keyframes soft-bounce {
-  0%   { transform: translateY(var(--initial-offset)); }
-  35%  { transform: translateY(calc(var(--initial-offset) - 10px)); }
-  65%  { transform: translateY(calc(var(--initial-offset) - 6px)); }
-  100% { transform: translateY(calc(var(--initial-offset) - 8px)); }
-}
-
-.float-btn:hover .btn-bg {
-  box-shadow: 0 26px 60px rgba(0,0,0,0.22);
-}
-
-/* Custom WhatsApp Button Sizing */
-.custom-wa-btn {
-  width: 68px !important;
-  height: 68px !important;
-}
-
-@media (max-width: 768px) {
-  .floating-tools .custom-wa-btn {
-    width: 68px !important; /* Scale down on mobile */
-    height: 68px !important;
-  }
-  
-  /* Also ensure call button scales */
-  .float-btn {
-    width: 68px !important;
-    height: 68px !important;
-  }
-}
+.float-btn svg path { fill: #ffffff !important; }
+.custom-wa-btn { width: 68px !important; height: 68px !important; }
 
 /* START OF NEW CODE */
 /* Hide Call Button on Desktop */
