@@ -1525,7 +1525,7 @@ document.querySelectorAll("form[action*='web3forms']").forEach(form => {
     form.addEventListener("submit", function(e) {
         e.preventDefault(); // Stop page reload
 
-        // 1. Validate Form (Simple check)
+        // 1. Validate Form
         if (!form.checkValidity()) {
             form.reportValidity();
             return;
@@ -1541,19 +1541,13 @@ document.querySelectorAll("form[action*='web3forms']").forEach(form => {
             submitBtn.disabled = true;
         }
 
-        // 3. Prepare Data
+        // 3. Prepare Data (Standard Form Data - Harder to block)
         const formData = new FormData(form);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
 
-        // 4. Send to Web3Forms
+        // 4. Send to Web3Forms using standard POST
         fetch("https://api.web3forms.com/submit", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: json
+            body: formData 
         })
         .then(async (response) => {
             if (response.status === 200) {
@@ -1561,7 +1555,7 @@ document.querySelectorAll("form[action*='web3forms']").forEach(form => {
                 form.reset(); // Clear form
                 document.getElementById("custom-thankyou").style.display = "flex"; // Show Popup
                 
-                // Close any open modals (if using Bootstrap)
+                // Close any open modals
                 if (typeof $ !== 'undefined' && $('.modal').length > 0) {
                     $('.modal').modal('hide');
                 }
@@ -1572,9 +1566,9 @@ document.querySelectorAll("form[action*='web3forms']").forEach(form => {
             }
         })
         .catch(error => {
-            // NETWORK ERROR (e.g., AdBlocker)
+            // NETWORK ERROR
             console.error("Error:", error);
-            alert("Network error! Please disable AdBlocker and try again.");
+            alert("Connection blocked. Please try a different browser or disable extensions.");
         })
         .finally(() => {
             // RESET BUTTON
