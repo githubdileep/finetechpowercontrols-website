@@ -701,70 +701,78 @@ tpj2('.counter').counterUp({
 tpj2('.counter').addClass('animated fadeInDownBig');
 </script>
 
-<script>
-document.querySelectorAll("form[action*='web3forms']").forEach(form => {
-    form.addEventListener("submit", function(e) {
-        e.preventDefault(); // Stop page reload
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.onFormSuccess();}"></iframe>
 
-        // 1. Validate Form
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
-
-        // 2. Change Button Text
-        const submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
-        const originalText = submitBtn ? (submitBtn.value || submitBtn.innerText) : 'Submit';
+<div id="custom-thankyou" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:999999; align-items:center; justify-content:center;">
+    <div style="background:white; padding:40px; border-radius:12px; max-width:400px; width:90%; text-align:center; position:relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+        <div style="width:70px; height:70px; background:#d4edda; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px auto;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 6L9 17L4 12" stroke="#28a745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
         
-        if(submitBtn) {
-            if(submitBtn.tagName === 'INPUT') { submitBtn.value = "Sending..."; }
-            else { submitBtn.innerText = "Sending..."; }
-            submitBtn.disabled = true;
-        }
+        <h3 style="margin:0 0 10px 0; color:#333; font-family:'Mulish', sans-serif; font-weight:800;">Thank You!</h3>
+        <p style="margin:0 0 25px 0; color:#666; font-size:16px; line-height:1.5;">Your message has been sent successfully. We will get back to you soon!</p>
+        
+        <button onclick="closeThankYouPopup()" style="background:#F57C1F; color:white; border:none; padding:12px 30px; border-radius:6px; font-weight:600; cursor:pointer; transition:0.3s; font-size:16px;">Close</button>
+    </div>
+</div>
 
-        // 3. Prepare Data (Standard Form Data - Harder to block)
-        const formData = new FormData(form);
+<script>
+    var submitted = false; // Flag to track when we are submitting
 
-        // 4. Send to Web3Forms using standard POST
-        fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData 
-        })
-        .then(async (response) => {
-            if (response.status === 200) {
-                // SUCCESS
-                form.reset(); // Clear form
-                document.getElementById("custom-thankyou").style.display = "flex"; // Show Popup
-                
-                // Close any open modals
-                if (typeof $ !== 'undefined' && $('.modal').length > 0) {
-                    $('.modal').modal('hide');
-                }
-            } else {
-                // SERVER ERROR
-                console.log("Response:", response);
-                alert("Submission failed. Please try again.");
-            }
-        })
-        .catch(error => {
-            // NETWORK ERROR
-            console.error("Error:", error);
-            alert("Connection blocked. Please try a different browser or disable extensions.");
-        })
-        .finally(() => {
-            // RESET BUTTON
+    // This function runs automatically when the hidden iframe finishes loading (Success)
+    window.onFormSuccess = function() {
+        if(!submitted) return; 
+
+        // 1. Show the Thank You Popup
+        document.getElementById("custom-thankyou").style.display = "flex";
+
+        // 2. Reset the forms
+        document.querySelectorAll("form[action*='web3forms']").forEach(form => {
+            form.reset();
+            
+            // Reset button text
+            const submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
             if(submitBtn) {
-                if(submitBtn.tagName === 'INPUT') { submitBtn.value = originalText; }
-                else { submitBtn.innerText = originalText; }
+                if(submitBtn.tagName === 'INPUT') { submitBtn.value = "Submit Now!"; }
+                else { submitBtn.innerText = "Submit Now!"; }
                 submitBtn.disabled = false;
             }
         });
-    });
-});
 
-function closeThankYouPopup() {
-    document.getElementById("custom-thankyou").style.display = "none";
-}
+        // 3. Close any open "Get Quote" modals (Bootstrap)
+        if (typeof $ !== 'undefined' && $('.modal').length > 0) {
+            $('.modal').modal('hide');
+        }
+
+        submitted = false; // Reset flag
+    }
+
+    // Setup forms on page load
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll("form[action*='web3forms']").forEach(form => {
+            // Force the form to submit into the invisible iframe
+            form.target = "hidden_iframe"; 
+            
+            // When submit is clicked...
+            form.addEventListener("submit", function() {
+                submitted = true; // Tell the iframe to expect a load event
+                
+                // Show "Sending..." on the button
+                const submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
+                if(submitBtn) {
+                    if(submitBtn.tagName === 'INPUT') { submitBtn.value = "Sending..."; }
+                    else { submitBtn.innerText = "Sending..."; }
+                    submitBtn.disabled = true;
+                }
+            });
+        });
+    });
+
+    function closeThankYouPopup() {
+        document.getElementById("custom-thankyou").style.display = "none";
+    }
 </script>
 
 </body>
