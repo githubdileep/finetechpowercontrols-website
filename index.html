@@ -310,6 +310,37 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display
     }
 </style>
 
+
+<style>
+    /* --- FINAL FIX: Force Orange Box to Shrink --- */
+
+    /* 1. Crush the huge margin below the text (The main culprit) */
+    .client-active .testimonial-text,
+    .client-active .testimonial-text.mb-50 {
+        margin-bottom: 15px !important; /* Forces 50px gap down to 15px */
+    }
+
+    /* 2. Shrink the orange box padding and unlock height */
+    .client-active .client {
+        min-height: 0 !important;        /* Remove strict height limits */
+        height: auto !important;         /* Allow shrinking */
+        padding-top: 35px !important;    /* Reduce top space */
+        padding-bottom: 70px !important; /* Reduce bottom space (just enough for arrows) */
+    }
+
+    /* 3. Ensure the slider container itself collapses */
+    .client-reviews-area .client-active,
+    .client-reviews-area .swiper-wrapper,
+    .client-reviews-area .swiper-slide {
+        height: auto !important;
+    }
+
+    /* 4. Pull the arrows up slightly to fit the new smaller box */
+    .tp-testimonial-slider-arrow {
+        bottom: 20px !important;
+    }
+</style>
+
 </head>
 
 <body>
@@ -848,7 +879,7 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display
             </div>
         </div>
     </section>
-    <section class="client-reviews-area services-ex-bg pt-110 pb-120 ">
+    <section class="client-reviews-area services-ex-bg pt-50 pb-50 ">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6 p-relative mb-40">
@@ -876,7 +907,7 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display
                     <div class="client-active swiper-container wow fadeInUp" data-wow-delay="0.6s">
                         <div class="swiper-wrapper">
                             <div class="client swiper-slide">
-                                <div class="testimonial-text mb-50">
+                                <div class="testimonial-text mb-20">
                                     <p>“Excellent build quality & on-time delivery”
 We purchased an PCC and APFC panel from Fine Tech Power Control. The build quality is solid, wiring is neatly done, and the panel passed all our internal tests without issues. Delivery was exactly on schedule. Highly recommended!</p>
                                 </div>
@@ -891,7 +922,7 @@ We purchased an PCC and APFC panel from Fine Tech Power Control. The build quali
                             </div>
 
                             <div class="client swiper-slide">
-                                <div class="testimonial-text mb-50">
+                                <div class="testimonial-text mb-20">
                                     <p>“Value for money panels”
 Compared to other suppliers, Fine Tech Power Control gave us better pricing without compromising quality. Panels are sturdy and fully compliant with our consultant’s specifications.</p>
                                 </div>
@@ -906,7 +937,7 @@ Compared to other suppliers, Fine Tech Power Control gave us better pricing with
                             </div>
 
                             <div class="client swiper-slide">
-                                <div class="testimonial-text mb-50">
+                                <div class="testimonial-text mb-20">
                                     <p>“Good packaging & safe delivery”
 Panels were packed securely and reached our site without any damage. The documentation provided was also complete and easy to follow.</p>
                                 </div>
@@ -921,7 +952,7 @@ Panels were packed securely and reached our site without any damage. The documen
                             </div>
 
                             <div class="client swiper-slide">
-                                <div class="testimonial-text mb-50">
+                                <div class="testimonial-text mb-20">
                                     <p>“Trustworthy company for electrical panels”
 We have placed multiple orders and Fine Tech Power Control has consistently met every quality and delivery requirement. A trustworthy supplier for long-term projects.</p>
                                 </div>
@@ -936,7 +967,7 @@ We have placed multiple orders and Fine Tech Power Control has consistently met 
                             </div>
 
                                                       <div class="client swiper-slide">
-                                <div class="testimonial-text mb-50">
+                                <div class="testimonial-text mb-20">
                                     <p>“Fine Tech Power Controls delivered exactly what we needed. The control panel quality is top-notch, and the pricing is also reasonable compared to others in the market. Their technical team is knowledgeable and always ready to support”.</p>
                                 </div>
                                 <div class="testimonial-author d-flex align-items-center">
@@ -950,7 +981,7 @@ We have placed multiple orders and Fine Tech Power Control has consistently met 
                             </div>
 
                             <div class="client swiper-slide">
-                                <div class="testimonial-text mb-50">
+                                <div class="testimonial-text mb-20">
                                     <p>“Exceptional workmanship and attention to detail”
 We ordered a set of PCC and AMF panels for our site. Every wire was clearly labelled, the finishing was clean. Their team genuinely cares about quality, which is rare these days. Will definitely continue working with them for future projects.</p>
                                 </div>
