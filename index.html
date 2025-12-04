@@ -215,11 +215,12 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display
   .floating-tools .label { display: none; }
 }
 
-/* Re-enable our right-side anchors (they were hidden by earlier global rule) */
-.floating-tools 
+/* Re-enable our right-side anchors */
+.floating-tools {
   visibility: visible !important;
   pointer-events: auto !important;
 }
+
 </style>
 
 <style>
@@ -503,7 +504,6 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display
         </svg>
     </div>
     <header class="header-area">
-        
         <div class="header-menu header-sticky">
             <div class="custom-container">
                 <div class="row align-items-center">
@@ -1215,9 +1215,7 @@ tpj2(document).ready(function() {
 });
 </script>
 <script>
-var tpj2 = jQuery;
 
-tpj2.noConflict();
 tpj2(document).ready(function() {
     //FANCYBOX
     //https://github.com/fancyapps/fancyBox
@@ -1228,9 +1226,7 @@ tpj2(document).ready(function() {
 });
 </script>
 <script type="text/javascript">
-var tpj2 = jQuery;
 
-tpj2.noConflict();
 tpj2('.counter').counterUp({
     delay: 10,
     time: 2000
