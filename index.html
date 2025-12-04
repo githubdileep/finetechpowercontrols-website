@@ -71,6 +71,36 @@
 }
 </style>
 
+
+<style>
+/* ----- Remove/hide left-side legacy sticky icons ----- */
+/* FIXED: Restored missing selectors to properly hide legacy elements */
+.sticky-icon, .sticklist, .sticky-left, .left-sticky, .sticky-sidebar, #sticky, #sticky-sidebar,
+.book-app, .bookapp, .floating-left, .left-float, .side-float, .side-icons, .social-left {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* also hide any direct image anchors on left by position */
+a[style*="position: fixed"][href*="api.whatsapp.com"] { display:none !important; }
+a[style*="position: fixed"][href^="tel:"] { display:none !important; }
+
+/* ensure body has no left padding from sidebar */
+body { padding-left: 0 !important; margin-left: 0 !important; }
+
+/* If theme uses iframe or object for sticky, hide those too */
+iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display:none !important; }
+</style>
+
 <style>
 /* ----- Floating tools container (right side) ----- */
 .floating-tools {
@@ -192,35 +222,6 @@
 }
 </style>
 
-
-<style>
-/* FORCE HIDE many possible left sticky classes/IDs from theme */
-.sticky-icon, .sticklist, .sticky-left, .left-sticky, .sticky-sidebar, #sticky, #sticky-sidebar,
-.book-app, .bookapp, .floating-left, .left-float, .side-float, .side-icons, .social-left {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* also hide any direct image anchors on left by position */
-a[style*="position: fixed"][href*="api.whatsapp.com"] { display:none !important; }
-a[style*="position: fixed"][href^="tel:"] { display:none !important; }
-
-/* ensure body has no left padding from sidebar */
-body { padding-left: 0 !important; margin-left: 0 !important; }
-
-/* If theme uses iframe or object for sticky, hide those too */
-iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display:none !important; }
-</style>
-
 <style>
 .aabout__since {
     background-color: #0A2B5A !important;
@@ -282,10 +283,6 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display
   background-image: none !important;
 }
 </style>
-
-
-
-
 
 </head>
 
