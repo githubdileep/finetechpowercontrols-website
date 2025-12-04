@@ -62,93 +62,7 @@
 </style>
 
 
-<!-- Header Top Strip Styles (Copied from Index) -->
-<style>
-/* Ensure topbar announcement is visible on all screen sizes */
-.mheader-top {
-  position: relative !important;
-  z-index: 9999 !important; /* keep it above other header elements */
-}
 
-/* Make the topbar columns stack cleanly on mobile and keep text visible */
-@media (max-width: 991px) {
-  .mheader-top .row {
-    align-items: center;
-  }
-
-  /* force the announcement to be full width and centered on small screens */
-  .mheader-top .topbar-text,
-  .mheader-top .topbar-text .topbar-ann {
-    display: block !important;
-    width: 100% !important;
-    text-align: center !important;
-    margin: 6px 0 !important;
-    padding: 6px 10px !important;
-  }
-
-  /* stronger visible style for the orange pill in case another rule overrides it */
-  .mheader-top .topbar-text .topbar-ann {
-    background-color: #F57C1F !important;
-    color: #fff !important;
-    border-radius: 6px !important;
-    box-sizing: border-box !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    line-height: 1.2 !important;
-  }
-
-  /* ensure the right-side contact links move below/above cleanly and don't overlap */
-  .mheader-top .topbar-right {
-    width: 100% !important;
-    text-align: center !important;
-    margin-top: 6px !important;
-    display: flex !important;
-    justify-content: center !important;
-    gap: 12px !important;
-    flex-wrap: wrap !important;
-  }
-}
-
-/* if any earlier rule hid .topbar-text, override it */
-.topbar-text { display: block !important; visibility: visible !important; opacity: 1 !important; }
-
-/* Additional Index-style header colors */
-.mheader-top {
-    background-color: #0A2B5A !important;
-    padding-top: 2px !important;
-    padding-bottom: 5px !important;
-}
-.mheader-top .topbar-text p {
-    margin: 2px !important;
-    padding: 4px !important;
-    font-size: 16px !important;
-}
-
-/* The Orange Pill Style */
-.topbar-text p {
-    background-color: #F57C1F  !important;
-    color: #ffffff !important;
-    padding: 10px 20px !important;
-    border-radius: 6px !important;
-}
-
-/* Right side contact alignment */
-.mheader-top .custom-container .row { align-items: center; }
-.mheader-top .topbar-right {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  font-size: 16px;
-}
-/* Make right section text/icons white */
-.topbar-right a,
-.topbar-right span,
-.topbar-right i {
-    color: #ffffff !important;
-}
-</style>
 
 <!-- Hero Animation Styles -->
 <style>
@@ -249,34 +163,7 @@
 </div>
 
 <header class="header-area">
-  <!-- ================= TOP STRIP (Updated to match Index) ================= -->
-    <div class="mheader-top theme-bg-blue">
-            <div class="custom-container">
-                <div class="row align-items-center">
-                    <div class="col-xl-3 col-lg-3 d-none"></div>
-                    <!-- topbar text - make visible on all screen sizes -->
-<div class="col-12 col-md-4">
-  <div class="topbar-text text-center">
-    <p class="topbar-ann">Leading Electrical Control Panel Manufacturer</p>
-  </div>
-</div>
-
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
-                        <div class="topbar-right">
-                            <span><i class="fa fa-envelope-open" style="margin-right: 5px;"></i></span>
-                            <a style="margin-right: 15px;" href="mailto:sathesh@finetechpowercontrols.com"
-                                onclick="gtag('event', 'send', { 'event_category': 'click on mail', 'event_action': 'mailto', 'event_label': 'sathesh@finetechpowercontrols.com' });">
-                                sathesh@finetechpowercontrols.com</a>
-                            <span><i class="fa fa-phone" style="transform: rotate(90deg);margin-right: 5px;"></i></span>
-                            <a href="tel:+919032532199"
-                                onclick="gtag('event', 'send', { 'event_category': 'click on Mobile', 'event_action': 'Mobile', 'event_label': '+919032532199' });">
-                                +91 90325 32199</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+  
     <div class="header-menu header-sticky">
         <div class="custom-container">
             <div class="row align-items-center">
