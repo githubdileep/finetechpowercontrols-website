@@ -78,27 +78,20 @@
 
 
 <!-- Hero Animation Styles -->
+<!-- Hero Animation Styles (Matched with About Us) -->
 <style>
-/* Custom keyframe animation for sliding in from left */
 @keyframes creativeSlideIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px); /* Start off-screen left */
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0); /* End at normal position */
-  }
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
 .creative-float-left {
-  animation: creativeSlideIn 1.0s ease-out forwards; /* Slower animation */
-  opacity: 0; /* Start invisible to prevent flicker before animation starts */
+  animation: creativeSlideIn 1.5s ease-out forwards;
+  opacity: 0;
   display: inline-block;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Hero Section Grid Layout */
 .hero-grid-container {
     display: flex;
     width: 100%;
@@ -106,36 +99,34 @@
 }
 
 .hero-orange-box {
-    background-color: #F57C1F; /* Orange */
-    width: 30%; /* Adjusted width to 30% */
+    background-color: #F57C1F;
+    width: 30%;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center text horizontally */
-    padding: 0 30px;
+    justify-content: center;
+    padding: 0 20px;
     position: relative;
-    overflow: hidden; /* Clip animation if it goes out */
+    overflow: hidden;
 }
 
 .hero-blue-box {
-    background-color: #0A2B5A; /* Dark Blue */
-    width: 70%; /* Remaining width 70% */
+    background-color: #0A2B5A;
+    width: 70%;
     position: relative;
 }
 
 @media (max-width: 768px) {
-    .hero-grid-container {
-        flex-direction: column;
-    }
+    .hero-grid-container { flex-direction: column; }
     .hero-orange-box, .hero-blue-box {
         width: 100%;
         height: auto;
         padding: 20px;
     }
-    .hero-blue-box {
-        display: none; /* Optional: hide blue part on mobile if empty */
-    }
+    .hero-blue-box { display: none; }
 }
 </style>
+
+
 
 </head>
 
@@ -223,16 +214,23 @@
 <main>
     
     <!-- NEW HERO SECTION WITH SPLIT DESIGN AND ANIMATION -->
-<section class="default-hero" style="position: relative; overflow: hidden; height: 55px; width: 100%;">    <div class="hero-grid-container">
-        <div class="hero-orange-box">
-            <h1 class="creative-float-left" style="font-size: 30px; font-weight: 800; color: #ffffff; text-transform: uppercase; margin: 0;">Contact Us</h1>
-        </div>
-        <div class="hero-blue-box">
-        </div>
+<section class="default-hero" style="position: relative; overflow: hidden; height: 55px;">
+  <div class="hero-grid-container">
+    
+    <div class="hero-orange-box">
+      <h1 class="creative-float-left"
+          style="font-size: 36px; font-weight: 800; color: #ffffff; text-transform: uppercase; margin: 0;">
+        CONTACT US
+      </h1>
     </div>
+
+    <div class="hero-blue-box"></div>
+
+  </div>
 </section>
 
-    <section class="tp-contact-area pt-60 pb-50">
+
+<section class="tp-contact-area pt-50 pb-50 about-us">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10">
