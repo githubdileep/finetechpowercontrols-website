@@ -126,6 +126,32 @@
 }
 </style>
 
+<style>
+    /* --- FIX: Aggressively Reduce Slider Height on Desktop --- */
+    @media (min-width: 992px) {
+        /* Target every container layer to force the height down */
+        .slider-area, 
+        .slider-active, 
+        .swiper-container,
+        .swiper-wrapper,
+        .single-slider, 
+        .slide-bg {
+            height: 400px !important;      /* Change this value (e.g. 400px) to make it smaller */
+            min-height: 0 !important;      /* Crucial: Removes the theme's default large height */
+            max-height: 450px !important;  /* Ensures it cannot grow larger */
+            padding-top: 0 !important;     /* Removes extra spacing */
+            padding-bottom: 0 !important;
+        }
+
+        /* Ensure the image crops correctly to fit the thin strip */
+        .slider-area .slide-bg img {
+            height: 100% !important;
+            width: 100% !important;
+            object-fit: cover !important;              /* Prevents the image from squishing */
+            object-position: center center !important; /* Keeps the middle of the image visible */
+        }
+    }
+</style>
 
 
 </head>
