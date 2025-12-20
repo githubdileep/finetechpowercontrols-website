@@ -648,3 +648,26 @@
 
 
 })(jQuery);
+
+/* =========================================================
+   MOBILE STICKY CTA SCROLL LOGIC
+   ========================================================= */
+
+(function () {
+  const stickyCTA = document.querySelector('.mobile-sticky-cta');
+  if (!stickyCTA) return;
+
+  let lastScrollY = 0;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 180 && scrollY > lastScrollY) {
+      stickyCTA.classList.add('active');
+    } else if (scrollY < 120) {
+      stickyCTA.classList.remove('active');
+    }
+
+    lastScrollY = scrollY;
+  });
+})();

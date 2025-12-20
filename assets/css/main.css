@@ -10115,4 +10115,75 @@ section.default-hero .page-name-wrapper h1 {
 }
 
 
+/* =========================================================
+   MOBILE STICKY CTA – PREMIUM
+   ========================================================= */
+
+.mobile-sticky-cta {
+  display: none;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  .mobile-sticky-cta {
+    position: fixed;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%) translateY(120%);
+    z-index: 9999;
+
+    width: calc(100% - 32px);
+    max-width: 420px;
+
+    transition: transform 0.45s ease, opacity 0.45s ease;
+    opacity: 0;
+  }
+
+  .mobile-sticky-cta.active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  .mobile-sticky-cta .btn {
+    width: 100%;
+    padding: 16px 22px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 14px;
+
+    box-shadow:
+      0 12px 28px rgba(255, 122, 0, 0.45),
+      0 6px 14px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Avoid overlap with WhatsApp button */
+  .mobile-sticky-cta {
+    bottom: 86px;
+  }
+}
+
+/* =========================================================
+   FIX FLOATING BUTTON OVERLAP – MOBILE ONLY
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* WhatsApp floating button */
+  .whatsapp-float,
+  .whatsapp-btn,
+  .whatsapp-button {
+    right: 14px !important;
+    bottom: 140px !important; /* push it down */
+  }
+
+  /* Call floating button (red one) */
+  .call-float,
+  .call-btn {
+    right: 14px !important;
+    bottom: 200px !important;
+  }
+}
+
+
 
