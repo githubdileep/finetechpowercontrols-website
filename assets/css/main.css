@@ -10185,5 +10185,201 @@ section.default-hero .page-name-wrapper h1 {
   }
 }
 
+/* =========================================================
+   PRODUCTS PAGE – PREMIUM OVERRIDE (SAFE)
+   ========================================================= */
+
+/* Section spacing */
+.tp-contact-area {
+  background: #fafafa;
+}
+
+/* Product card */
+.product-premium-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 42px;
+  box-shadow:
+    0 25px 55px rgba(0,0,0,0.07);
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+/* Hover lift (desktop only) */
+@media (hover: hover) {
+  .product-premium-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 40px 85px rgba(0,0,0,0.12);
+  }
+}
+
+/* Alternate layout for visual rhythm */
+.tp-contact-area .col-12:nth-of-type(even) .row {
+  flex-direction: row-reverse;
+}
+
+/* Product image polish (NO size change) */
+.product-premium-card figure {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f3f3f3;
+}
+
+/* Headings */
+.product-premium-card h2 {
+  font-size: 26px !important;
+  font-weight: 800 !important;
+  color: #0A2B5A !important;
+  margin-bottom: 14px;
+}
+
+/* Paragraphs */
+.product-premium-card p {
+  font-size: 16px !important;
+  line-height: 1.75 !important;
+  color: #333 !important;
+}
+
+/* Key features title */
+.product-premium-card h4 {
+  margin-top: 22px;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #F57C1F !important;
+}
+
+/* Feature list */
+.product-premium-card ul li {
+  font-size: 15.5px;
+  margin-bottom: 8px;
+}
+
+/* Mobile refinement */
+@media (max-width: 768px) {
+  .product-premium-card {
+    padding: 26px;
+  }
+
+  .product-premium-card h2 {
+    font-size: 22px !important;
+  }
+}
+
+/* =========================================================
+   PREMIUM PRODUCT PAGE OVERRIDES
+   Add this at the BOTTOM of main.css
+   ========================================================= */
+
+/* Section background & spacing */
+.product-section {
+  padding: 80px 0;
+  background: #f9fafb;
+}
+
+/* Main product card */
+.product-section .row {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 50px;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.08),
+    0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Product image – premium industrial feel */
+.product-section img {
+  border-radius: 18px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Product title */
+.product-title,
+.product-section h2 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #0b2545;
+  position: relative;
+}
+
+/* Accent underline */
+.product-title::after,
+.product-section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff7a18;
+  margin-top: 12px;
+  border-radius: 2px;
+}
+
+/* Product description */
+.product-desc,
+.product-section p {
+  color: #444;
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+/* Key features list */
+.product-features,
+.product-section ul {
+  margin-top: 20px;
+}
+
+.product-features li,
+.product-section ul li {
+  list-style: none;
+  background: #f4f6f8;
+  padding: 16px 18px;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Hover micro-interaction */
+.product-features li:hover,
+.product-section ul li:hover {
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Feature check icon color (FontAwesome / inline icons) */
+.product-features li i,
+.product-section ul li i {
+  color: #ff7a18;
+  font-size: 14px;
+}
+
+/* Spacing between multiple product sections */
+.product-section + .product-section {
+  margin-top: 80px;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .product-section {
+    padding: 50px 15px;
+  }
+
+  .product-section .row {
+    padding: 30px 20px;
+  }
+
+  .product-title,
+  .product-section h2 {
+    font-size: 24px;
+  }
+}
 
 
