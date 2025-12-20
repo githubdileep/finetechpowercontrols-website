@@ -10383,3 +10383,107 @@ section.default-hero .page-name-wrapper h1 {
 }
 
 
+/* =========================================================
+   FOOTER COPYRIGHT – SIZE REDUCTION (GLOBAL)
+   ========================================================= */
+
+.footer-bottom,
+.footer-bottom p,
+.footer-bottom span {
+  font-size: 13px !important;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   FOOTER COPYRIGHT ALIGNMENT – PREMIUM
+   ========================================================= */
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-bottom .powered-by {
+  font-size: 12px;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+/* Mobile stacking */
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+}
+
+/* =========================================================
+   FOOTER COPYRIGHT ALIGNMENT – FIX
+   ========================================================= */
+
+footer p {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* Slightly softer "Powered by" */
+footer p a,
+footer p span {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* ==============================
+   Footer copyright fix
+   ============================== */
+
+footer p {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 auto;
+  padding: 10px 0;
+  color: #555;
+}
+
+/* "Powered by" slightly lighter */
+footer p a,
+footer p span {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+
+footer .powered-by {
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+footer .footer-sep {
+  opacity: 0.5;
+}
+
+@media (max-width: 576px) {
+  footer p {
+    font-size: 12px;
+  }
+
+  footer .footer-sep {
+    display: none;
+  }
+
+  footer .powered-by {
+    display: block;
+    margin-top: 4px;
+  }
+}
+
+
