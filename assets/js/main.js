@@ -607,6 +607,44 @@
     });
 
 
+/* =====================================================
+   PREMIUM HERO – SUBTLE PARALLAX TILT (DESKTOP ONLY)
+   ===================================================== */
+(function () {
+    const hero = document.querySelector('.premium-hero .panel-card');
+    if (!hero) return;
+
+    // Disable on touch devices
+    if ('ontouchstart' in window) return;
+
+    const strength = 12; // lower = more subtle (recommended 6–10)
+
+    hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * strength * -1;
+        const rotateY = ((x - centerX) / centerX) * strength;
+
+        hero.style.transform = `
+            perspective(1400px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+        `;
+    });
+
+    hero.addEventListener('mouseleave', () => {
+        hero.style.transform = `
+            perspective(1400px)
+            rotateX(2deg)
+            rotateY(-10deg)
+        `;
+    });
+})();
 
 
 })(jQuery);

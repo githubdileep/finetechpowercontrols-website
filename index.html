@@ -652,40 +652,56 @@ iframe[id*="sticky"], iframe[class*="sticky"], object[class*="sticky"] { display
         </div>
     </div>
 <main>
-    <section class="slider-area fix">
-        <div class="slider-active slider-s-animation swiper-container">
-            <div class="swiper-wrapper">
-                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="2500">
-                    <div class="slide-bg">
-                        <img src="assets/img/pcc_banner_v2.png" alt="pcc_banner_v2" loading="lazy">
-                    </div>
-                </div>
-                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="2500">
-                    <div class="slide-bg">
-                        <img src="assets/img/amf_banner_v2.png" alt="amf_banner_v2" loading="lazy">
-                    </div>
-                </div>
-                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="2500">
-                    <div class="slide-bg">
-                        <img src="assets/img/apfc_banner_v2.png" alt="apfc_banner_v2" loading="lazy">
-                    </div>
-                </div>
-                
-                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="2500">
-                    <div class="slide-bg">
-                        <img src="assets/img/mcc_banner_v2.png" alt="mcc_banner_v2" loading="lazy">
-                    </div>
-                </div>
-                <div class="single-slider  d-flex align-items-center swiper-slide" data-swiper-autoplay="2500">
-                    <div class="slide-bg">
-                        <img src="assets/img/meterpanels_banner_v2.png" alt="meterpanels_banner_v2" loading="lazy">
-                    </div>
-                </div>
+   
+<section class="slider-area fix premium-hero">
+    <div class="hero-wrapper">
+
+        <!-- LEFT CONTENT -->
+        <div class="hero-content">
+            <span class="hero-tag">Trusted Electrical Panel Manufacturer</span>
+
+            <h1 class="hero-title">
+                Powering Industries with<br>
+                <span>Reliable Control Panels</span>
+            </h1>
+
+            <p class="hero-desc">
+                We design and manufacture PCC, MCC, APFC, AMF & DG Synchronization
+                Panels with precision, safety and scalability.
+            </p>
+
+            <div class="hero-actions">
+                <a href="our-products.html" class="btn btn-primary">
+                    View Products
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    Request a Quote
+                </a>
             </div>
-            <div class="swiper-button-prev slide-prev"><i class="far fa-long-arrow-left"></i></div>
-            <div class="swiper-button-next slide-next"><i class="far fa-long-arrow-right"></i></div>
         </div>
-    </section>
+
+        <!-- RIGHT VISUAL -->
+        <div class="hero-visual">
+    <div class="panel-card">
+<img
+  class="hero-panel-img"
+  src="assets/img/hero/panel-hero-3d.png"
+  alt="3D Electrical Control Panels"
+  loading="lazy">
+
+    </div>
+
+    <span class="float-dot dot-1"></span>
+    <span class="float-dot dot-2"></span>
+    <span class="float-dot dot-3"></span>
+</div>
+
+
+    </div>
+</section>
+
+
+
     <section class="about-area  pt-15 pb-10">
         <div class="container">
             <div class="row">
@@ -1264,20 +1280,8 @@ We ordered a set of PCC and AMF panels for our site. Every wire was clearly labe
 
 <script src="assets/js/main.js"></script>
 <script src="assets/js/index.js"></script>
-<script>
-var heroSwiper = new Swiper('.slider-active', {
-    loop: true,
-    speed: 700,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-    },
-    navigation: {
-        nextEl: '.slide-next',
-        prevEl: '.slide-prev'
-    }
-});
-</script>
+
+
 
 <script>
 var clientSwiper = new Swiper('.client-active', {

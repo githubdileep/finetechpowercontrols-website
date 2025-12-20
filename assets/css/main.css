@@ -3389,6 +3389,204 @@ input.main-search-input:-ms-input-placeholder {
 
 /*  03. Hero Css
   /*----------------------------------------*/
+
+ /* Premium Hero Background */
+.premium-hero {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fff7f0 45%,
+    #ffffff 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== Premium Hero ===== */
+.premium-hero {
+    padding: 90px 0;
+    background: linear-gradient(135deg, #f7f9fc, #ffffff);
+    overflow: hidden;
+}
+
+.hero-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Content */
+.hero-tag {
+    display: inline-block;
+    background: rgba(255, 123, 0, 0.1);
+    color: #ff7b00;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 46px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    color: #ff7b00;
+}
+
+.hero-desc {
+    font-size: 17px;
+    color: #555;
+    max-width: 520px;
+    margin-bottom: 30px;
+}
+
+/* Image blending + premium feel */
+/* Fake blend until transparent image is ready */
+.hero-panel-img {
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+
+
+
+@keyframes floatPanel {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.panel-card {
+  background: transparent;
+  padding: 20px;
+}
+
+
+/* Buttons */
+.hero-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-actions .btn {
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff7b00, #ff9a3c);
+    box-shadow: 0 12px 30px rgba(255,123,0,0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+
+.btn-outline {
+    border: 2px solid #ff7b00;
+    color: #ff7b00;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: #ff7b00;
+    color: #fff;
+}
+
+/* Visual */
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    perspective: 1200px;
+
+}
+
+
+.panel-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.08);
+    animation: floatY 6s ease-in-out infinite;
+}
+
+.panel-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+}
+
+/* Floating dots */
+
+.float-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ff7a00;
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: floatDots 8s infinite ease-in-out;
+}
+
+.dot-1 { top: 20%; right: 15%; }
+.dot-2 { bottom: 30%; right: 35%; animation-delay: 2s; }
+.dot-3 { top: 50%; right: 5%; animation-delay: 4s; }
+
+@keyframes floatDots {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+    .premium-hero {
+    min-height: 80vh;
+    padding: 70px 0;
+}
+.hero-wrapper {
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .hero-visual {
+        margin-top: 40px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+}
+
+
+
+}
+
+
+
 .aslider span {
   color: #ffffff;
   margin-bottom: 38px;
@@ -9630,5 +9828,291 @@ section.default-hero .page-name-wrapper h1 {
   padding: 25px;
   border-radius: 10px;
 }
+
+
+/* =========================================================
+   HOME PAGE – PREMIUM HERO FINAL OVERRIDE (DO NOT MOVE)
+   ========================================================= */
+
+.slider-area.premium-hero {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 36px !important; /* tighter gap */
+  background: radial-gradient(
+    circle at 70% 40%,
+    #ffffff 0%,
+    #fff6ee 45%,
+    #ffffff 75%
+  );
+}
+
+/* HERO GRID */
+.slider-area.premium-hero .hero-wrapper {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 40px;
+}
+
+/* RIGHT VISUAL */
+.slider-area.premium-hero .hero-visual {
+  position: relative;
+  perspective: 1600px;
+}
+
+/* PANEL CARD – TRUE 3D (BASE STATE) */
+.slider-area.premium-hero .panel-card {
+  position: relative;
+  padding: 36px;
+  border-radius: 22px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.92),
+    rgba(248,248,248,0.96)
+  );
+
+  box-shadow:
+    0 50px 90px rgba(0,0,0,0.12),
+    0 20px 40px rgba(0,0,0,0.10);
+
+  --floatY: 0px;
+
+  transform:
+    perspective(1600px)
+    rotateY(-12deg)
+    rotateX(3deg)
+    translateY(var(--floatY));
+
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  will-change: transform;
+}
+
+/* HOVER DEPTH (DESKTOP ONLY) */
+@media (hover: hover) {
+  .slider-area.premium-hero .panel-card:hover {
+    transform:
+      perspective(1600px)
+      rotateY(-6deg)
+      rotateX(2deg)
+      translateY(var(--floatY));
+
+    box-shadow:
+      0 70px 120px rgba(0,0,0,0.18),
+      0 30px 60px rgba(0,0,0,0.12);
+  }
+}
+
+/* FLOOR SHADOW */
+.slider-area.premium-hero .panel-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -26px;
+  width: 82%;
+  height: 32px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,0.32) 0%,
+    rgba(0,0,0,0.16) 35%,
+    rgba(0,0,0,0.05) 60%,
+    transparent 75%
+  );
+  filter: blur(14px);
+  z-index: -1;
+}
+
+/* HERO IMAGE */
+.slider-area.premium-hero .hero-panel-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: transparent;
+  filter: drop-shadow(0 45px 80px rgba(0,0,0,0.28));
+}
+
+/* FLOAT ANIMATION (SAFE – DOES NOT KILL 3D) */
+@keyframes heroFloatFinal {
+  0%   { --floatY: 0px; }
+  50%  { --floatY: -8px; }
+  100% { --floatY: 0px; }
+}
+
+.slider-area.premium-hero .panel-card {
+  animation: heroFloatFinal 6s ease-in-out infinite;
+}
+
+/* MOBILE FIX */
+@media (max-width: 992px) {
+  .slider-area.premium-hero .hero-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .slider-area.premium-hero .panel-card {
+    transform: translateY(var(--floatY));
+  }
+}
+
+.slider-area.premium-hero {
+  padding-bottom: 24px !important;
+}
+
+.slider-area.premium-hero + section {
+  padding-top: 32px !important;
+}
+
+
+
+
+/* RESPONSIVE FIX */
+@media (max-width: 992px) {
+  .slider-area.premium-hero .hero-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .slider-area.premium-hero .panel-card {
+    transform: none;
+    animation: none;
+  }
+}
+
+
+
+
+/* =================================
+   HERO PARALLAX TILT (SUBTLE)
+================================= */
+
+.premium-hero .panel-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.premium-hero .hero-panel-img {
+  transform: translateZ(40px);
+  transition: transform 0.15s ease-out;
+}
+
+@media (max-width: 991px) {
+  .premium-hero .panel-card {
+    transform: none !important;
+  }
+}
+
+/* ===== FIX HERO HEIGHT GAP (FINAL) ===== */
+.slider-area.fix.premium-hero {
+  height: auto !important;
+  min-height: unset !important;
+  padding-bottom: 30px !important; /* small controlled spacing */
+}
+
+/* Kill height forcing from theme layers */
+.slider-area.fix.premium-hero,
+.slider-area.fix.premium-hero .hero-wrapper {
+  min-height: unset !important;
+}
+
+/* Allow premium hero to collapse */
+.slider-area.fix.premium-hero,
+.slider-area.fix.premium-hero * {
+  height: auto !important;
+}
+
+
+/* =========================================================
+   HERO CTA – SUBTLE MICRO INTERACTIONS (PREMIUM)
+   ========================================================= */
+
+/* Base transition for all hero buttons */
+.slider-area.premium-hero .btn {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+  will-change: transform;
+}
+
+/* PRIMARY BUTTON – View Products */
+.slider-area.premium-hero .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 28px rgba(255, 122, 0, 0.35),
+    0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* PRIMARY BUTTON – Active (Click feedback) */
+.slider-area.premium-hero .btn-primary:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 14px rgba(255, 122, 0, 0.25);
+}
+
+/* OUTLINE BUTTON – Get a Quote */
+.slider-area.premium-hero .btn-outline:hover {
+  transform: translateY(-2px);
+  background-color: #ff7a00;
+  color: #ffffff;
+  border-color: #ff7a00;
+  box-shadow:
+    0 10px 24px rgba(255, 122, 0, 0.30),
+    0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+/* OUTLINE BUTTON – Active */
+.slider-area.premium-hero .btn-outline:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 5px 12px rgba(255, 122, 0, 0.22);
+}
+
+/* Accessibility – reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  .slider-area.premium-hero .btn {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   HERO CTA – MOBILE TAP FEEDBACK (OPTIMIZED)
+   ========================================================= */
+
+/* Remove default tap highlight (Android) */
+.slider-area.premium-hero .btn {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* MOBILE & TOUCH DEVICES */
+@media (hover: none) and (pointer: coarse) {
+
+  /* Tap / Press state */
+  .slider-area.premium-hero .btn:active {
+    transform: scale(0.96);
+    box-shadow:
+      0 6px 14px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Primary button tap feedback */
+  .slider-area.premium-hero .btn-primary:active {
+    background-color: #ff6a00; /* slightly deeper orange */
+    box-shadow:
+      0 8px 18px rgba(255, 122, 0, 0.35);
+  }
+
+  /* Outline button tap feedback */
+  .slider-area.premium-hero .btn-outline:active {
+    background-color: #ff7a00;
+    color: #ffffff;
+    border-color: #ff7a00;
+    box-shadow:
+      0 8px 18px rgba(255, 122, 0, 0.30);
+  }
+}
+
 
 
