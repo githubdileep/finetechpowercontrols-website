@@ -124,6 +124,84 @@
     }
     .hero-blue-box { display: none; }
 }
+
+/* ===============================
+   CONTACT FORM – MODERN INPUT UI
+   STEP 2 (FINAL OVERRIDE)
+================================ */
+
+.tp-contact-area .form-control {
+    height: 56px !important;
+    padding: 14px 18px !important;
+    font-size: 16px !important;
+    border-radius: 10px !important;
+    border: 1.5px solid #e2e6ea !important;
+    background: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
+    transition: all 0.25s ease-in-out !important;
+}
+
+/* Textarea */
+.tp-contact-area textarea.form-control {
+    height: auto !important;
+    min-height: 160px !important;
+    resize: vertical;
+}
+
+/* Focus state */
+.tp-contact-area .form-control:focus {
+    border-color: #F57C1F !important;
+    box-shadow: 0 10px 26px rgba(245,124,31,0.25) !important;
+    outline: none !important;
+}
+
+/* Placeholder */
+.tp-contact-area .form-control::placeholder {
+    color: #9aa1a9 !important;
+    font-weight: 500;
+}
+
+/* Remove Bootstrap feedback spacing */
+.tp-contact-area .form-group {
+    margin-bottom: 18px !important;
+}
+
+.tp-contact-area .submitbutton {
+    height: 56px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #F57C1F, #ff9340);
+    border: none;
+    box-shadow: 0 12px 28px rgba(245,124,31,0.35);
+    transition: all 0.3s ease;
+}
+
+.tp-contact-area .submitbutton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(245,124,31,0.45);
+}
+
+.tp-contact-area .form-control:hover {
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 768px) {
+  .tp-contact-area .form-control {
+    height: 50px !important;
+  }
+}
+
+.form-success {
+  background: #e9f9f0;
+  border-left: 4px solid #2ecc71;
+  padding: 14px 18px;
+  border-radius: 8px;
+  color: #1e7e34;
+  font-weight: 600;
+}
+
 </style>
 
 
