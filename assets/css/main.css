@@ -10486,4 +10486,40 @@ footer .footer-sep {
   }
 }
 
+/* Footer credit refinement */
+footer p {
+  font-size: 13px;
+  text-align: center;
+  color: #555;
+}
+
+footer .powered-by {
+  font-size: 14px;          /* slightly bigger */
+  font-weight: 500;
+  color: #333;
+}
+
+footer .powered-by a {
+  color: #ff7a00;           /* matches your brand orange */
+  text-decoration: none;
+}
+
+footer .powered-by a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  footer p {
+    font-size: 12px;
+  }
+
+  footer .powered-by {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+  }
+}
+
+
+
 
